@@ -1,0 +1,2495 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Matthias Haber" />
+  <title>Data Skills Workshop</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="slides_day_one_files/reveal.js-3.3.0.1/css/reveal.css"/>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="slides_day_one_files/reveal.js-3.3.0.1/css/theme/league.css" id="theme">
+
+
+  <!-- some tweaks to reveal css -->
+  <style type="text/css">
+    .reveal h1 { font-size: 2.0em; }
+    .reveal h2 { font-size: 1.5em;  }
+    .reveal h3 { font-size: 1.25em;	}
+    .reveal h4 { font-size: 1em;	}
+
+    .reveal .slides>section,
+    .reveal .slides>section>section {
+      padding: 0px 0px;
+    }
+
+
+
+    .reveal table {
+      border-width: 1px;
+      border-spacing: 2px;
+      border-style: dotted;
+      border-color: gray;
+      border-collapse: collapse;
+      font-size: 0.7em;
+    }
+
+    .reveal table th {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      font-weight: bold;
+      border-style: dotted;
+      border-color: gray;
+    }
+
+    .reveal table td {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      border-style: dotted;
+      border-color: gray;
+    }
+
+
+  </style>
+
+    <style type="text/css">code{white-space: pre;}</style>
+
+
+<!-- Printing and PDF exports -->
+<script id="paper-css" type="application/dynamic-css">
+
+/* Default Print Stylesheet Template
+   by Rob Glazebrook of CSSnewbie.com
+   Last Updated: June 4, 2008
+
+   Feel free (nay, compelled) to edit, append, and
+   manipulate this file as you see fit. */
+
+
+@media print {
+
+	/* SECTION 1: Set default width, margin, float, and
+	   background. This prevents elements from extending
+	   beyond the edge of the printed page, and prevents
+	   unnecessary background images from printing */
+	html {
+		background: #fff;
+		width: auto;
+		height: auto;
+		overflow: visible;
+	}
+	body {
+		background: #fff;
+		font-size: 20pt;
+		width: auto;
+		height: auto;
+		border: 0;
+		margin: 0 5%;
+		padding: 0;
+		overflow: visible;
+		float: none !important;
+	}
+
+	/* SECTION 2: Remove any elements not needed in print.
+	   This would include navigation, ads, sidebars, etc. */
+	.nestedarrow,
+	.controls,
+	.fork-reveal,
+	.share-reveal,
+	.state-background,
+	.reveal .progress,
+	.reveal .backgrounds {
+		display: none !important;
+	}
+
+	/* SECTION 3: Set body font face, size, and color.
+	   Consider using a serif font for readability. */
+	body, p, td, li, div {
+		font-size: 20pt!important;
+		font-family: Georgia, "Times New Roman", Times, serif !important;
+		color: #000;
+	}
+
+	/* SECTION 4: Set heading font face, sizes, and color.
+	   Differentiate your headings from your body text.
+	   Perhaps use a large sans-serif for distinction. */
+	h1,h2,h3,h4,h5,h6 {
+		color: #000!important;
+		height: auto;
+		line-height: normal;
+		font-family: Georgia, "Times New Roman", Times, serif !important;
+		text-shadow: 0 0 0 #000 !important;
+		text-align: left;
+		letter-spacing: normal;
+	}
+	/* Need to reduce the size of the fonts for printing */
+	h1 { font-size: 28pt !important;  }
+	h2 { font-size: 24pt !important; }
+	h3 { font-size: 22pt !important; }
+	h4 { font-size: 22pt !important; font-variant: small-caps; }
+	h5 { font-size: 21pt !important; }
+	h6 { font-size: 20pt !important; font-style: italic; }
+
+	/* SECTION 5: Make hyperlinks more usable.
+	   Ensure links are underlined, and consider appending
+	   the URL to the end of the link for usability. */
+	a:link,
+	a:visited {
+		color: #000 !important;
+		font-weight: bold;
+		text-decoration: underline;
+	}
+	/*
+	.reveal a:link:after,
+	.reveal a:visited:after {
+		content: " (" attr(href) ") ";
+		color: #222 !important;
+		font-size: 90%;
+	}
+	*/
+
+
+	/* SECTION 6: more reveal.js specific additions by @skypanther */
+	ul, ol, div, p {
+		visibility: visible;
+		position: static;
+		width: auto;
+		height: auto;
+		display: block;
+		overflow: visible;
+		margin: 0;
+		text-align: left !important;
+	}
+	.reveal pre,
+	.reveal table {
+		margin-left: 0;
+		margin-right: 0;
+	}
+	.reveal pre code {
+		padding: 20px;
+		border: 1px solid #ddd;
+	}
+	.reveal blockquote {
+		margin: 20px 0;
+	}
+	.reveal .slides {
+		position: static !important;
+		width: auto !important;
+		height: auto !important;
+
+		left: 0 !important;
+		top: 0 !important;
+		margin-left: 0 !important;
+		margin-top: 0 !important;
+		padding: 0 !important;
+		zoom: 1 !important;
+
+		overflow: visible !important;
+		display: block !important;
+
+		text-align: left !important;
+		-webkit-perspective: none;
+		   -moz-perspective: none;
+		    -ms-perspective: none;
+		        perspective: none;
+
+		-webkit-perspective-origin: 50% 50%;
+		   -moz-perspective-origin: 50% 50%;
+		    -ms-perspective-origin: 50% 50%;
+		        perspective-origin: 50% 50%;
+	}
+	.reveal .slides section {
+		visibility: visible !important;
+		position: static !important;
+		width: auto !important;
+		height: auto !important;
+		display: block !important;
+		overflow: visible !important;
+
+		left: 0 !important;
+		top: 0 !important;
+		margin-left: 0 !important;
+		margin-top: 0 !important;
+		padding: 60px 20px !important;
+		z-index: auto !important;
+
+		opacity: 1 !important;
+
+		page-break-after: always !important;
+
+		-webkit-transform-style: flat !important;
+		   -moz-transform-style: flat !important;
+		    -ms-transform-style: flat !important;
+		        transform-style: flat !important;
+
+		-webkit-transform: none !important;
+		   -moz-transform: none !important;
+		    -ms-transform: none !important;
+		        transform: none !important;
+
+		-webkit-transition: none !important;
+		   -moz-transition: none !important;
+		    -ms-transition: none !important;
+		        transition: none !important;
+	}
+	.reveal .slides section.stack {
+		padding: 0 !important;
+	}
+	.reveal section:last-of-type {
+		page-break-after: avoid !important;
+	}
+	.reveal section .fragment {
+		opacity: 1 !important;
+		visibility: visible !important;
+
+		-webkit-transform: none !important;
+		   -moz-transform: none !important;
+		    -ms-transform: none !important;
+		        transform: none !important;
+	}
+	.reveal section img {
+		display: block;
+		margin: 15px 0px;
+		background: rgba(255,255,255,1);
+		border: 1px solid #666;
+		box-shadow: none;
+	}
+
+	.reveal section small {
+		font-size: 0.8em;
+	}
+
+}  
+</script>
+
+
+<script id="pdf-css" type="application/dynamic-css">
+    
+/**
+ * This stylesheet is used to print reveal.js
+ * presentations to PDF.
+ *
+ * https://github.com/hakimel/reveal.js#pdf-export
+ */
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+
+body {
+	margin: 0 auto !important;
+	border: 0;
+	padding: 0;
+	float: none !important;
+	overflow: visible;
+}
+
+html {
+	width: 100%;
+	height: 100%;
+	overflow: visible;
+}
+
+/* Remove any elements not needed in print. */
+.nestedarrow,
+.reveal .controls,
+.reveal .progress,
+.reveal .playback,
+.reveal.overview,
+.fork-reveal,
+.share-reveal,
+.state-background {
+	display: none !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	text-shadow: 0 0 0 #000 !important;
+}
+
+.reveal pre code {
+	overflow: hidden !important;
+	font-family: Courier, 'Courier New', monospace !important;
+}
+
+ul, ol, div, p {
+	visibility: visible;
+	position: static;
+	width: auto;
+	height: auto;
+	display: block;
+	overflow: visible;
+	margin: auto;
+}
+.reveal {
+	width: auto !important;
+	height: auto !important;
+	overflow: hidden !important;
+}
+.reveal .slides {
+	position: static;
+	width: 100%;
+	height: auto;
+
+	left: auto;
+	top: auto;
+	margin: 0 !important;
+	padding: 0 !important;
+
+	overflow: visible;
+	display: block;
+
+	-webkit-perspective: none;
+	   -moz-perspective: none;
+	    -ms-perspective: none;
+	        perspective: none;
+
+	-webkit-perspective-origin: 50% 50%; /* there isn't a none/auto value but 50-50 is the default */
+	   -moz-perspective-origin: 50% 50%;
+	    -ms-perspective-origin: 50% 50%;
+	        perspective-origin: 50% 50%;
+}
+
+.reveal .slides section {
+	page-break-after: always !important;
+
+	visibility: visible !important;
+	position: relative !important;
+	display: block !important;
+	position: relative !important;
+
+	margin: 0 !important;
+	padding: 0 !important;
+	box-sizing: border-box !important;
+	min-height: 1px;
+
+	opacity: 1 !important;
+
+	-webkit-transform-style: flat !important;
+	   -moz-transform-style: flat !important;
+	    -ms-transform-style: flat !important;
+	        transform-style: flat !important;
+
+	-webkit-transform: none !important;
+	   -moz-transform: none !important;
+	    -ms-transform: none !important;
+	        transform: none !important;
+}
+
+.reveal section.stack {
+	margin: 0 !important;
+	padding: 0 !important;
+	page-break-after: avoid !important;
+	height: auto !important;
+	min-height: auto !important;
+}
+
+.reveal img {
+	box-shadow: none;
+}
+
+.reveal .roll {
+	overflow: visible;
+	line-height: 1em;
+}
+
+/* Slide backgrounds are placed inside of their slide when exporting to PDF */
+.reveal section .slide-background {
+	display: block !important;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: -1;
+}
+
+/* All elements should be above the slide-background */
+.reveal section>* {
+	position: relative;
+	z-index: 1;
+}
+
+/* Display slide speaker notes when 'showNotes' is enabled */
+.reveal .speaker-notes-pdf {
+	display: block;
+	width: 100%;
+	max-height: none;
+	left: auto;
+	top: auto;
+	z-index: 100;
+}
+
+/* Display slide numbers when 'slideNumber' is enabled */
+.reveal .slide-number-pdf {
+	display: block;
+	position: absolute;
+	font-size: 14px;
+}
+
+</script>
+
+
+<script>
+var style = document.createElement( 'style' );
+style.type = 'text/css';
+var style_script_id = window.location.search.match( /print-pdf/gi ) ? 'pdf-css' : 'paper-css';
+var style_script = document.getElementById(style_script_id).text;
+style.innerHTML = style_script;
+document.getElementsByTagName('head')[0].appendChild(style);
+</script>
+
+    <link href="slides_day_one_files/font-awesome-5.0.13/css/fa-svg-with-js.css" rel="stylesheet" />
+    <script src="slides_day_one_files/font-awesome-5.0.13/js/fontawesome-all.min.js"></script>
+    <script src="slides_day_one_files/font-awesome-5.0.13/js/fa-v4-shims.min.js"></script>
+    <script src="slides_day_one_files/htmlwidgets-1.3/htmlwidgets.js"></script>
+    <script src="slides_day_one_files/plotly-binding-4.8.0/plotly.js"></script>
+    <script src="slides_day_one_files/typedarray-0.1/typedarray.min.js"></script>
+    <script src="slides_day_one_files/jquery-1.11.3/jquery.min.js"></script>
+    <link href="slides_day_one_files/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+    <script src="slides_day_one_files/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+    <link href="slides_day_one_files/plotly-htmlwidgets-css-1.39.2/plotly-htmlwidgets.css" rel="stylesheet" />
+    <script src="slides_day_one_files/plotly-main-1.39.2/plotly-latest.min.js"></script>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+    <h1 class="title">Data Skills Workshop</h1>
+    <h2 class="author">Matthias Haber</h2>
+    <h3 class="date">3-4 February 2020</h3>
+</section>
+
+<section><section id="introduction" class="title-slide slide level1"><h1>Introduction</h1></section><section id="about-myself" class="slide level2">
+<h2>About myself</h2>
+<ul>
+<li>Head of Data at Looping Studios since 2018</li>
+<li>Postdoc at Hertie 2015-2017 (Governance Report)</li>
+<li>PhD in PolSci (University of Mannheim)</li>
+<li>Research on parties, legislative politics, electoral behavior</li>
+<li>First started programming in 2011</li>
+</ul>
+<p><strong>Contact</strong>:</p>
+<ul>
+<li><a href="mailto:haber.matthias@gmail.com"><i class="fa fa-envelope"></i> haber.matthias@gmail.com</a></li>
+</ul>
+</section><section id="about-yourself" class="slide level2">
+<h2>About yourself</h2>
+<ul>
+<li>Who are you?</li>
+<li>Why did you take this class?</li>
+<li>What data/programming skills would make you work life easier?</li>
+</ul>
+</section><section id="survey-results" class="slide level2">
+<h2>Survey results</h2>
+<div id="htmlwidget-d5dd5bfdaadc9b5a643b" style="width:768px;height:576px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-d5dd5bfdaadc9b5a643b">{"x":{"data":[{"orientation":"v","width":[0.9,0.9],"base":[0,0],"x":[1,2],"y":[0.9,0.1],"text":["(count)/sum(count): 0.9<br />count: 0.9<br />programming: 1","(count)/sum(count): 0.1<br />count: 0.1<br />programming: 2"],"type":"bar","marker":{"autocolorscale":false,"color":"rgba(0,0,139,1)","line":{"width":1.88976377952756,"color":"transparent"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":93.0444167704442,"r":39.8505603985056,"b":72.2291407222914,"l":81.859692818597},"plot_bgcolor":"transparent","paper_bgcolor":"transparent","font":{"color":"rgba(255,255,255,1)","family":"Roboto Condensed","size":15.2760481527605},"title":"<b> Prior programming experience: 1 (Awareness) - 5 (Advanced) <\/b>","titlefont":{"color":"rgba(255,255,255,1)","family":"Roboto Condensed","size":23.9103362391034},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.455,2.545],"tickmode":"array","ticktext":["1","2"],"tickvals":[1,2],"categoryorder":"array","categoryarray":["1","2"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.81901203819012,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(255,255,255,1)","family":"Roboto Condensed","size":15.2760481527605},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":"","titlefont":{"color":"rgba(255,255,255,1)","family":"Roboto Condensed","size":11.9551681195517},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.045,0.945],"tickmode":"array","ticktext":["0.0%","25.0%","50.0%","75.0%"],"tickvals":[0,0.25,0.5,0.75],"categoryorder":"array","categoryarray":["0.0%","25.0%","50.0%","75.0%"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.81901203819012,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(255,255,255,1)","family":"Roboto Condensed","size":15.2760481527605},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.265670402656704,"zeroline":false,"anchor":"x","title":"","titlefont":{"color":"rgba(255,255,255,1)","family":"Roboto Condensed","size":11.9551681195517},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(255,255,255,1)","family":"Roboto Condensed","size":12.2208385222084}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":[{"name":"Collaborate","icon":{"width":1000,"ascent":500,"descent":-50,"path":"M487 375c7-10 9-23 5-36l-79-259c-3-12-11-23-22-31-11-8-22-12-35-12l-263 0c-15 0-29 5-43 15-13 10-23 23-28 37-5 13-5 25-1 37 0 0 0 3 1 7 1 5 1 8 1 11 0 2 0 4-1 6 0 3-1 5-1 6 1 2 2 4 3 6 1 2 2 4 4 6 2 3 4 5 5 7 5 7 9 16 13 26 4 10 7 19 9 26 0 2 0 5 0 9-1 4-1 6 0 8 0 2 2 5 4 8 3 3 5 5 5 7 4 6 8 15 12 26 4 11 7 19 7 26 1 1 0 4 0 9-1 4-1 7 0 8 1 2 3 5 6 8 4 4 6 6 6 7 4 5 8 13 13 24 4 11 7 20 7 28 1 1 0 4 0 7-1 3-1 6-1 7 0 2 1 4 3 6 1 1 3 4 5 6 2 3 3 5 5 6 1 2 3 5 4 9 2 3 3 7 5 10 1 3 2 6 4 10 2 4 4 7 6 9 2 3 4 5 7 7 3 2 7 3 11 3 3 0 8 0 13-1l0-1c7 2 12 2 14 2l218 0c14 0 25-5 32-16 8-10 10-23 6-37l-79-259c-7-22-13-37-20-43-7-7-19-10-37-10l-248 0c-5 0-9-2-11-5-2-3-2-7 0-12 4-13 18-20 41-20l264 0c5 0 10 2 16 5 5 3 8 6 10 11l85 282c2 5 2 10 2 17 7-3 13-7 17-13z m-304 0c-1-3-1-5 0-7 1-1 3-2 6-2l174 0c2 0 4 1 7 2 2 2 4 4 5 7l6 18c0 3 0 5-1 7-1 1-3 2-6 2l-173 0c-3 0-5-1-8-2-2-2-4-4-4-7z m-24-73c-1-3-1-5 0-7 2-2 3-2 6-2l174 0c2 0 5 0 7 2 3 2 4 4 5 7l6 18c1 2 0 5-1 6-1 2-3 3-5 3l-174 0c-3 0-5-1-7-3-3-1-4-4-5-6z"},"click":"function(gd) { \n        // is this being viewed in RStudio?\n        if (location.search == '?viewer_pane=1') {\n          alert('To learn about plotly for collaboration, visit:\\n https://cpsievert.github.io/plotly_book/plot-ly-for-collaboration.html');\n        } else {\n          window.open('https://cpsievert.github.io/plotly_book/plot-ly-for-collaboration.html', '_blank');\n        }\n      }"}],"cloud":false},"source":"A","attrs":{"214cf4f3eed":{"y":{},"x":{},"type":"bar"}},"cur_data":"214cf4f3eed","visdat":{"214cf4f3eed":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"base_url":"https://plot.ly"},"evals":["config.modeBarButtonsToAdd.0.click"],"jsHooks":[]}</script>
+</section><section id="survey-results-1" class="slide level2">
+<h2>Survey results</h2>
+<div id="htmlwidget-bc3df5551c1f31fa31ec" style="width:768px;height:576px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-bc3df5551c1f31fa31ec">{"x":{"data":[{"x":[1,1,1,1,1,1,1,1,1,1],"y":[3,4,4,2,2,4,1,5,4,2],"hoverinfo":"y","type":"box","fillcolor":"rgba(209,137,117,1)","marker":{"opacity":null,"outliercolor":"rgba(0,0,0,1)","line":{"width":1.88976377952756,"color":"rgba(0,0,0,1)"},"size":5.66929133858268},"line":{"color":"rgba(51,51,51,1)","width":1.88976377952756},"name":"analysis","legendgroup":"analysis","showlegend":true,"xaxis":"x","yaxis":"y","frame":null},{"x":[2,2,2,2,2,2,2,2,2,2],"y":[4,5,2,4,3,3,1,4,5,3],"hoverinfo":"y","type":"box","fillcolor":"rgba(143,209,117,1)","marker":{"opacity":null,"outliercolor":"rgba(0,0,0,1)","line":{"width":1.88976377952756,"color":"rgba(0,0,0,1)"},"size":5.66929133858268},"line":{"color":"rgba(51,51,51,1)","width":1.88976377952756},"name":"business_insight","legendgroup":"business_insight","showlegend":true,"xaxis":"x","yaxis":"y","frame":null},{"x":[3,3,3,3,3,3,3,3,3,3],"y":[2,3,3,3,2,2,1,3,5,2],"hoverinfo":"y","type":"box","fillcolor":"rgba(63,45,84,1)","marker":{"opacity":null,"outliercolor":"rgba(0,0,0,1)","line":{"width":1.88976377952756,"color":"rgba(0,0,0,1)"},"size":5.66929133858268},"line":{"color":"rgba(51,51,51,1)","width":1.88976377952756},"name":"cleaning","legendgroup":"cleaning","showlegend":true,"xaxis":"x","yaxis":"y","frame":null},{"x":[4,4,4,4,4,4,4,4,4,4],"y":[4,5,4,5,5,4,1,4,4,3],"hoverinfo":"y","type":"box","fillcolor":"rgba(117,184,209,1)","marker":{"opacity":null,"outliercolor":"rgba(0,0,0,1)","line":{"width":1.88976377952756,"color":"rgba(0,0,0,1)"},"size":5.66929133858268},"line":{"color":"rgba(51,51,51,1)","width":1.88976377952756},"name":"communication","legendgroup":"communication","showlegend":true,"xaxis":"x","yaxis":"y","frame":null},{"x":[5,5,5,5,5,5,5,5,5,5],"y":[1,4,3,3,2,2,1,4,4,2],"hoverinfo":"y","type":"box","fillcolor":"rgba(45,84,61,1)","marker":{"opacity":null,"outliercolor":"rgba(0,0,0,1)","line":{"width":1.88976377952756,"color":"rgba(0,0,0,1)"},"size":5.66929133858268},"line":{"color":"rgba(51,51,51,1)","width":1.88976377952756},"name":"import","legendgroup":"import","showlegend":true,"xaxis":"x","yaxis":"y","frame":null},{"x":[6,6,6,6,6,6,6,6,6,6],"y":[1,2,3,1,1,2,1,2,3,1],"hoverinfo":"y","type":"box","fillcolor":"rgba(201,209,117,1)","marker":{"opacity":null,"outliercolor":"rgba(0,0,0,1)","line":{"width":1.88976377952756,"color":"rgba(0,0,0,1)"},"size":5.66929133858268},"line":{"color":"rgba(51,51,51,1)","width":1.88976377952756},"name":"sql","legendgroup":"sql","showlegend":true,"xaxis":"x","yaxis":"y","frame":null},{"x":[7,7,7,7,7,7,7,7,7,7],"y":[3,4,4,2,4,4,1,4,5,3],"hoverinfo":"y","type":"box","fillcolor":"rgba(209,171,117,1)","marker":{"opacity":null,"outliercolor":"rgba(0,0,0,1)","line":{"width":1.88976377952756,"color":"rgba(0,0,0,1)"},"size":5.66929133858268},"line":{"color":"rgba(51,51,51,1)","width":1.88976377952756},"name":"visualization","legendgroup":"visualization","showlegend":true,"xaxis":"x","yaxis":"y","frame":null}],"layout":{"margin":{"t":93.0444167704442,"r":39.8505603985056,"b":72.2291407222914,"l":51.307596513076},"plot_bgcolor":"transparent","paper_bgcolor":"transparent","font":{"color":"rgba(255,255,255,1)","family":"Roboto Condensed","size":15.2760481527605},"title":"<b> Skill needed in job <\/b>","titlefont":{"color":"rgba(255,255,255,1)","family":"Roboto Condensed","size":23.9103362391034},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.4,7.6],"tickmode":"array","ticktext":["analysis","business_insight","cleaning","communication","import","sql","visualization"],"tickvals":[1,2,3,4,5,6,7],"categoryorder":"array","categoryarray":["analysis","business_insight","cleaning","communication","import","sql","visualization"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.81901203819012,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(255,255,255,1)","family":"Roboto Condensed","size":15.2760481527605},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":"","titlefont":{"color":"rgba(255,255,255,1)","family":"Roboto Condensed","size":11.9551681195517},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.8,5.2],"tickmode":"array","ticktext":["1","2","3","4","5"],"tickvals":[1,2,3,4,5],"categoryorder":"array","categoryarray":["1","2","3","4","5"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.81901203819012,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(255,255,255,1)","family":"Roboto Condensed","size":15.2760481527605},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.265670402656704,"zeroline":false,"anchor":"x","title":"","titlefont":{"color":"rgba(255,255,255,1)","family":"Roboto Condensed","size":11.9551681195517},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(255,255,255,1)","family":"Roboto Condensed","size":12.2208385222084}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":[{"name":"Collaborate","icon":{"width":1000,"ascent":500,"descent":-50,"path":"M487 375c7-10 9-23 5-36l-79-259c-3-12-11-23-22-31-11-8-22-12-35-12l-263 0c-15 0-29 5-43 15-13 10-23 23-28 37-5 13-5 25-1 37 0 0 0 3 1 7 1 5 1 8 1 11 0 2 0 4-1 6 0 3-1 5-1 6 1 2 2 4 3 6 1 2 2 4 4 6 2 3 4 5 5 7 5 7 9 16 13 26 4 10 7 19 9 26 0 2 0 5 0 9-1 4-1 6 0 8 0 2 2 5 4 8 3 3 5 5 5 7 4 6 8 15 12 26 4 11 7 19 7 26 1 1 0 4 0 9-1 4-1 7 0 8 1 2 3 5 6 8 4 4 6 6 6 7 4 5 8 13 13 24 4 11 7 20 7 28 1 1 0 4 0 7-1 3-1 6-1 7 0 2 1 4 3 6 1 1 3 4 5 6 2 3 3 5 5 6 1 2 3 5 4 9 2 3 3 7 5 10 1 3 2 6 4 10 2 4 4 7 6 9 2 3 4 5 7 7 3 2 7 3 11 3 3 0 8 0 13-1l0-1c7 2 12 2 14 2l218 0c14 0 25-5 32-16 8-10 10-23 6-37l-79-259c-7-22-13-37-20-43-7-7-19-10-37-10l-248 0c-5 0-9-2-11-5-2-3-2-7 0-12 4-13 18-20 41-20l264 0c5 0 10 2 16 5 5 3 8 6 10 11l85 282c2 5 2 10 2 17 7-3 13-7 17-13z m-304 0c-1-3-1-5 0-7 1-1 3-2 6-2l174 0c2 0 4 1 7 2 2 2 4 4 5 7l6 18c0 3 0 5-1 7-1 1-3 2-6 2l-173 0c-3 0-5-1-8-2-2-2-4-4-4-7z m-24-73c-1-3-1-5 0-7 2-2 3-2 6-2l174 0c2 0 5 0 7 2 3 2 4 4 5 7l6 18c1 2 0 5-1 6-1 2-3 3-5 3l-174 0c-3 0-5-1-7-3-3-1-4-4-5-6z"},"click":"function(gd) { \n        // is this being viewed in RStudio?\n        if (location.search == '?viewer_pane=1') {\n          alert('To learn about plotly for collaboration, visit:\\n https://cpsievert.github.io/plotly_book/plot-ly-for-collaboration.html');\n        } else {\n          window.open('https://cpsievert.github.io/plotly_book/plot-ly-for-collaboration.html', '_blank');\n        }\n      }"}],"cloud":false},"source":"A","attrs":{"214c291def19":{"x":{},"y":{},"fill":{},"type":"box"}},"cur_data":"214c291def19","visdat":{"214c291def19":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"base_url":"https://plot.ly"},"evals":["config.modeBarButtonsToAdd.0.click"],"jsHooks":[]}</script>
+</section><section id="workshop-structure" class="slide level2">
+<h2>Workshop structure</h2>
+<ul>
+<li>Day 1
+<ul>
+<li>Session 1: A basic introduction to R</li>
+<li>Session 2: Programming</li>
+<li>Session 3: Tidyverse</li>
+<li>Session 4: Visualization</li>
+</ul></li>
+<li>Day 2
+<ul>
+<li>Session 1: Creating our own dataset</li>
+<li>Session 2: Dashboard fundamentals</li>
+<li>Session 3: Building our own dashboard</li>
+<li>Session 4: Moving deeper and further</li>
+</ul></li>
+</ul>
+</section><section id="why-data-skills" class="slide level2">
+<h2>Why data skills?</h2>
+<ul>
+<li>Data skills are increasingly important for research and industry projects</li>
+<li>With complex data projects, however, come complex needs for understanding and communicating processes and results</li>
+</ul>
+<p><strong>The 80-20 rule</strong></p>
+<ul>
+<li><p>Most data are messy</p>
+<ul>
+<li>You spent most of your time cleaning/preparing data</li>
+<li>You learn lot about the structure of your data</li>
+</ul></li>
+</ul>
+</section><section id="r" class="slide level2">
+<h2>R</h2>
+<ul>
+<li>Based on the statistical programming language S (1976)</li>
+<li>R was developed by Ross Ihaka and Robert Gentleman (1995)</li>
+<li>R was intentionally developed to be a data analysis language</li>
+</ul>
+</section><section id="why-r" class="slide level2">
+<h2>Why R</h2>
+<ul>
+<li>Open source: makes it highly customizable and easily extensible</li>
+<li>Over 7,500 packages and counting</li>
+<li>Used by many social scientists interested in data analysis</li>
+<li>Powerful tool to generate elegant and effective plots</li>
+<li>Command-line interface and scripts favors reproducibility</li>
+<li>Excellent documentation and online help resources</li>
+</ul>
+</section><section id="we-will-work-in-rstudio" class="slide level2">
+<h2>We will work in RStudio</h2>
+<ul>
+<li><p>RStudio is an Integrated Developer Environment (IDE) and serves as:</p></li>
+<li><p>Code editor</p>
+<ul>
+<li>Code highlighting/completion, indentation, …</li>
+<li>Feed code from editor to R-console</li>
+</ul></li>
+<li>Project manager</li>
+<li>Workspace viewer</li>
+<li>Data browser</li>
+<li>Enhanced output viewer</li>
+<li><p>Help browser</p></li>
+</ul>
+</section><section id="install-software" class="slide level2">
+<h2>Install software</h2>
+<ul>
+<li><p>R:</p>
+<ul>
+<li>R: <a href="http://cran.rstudio.com/" class="uri">http://cran.rstudio.com/</a></li>
+<li>RStudio: <a href="http://www.rstudio.org/download/daily/desktop/" class="uri">http://www.rstudio.org/download/daily/desktop/</a></li>
+</ul></li>
+<li><p>R packages</p>
+<ul>
+<li>tidyverse (R packages designed for data science)</li>
+</ul></li>
+</ul>
+</section></section>
+<section><section id="session-1-a-basic-introduction-to-r" class="title-slide slide level1"><h1>Session 1: A basic introduction to R</h1></section><section id="the-rstudio-interface" class="slide level2">
+<h2>The RStudio Interface</h2>
+<p><img src="img/rstudio.png" width="700px" style="display: block; margin: auto;" /></p>
+</section><section id="basic-workflow" class="slide level2">
+<h2>Basic workflow</h2>
+<ul>
+<li>Edit in code editor (.r-file)</li>
+<li>Paste to console</li>
+<li>Save Workspace/Datasets (.Rdata-file)</li>
+<li>Save code routinely (no auto-save!)</li>
+<li>Press TAB to use RStudio’s autocompletion feature</li>
+</ul>
+</section><section id="shortcuts" class="slide level2">
+<h2>Shortcuts</h2>
+<ul>
+<li>Run code from editor: Select line and ctrl+Enter</li>
+<li>Switch between source and console: ctrl+1, ctrl+2</li>
+<li>Clear console: ctrl+L</li>
+<li>‘Arrow up’ gives you the last line of code in the console</li>
+<li>Press Alt+Shift+K to see all keyboard shortcuts</li>
+</ul>
+</section><section id="fundamentals-of-the-r-language" class="slide level2">
+<h2>Fundamentals of the R language</h2>
+<ul>
+<li>Use # to comment code (will not be run)</li>
+<li>Case-sensitivity: <code>data</code> vs <code>Data</code></li>
+<li>Assigning objects: &lt;- and =</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># Assign the number 5 to an object called number</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">number &lt;-<span class="st"> </span><span class="dv">5</span></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">number</a></code></pre></div>
+<pre><code>## [1] 5</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co"># Assign the character string Hello World</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">string &lt;-<span class="st"> &quot;Hello World&quot;</span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3">string</a></code></pre></div>
+<pre><code>## [1] &quot;Hello World&quot;</code></pre>
+</section><section id="naming" class="slide level2">
+<h2>Naming</h2>
+<ul>
+<li>object names must start with a letter, and can only contain letters, numbers, <code>_</code> and <code>.</code>.</li>
+<li>object names should be descriptive</li>
+<li><p>Each object name must be unique in an environment.</p>
+<ul>
+<li>Assigning something to an object name that is already in use will overwrite the object’s previous contents.</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">i_use_snake_case</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">otherPeopleUseCamelCase</a>
+<a class="sourceLine" id="cb5-3" data-line-number="3">some.people.use.periods</a>
+<a class="sourceLine" id="cb5-4" data-line-number="4">And_aFew.People_RENOUNCEconvention</a></code></pre></div>
+</section><section id="functions" class="slide level2">
+<h2>Functions</h2>
+<ul>
+<li><p>Functions perform operations on the input given and end in ()</p></li>
+<li><p>R has a large collection of built-in functions that are called like this:</p></li>
+</ul>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">function_name</span>(<span class="dt">arg1 =</span> val1, <span class="dt">arg2 =</span> val2, ...)</a></code></pre></div>
+</section><section id="functions-1" class="slide level2">
+<h2>Functions</h2>
+<ul>
+<li>For example, <code>seq()</code> which makes regular <strong>seq</strong>uences of numbers</li>
+</ul>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">seq</span>(<span class="dv">1</span>,<span class="dv">10</span>)</a></code></pre></div>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+</section><section id="operations-on-scalars" class="slide level2">
+<h2>Operations on scalars</h2>
+<p>You can use R as a calculator:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">3</span></a>
+<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="dv">2</span> <span class="op">-</span><span class="st"> </span><span class="dv">3</span></a>
+<a class="sourceLine" id="cb9-3" data-line-number="3"><span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="dv">3</span></a>
+<a class="sourceLine" id="cb9-4" data-line-number="4"><span class="dv">2</span> <span class="op">/</span><span class="st"> </span><span class="dv">3</span></a></code></pre></div>
+<p>Functions on scalars:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">a &lt;-<span class="st"> </span><span class="dv">5</span></a>
+<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="kw">factorial</span>(a)</a></code></pre></div>
+<pre><code>## [1] 120</code></pre>
+</section><section id="exercise" class="slide level2">
+<h2>Exercise</h2>
+<ol type="1">
+<li>Do the following calculation in R: <span class="math inline">\(\frac{1+5}{9}\)</span></li>
+<li>Assign the results to a variable</li>
+<li>Bonus: Round off the results to the 1 decimal</li>
+</ol>
+</section><section id="special-values-in-r" class="slide level2">
+<h2>Special values in R</h2>
+<ul>
+<li><code>NA</code>: not available, missing</li>
+<li><code>NULL</code>: does not exist, is undefined</li>
+<li><code>TRUE</code>, <code>T</code>: logical true</li>
+<li><code>FALSE</code>, <code>F</code>: logical false</li>
+</ul>
+</section><section id="finding-special-values" class="slide level2">
+<h2>Finding special values</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Function</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>is.na</code></td>
+<td>Is the value <code>NA</code></td>
+</tr>
+<tr class="even">
+<td><code>is.null</code></td>
+<td>Is the value <code>NULL</code></td>
+</tr>
+<tr class="odd">
+<td><code>isTRUE</code></td>
+<td>Is the value <code>TRUE</code></td>
+</tr>
+<tr class="even">
+<td><code>!isTRUE</code></td>
+<td>Is the value <code>FALSE</code></td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1">absent &lt;-<span class="st"> </span><span class="ot">NA</span></a>
+<a class="sourceLine" id="cb12-2" data-line-number="2"><span class="kw">is.na</span>(absent)</a></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+</section><section id="operations" class="slide level2">
+<h2>Operations</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Operator</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>&lt;</code></td>
+<td>less than</td>
+</tr>
+<tr class="even">
+<td><code>&gt;</code></td>
+<td>greater than</td>
+</tr>
+<tr class="odd">
+<td><code>==</code></td>
+<td>equal to</td>
+</tr>
+<tr class="even">
+<td><code>&lt;=</code></td>
+<td>less than or equal to</td>
+</tr>
+<tr class="odd">
+<td><code>&gt;=</code></td>
+<td>greater than or equal to</td>
+</tr>
+<tr class="even">
+<td><code>!=</code></td>
+<td>not equal to</td>
+</tr>
+<tr class="odd">
+<td><code>a | b</code></td>
+<td>a or b</td>
+</tr>
+<tr class="even">
+<td><code>a &amp; b</code></td>
+<td>a and b</td>
+</tr>
+</tbody>
+</table>
+</section><section id="r-is-object-oriented" class="slide level2">
+<h2>R is object-oriented</h2>
+<p>Objects are R’s nouns and include (not exhaustive):</p>
+<ul>
+<li>character strings</li>
+<li>numbers</li>
+<li>vectors of numbers or character strings</li>
+<li>matrices</li>
+<li>data frames</li>
+<li>lists</li>
+</ul>
+</section><section id="vectors" class="slide level2">
+<h2>Vectors</h2>
+<p>A vector is a container of objects put together in an order.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="co"># Define a vector</span></a>
+<a class="sourceLine" id="cb14-2" data-line-number="2">a &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">5</span>)</a>
+<a class="sourceLine" id="cb14-3" data-line-number="3">b &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">6</span>,<span class="dv">7</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="co"># Join multiple vectors</span></a>
+<a class="sourceLine" id="cb15-2" data-line-number="2">ab &lt;-<span class="st"> </span><span class="kw">c</span>(a,b)</a></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="co"># Find vector length (number of its elements)</span></a>
+<a class="sourceLine" id="cb16-2" data-line-number="2"><span class="kw">length</span>(a)</a></code></pre></div>
+</section><section id="operations-on-vectors" class="slide level2">
+<h2>Operations on vectors</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Operation</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>sort(x)</code></td>
+<td>sort a vector</td>
+</tr>
+<tr class="even">
+<td><code>sum(x)</code></td>
+<td>sum of vector elements</td>
+</tr>
+<tr class="odd">
+<td><code>mean(x)</code></td>
+<td>arithmetic mean</td>
+</tr>
+<tr class="even">
+<td><code>median(x)</code></td>
+<td>median value</td>
+</tr>
+<tr class="odd">
+<td><code>var(x)</code></td>
+<td>variance</td>
+</tr>
+<tr class="even">
+<td><code>sd(x)</code></td>
+<td>standard deviation</td>
+</tr>
+<tr class="odd">
+<td><code>factorial(x)</code></td>
+<td>factorial of a number</td>
+</tr>
+</tbody>
+</table>
+</section><section id="exercise-1" class="slide level2">
+<h2>Exercise</h2>
+<ol type="1">
+<li><p>Create a character vector with the names of the three people sitting closest to you. Save the vector as <code>name</code></p></li>
+<li><p>Create a numeric vector with their respective ages and save it as <code>age</code></p></li>
+<li><p>Use a funtion in R to calculate their average age?</p></li>
+</ol>
+</section><section id="matrices" class="slide level2">
+<h2>Matrices</h2>
+<p>A Matrix is a square 2 dimensional container, i.e. vectors combined by row or column</p>
+<ul>
+<li><p>Must specify number or rows and columns <code>matrix(x,nrow,ncol,byrow)</code></p>
+<ul>
+<li>x: vector of length nrow*ncol</li>
+<li>nrow: number of rows</li>
+<li>ncol: number of columns</li>
+<li>byrow: TRUE or FALSE, specifies direction of input</li>
+</ul></li>
+</ul>
+</section><section id="exercise-2" class="slide level2">
+<h2>Exercise</h2>
+<p>Assign a 6 x 10 matrix with the sequence 1,2,3,…,60 as the data. Save the matrix as <code>m</code></p>
+</section><section id="data-frames" class="slide level2">
+<h2>Data frames</h2>
+<p>Data frames are a two-dimensional container of vectors with the same length. Each column (vector) can be of a different class and can be referenced or created with <code>$</code>. You can use functions like <code>nrow()</code>, <code>ncol()</code>, <code>dim()</code>, <code>colnames()</code>, or <code>rownames()</code> on your df.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="co"># Combine two vectors into a data frame</span></a>
+<a class="sourceLine" id="cb17-2" data-line-number="2">number &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>)</a>
+<a class="sourceLine" id="cb17-3" data-line-number="3">name &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;John&#39;</span>, <span class="st">&#39;Paul&#39;</span>, <span class="st">&#39;George&#39;</span>, <span class="st">&#39;Ringo&#39;</span>)</a>
+<a class="sourceLine" id="cb17-4" data-line-number="4">df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(number, name, <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb17-5" data-line-number="5">df</a></code></pre></div>
+<pre><code>##   number   name
+## 1      1   John
+## 2      2   Paul
+## 3      3 George
+## 4      4  Ringo</code></pre>
+</section><section id="exercise-3" class="slide level2">
+<h2>Exercise</h2>
+<ol type="1">
+<li>Create a vector called <code>country</code> containing the names of the countries from the three people whose names you used earlier.</li>
+<li>Create a data frame combining <code>name</code>, <code>age</code>and <code>country</code> and save it as <code>my_first_df</code></li>
+</ol>
+</section><section id="lists" class="slide level2">
+<h2>Lists</h2>
+<p>A list is an object containing other objects that can have different lengths and classes.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="co"># Create a list with three objects of different lengths</span></a>
+<a class="sourceLine" id="cb19-2" data-line-number="2">list1 &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">beatles =</span> <span class="kw">c</span>(<span class="st">&#39;John&#39;</span>, <span class="st">&#39;Paul&#39;</span>, <span class="st">&#39;George&#39;</span>, <span class="st">&#39;Ringo&#39;</span>),</a>
+<a class="sourceLine" id="cb19-3" data-line-number="3">              <span class="dt">alive =</span> <span class="kw">c</span>(<span class="st">&#39;Paul&#39;</span>, <span class="st">&#39;Ringo&#39;</span>), <span class="dt">albums =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">13</span>)</a>
+<a class="sourceLine" id="cb19-4" data-line-number="4">list1</a></code></pre></div>
+<pre><code>## $beatles
+## [1] &quot;John&quot;   &quot;Paul&quot;   &quot;George&quot; &quot;Ringo&quot; 
+## 
+## $alive
+## [1] &quot;Paul&quot;  &quot;Ringo&quot;
+## 
+## $albums
+##  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13</code></pre>
+</section><section id="exercise-4" class="slide level2">
+<h2>Exercise</h2>
+<ol type="1">
+<li>Add one more person’s name to <code>name</code> vector</li>
+<li>Try to create a data frame called <code>my_second_df</code> and store the new <code>name</code> vector, <code>age</code> and <code>country</code> in it. See what happens and why.</li>
+<li>Create a list instead of a data frame with the three objects and name it <code>my_first_list</code></li>
+</ol>
+</section><section id="indexing-vectors" class="slide level2">
+<h2>Indexing vectors</h2>
+<p><img src="img/indexing_vectors.png" width="300px" style="display: block; margin: auto;" /></p>
+</section><section id="exercise-5" class="slide level2">
+<h2>Exercise</h2>
+<ol type="1">
+<li>Return the first number in your vector <code>age</code></li>
+<li>Return the 2nd and 3rd element in your vector <code>name</code></li>
+<li>Return only ages under 30 from your vector <code>age</code></li>
+</ol>
+</section><section id="referencing-matrices" class="slide level2">
+<h2>Referencing matrices</h2>
+<ul>
+<li>Like vectors, you can reference matrices by elements</li>
+<li>Can also reference rows/columns, these are vectors</li>
+</ul>
+<p><img src="img/indexing_matrices.png" width="300px" style="display: block; margin: auto;" /></p>
+</section><section id="exercise-6" class="slide level2">
+<h2>Exercise</h2>
+<p>Extract the 9th column of the matrix from the previous problem. How can you find the 4th element in the 9th column?</p>
+</section><section id="indexing-data-frames" class="slide level2">
+<h2>Indexing data frames</h2>
+<p><img src="img/indexing_dataframe.png" width="150px" style="display: block; margin: auto;" /></p>
+<p><img src="img/indexing_dataframes2.png" width="150px" style="display: block; margin: auto;" /></p>
+</section><section id="exercise-7" class="slide level2">
+<h2>Exercise</h2>
+<ol type="1">
+<li>From your data frame <code>my_first_df</code>, return the entries for everyone living in a country of your choice.</li>
+</ol>
+</section><section id="indexing-lists" class="slide level2">
+<h2>Indexing lists</h2>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" data-line-number="1">list1[<span class="dv">1</span>] <span class="co"># 1st element of the list</span></a></code></pre></div>
+<pre><code>## $beatles
+## [1] &quot;John&quot;   &quot;Paul&quot;   &quot;George&quot; &quot;Ringo&quot;</code></pre>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" data-line-number="1">list1[[<span class="dv">1</span>]] <span class="co"># 1st content of the first element</span></a></code></pre></div>
+<pre><code>## [1] &quot;John&quot;   &quot;Paul&quot;   &quot;George&quot; &quot;Ringo&quot;</code></pre>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" data-line-number="1">list1[[<span class="dv">1</span>]][[<span class="dv">2</span>]] <span class="co"># 2nd value in the 1st content</span></a></code></pre></div>
+<pre><code>## [1] &quot;Paul&quot;</code></pre>
+</section><section id="role-of-brackets" class="slide level2">
+<h2>Role of brackets</h2>
+<ul>
+<li><code>[]</code> for indexing vectors, lists, data frames…</li>
+<li><code>()</code> for passing arguments to functions</li>
+<li><code>{}</code> for defining content of loops, functions, etc.</li>
+</ul>
+</section><section id="recap-types-and-structures" class="slide level2">
+<h2>Recap types and structures</h2>
+<ul>
+<li>Data types encountered so far:
+<ul>
+<li><code>logical</code></li>
+<li><code>numeric</code></li>
+<li><code>character</code></li>
+</ul></li>
+<li>Data structures
+<ul>
+<li><code>vector</code> (1 dimension)</li>
+<li><code>matrix</code> (2 dimensions)</li>
+<li><code>data frame</code> (2 dimensions)</li>
+<li><code>list</code> (<span class="math inline">\(n\)</span> dimensions)</li>
+</ul></li>
+<li>Absent data
+<ul>
+<li><code>NA</code> (not available)</li>
+<li><code>NUll</code> (non-existent)</li>
+</ul></li>
+</ul>
+</section><section id="recap-functions" class="slide level2">
+<h2>Recap functions</h2>
+<ul>
+<li><p>Functions encountered so far</p>
+<ul>
+<li><code>c()</code></li>
+<li><code>data.frame()</code></li>
+<li><code>mean()</code></li>
+<li>…</li>
+</ul></li>
+<li><p>What if you don’t know what a functions does?</p>
+<ul>
+<li><code>?mean()</code> to get help for a function</li>
+<li>help.search(‘weighted mean’) to get help for a concept</li>
+</ul></li>
+</ul>
+</section><section id="help" class="slide level2">
+<h2>Help</h2>
+<p><img src="img/help1.png" width="700px" style="display: block; margin: auto;" /></p>
+</section><section id="help-1" class="slide level2">
+<h2>Help</h2>
+<p><img src="img/help2.png" width="700px" style="display: block; margin: auto;" /></p>
+</section><section id="break" class="slide level2">
+<h2>Break</h2>
+<p>Take a 10 minute break.</p>
+</section></section>
+<section><section id="session-2-programming" class="title-slide slide level1"><h1>Session 2: Programming</h1></section><section id="things-we-will-cover-in-this-session" class="slide level2">
+<h2>Things we will cover in this session</h2>
+<ol type="1">
+<li>Writing scripts</li>
+<li>Programming with functions and loops</li>
+</ol>
+</section><section id="rs-build-in-data-sets" class="slide level2">
+<h2>R’s build-in data sets</h2>
+<p>There are a number of example data sets available within <code>R</code>.</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" data-line-number="1"><span class="co"># List internal data sets:</span></a>
+<a class="sourceLine" id="cb27-2" data-line-number="2"><span class="kw">data</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" data-line-number="1"><span class="co"># Load swiss data set:</span></a>
+<a class="sourceLine" id="cb28-2" data-line-number="2"><span class="kw">data</span>(iris)</a>
+<a class="sourceLine" id="cb28-3" data-line-number="3"><span class="co"># Find data description:</span></a>
+<a class="sourceLine" id="cb28-4" data-line-number="4">?iris</a></code></pre></div>
+</section><section id="iris-dataset" class="slide level2">
+<h2>Iris dataset</h2>
+<ul>
+<li>Standard dataset in R, measurement on three species of flowers</li>
+</ul>
+<p><img src="img/iris.png" width="600px" style="display: block; margin: auto;" /></p>
+</section><section id="exercise-8" class="slide level2">
+<h2>Exercise</h2>
+<ol type="1">
+<li>Explore the <code>iris</code> dataset with the following functions:</li>
+</ol>
+<ul>
+<li><code>head()</code></li>
+<li><code>tail()</code></li>
+<li><code>names()</code></li>
+<li><code>summary()</code></li>
+<li><code>dim()</code></li>
+<li><code>str()</code></li>
+</ul>
+<ol start="2" type="1">
+<li>What do those functions tell you about the structure of <code>iris</code>?</li>
+</ol>
+</section><section id="creating-an-r-script" class="slide level2">
+<h2>Creating an R Script</h2>
+<p><img src="img/script.png" width="800px" style="display: block; margin: auto;" /></p>
+</section><section id="executing-an-r-script" class="slide level2">
+<h2>Executing an R Script</h2>
+<ul>
+<li>Place the course in the line of code you want to execute</li>
+<li>Press “Run” or <code>ctrl/command + enter</code></li>
+<li>You can also execute multiple lines by selecting all of them and then pressing “Run”</li>
+<li>Try it out! Enter in your script:</li>
+</ul>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" data-line-number="1"><span class="kw">head</span>(iris)</a>
+<a class="sourceLine" id="cb29-2" data-line-number="2"><span class="kw">summary</span>(iris)</a></code></pre></div>
+<ul>
+<li>Then execute those lines!</li>
+</ul>
+</section><section id="functions-2" class="slide level2">
+<h2>Functions</h2>
+<ul>
+<li><p>In R, you can write functions! They can make your code easier to understand, speed-up reoccurring tasks and help you to avoid making mistakes. However, writing good functions is a lifetime journey.</p></li>
+<li><p>Guiding principle: Consider writing a function whenever you’ve copied and pasted a block of code more than twice.</p></li>
+</ul>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" data-line-number="1"><span class="co"># Find the sample mean of a vector</span></a>
+<a class="sourceLine" id="cb30-2" data-line-number="2">fun_mean &lt;-<span class="st"> </span><span class="cf">function</span>(x){</a>
+<a class="sourceLine" id="cb30-3" data-line-number="3">    <span class="kw">sum</span>(x) <span class="op">/</span><span class="st"> </span><span class="kw">length</span>(x)</a>
+<a class="sourceLine" id="cb30-4" data-line-number="4">}</a>
+<a class="sourceLine" id="cb30-5" data-line-number="5"><span class="kw">data</span>(swiss)</a>
+<a class="sourceLine" id="cb30-6" data-line-number="6"><span class="kw">fun_mean</span>(<span class="dt">x =</span> swiss<span class="op">$</span>Infant.Mortality)</a></code></pre></div>
+<pre><code>## [1] 19.94255</code></pre>
+</section><section id="key-steps-in-creating-functions" class="slide level2">
+<h2>Key steps in creating functions</h2>
+<ol type="1">
+<li><p>Pick a <strong>name</strong> for the function.</p></li>
+<li><p>List the inputs, or <strong>arguments</strong>, to the function inside <code>function</code>. A function with just one argument would look like <code>function(x)</code>.</p></li>
+<li><p>Place the code you have developed in <strong>body</strong> of the function, a <code>{</code> block that immediately follows <code>function(...)</code>.</p></li>
+</ol>
+<p>Always start with working code and turn it into a function; it’s harder to create a function and then try to make it work.</p>
+</section><section id="exercise-9" class="slide level2">
+<h2>Exercise</h2>
+<p>Write a function that takes a number and doubles it.</p>
+</section><section id="exercise-solution" class="slide level2">
+<h2>Exercise solution</h2>
+<p>Write a function that takes a number and doubles it.</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" data-line-number="1">double &lt;-<span class="st"> </span><span class="cf">function</span>(x){</a>
+<a class="sourceLine" id="cb32-2" data-line-number="2">output &lt;-<span class="st"> </span>x <span class="op">*</span><span class="st"> </span><span class="dv">2</span></a>
+<a class="sourceLine" id="cb32-3" data-line-number="3">output</a>
+<a class="sourceLine" id="cb32-4" data-line-number="4">}</a>
+<a class="sourceLine" id="cb32-5" data-line-number="5"><span class="kw">double</span>(<span class="dv">8</span>)</a></code></pre></div>
+<pre><code>## [1] 16</code></pre>
+</section><section id="apply-function" class="slide level2">
+<h2>Apply function</h2>
+<ul>
+<li><p><code>apply</code> allows you to apply a function to every row or every column. This can be done with a <code>for()</code> loop, but <code>apply()</code> is usually much faster and simpler.</p></li>
+<li><p><code>apply()</code> takes the following form: <code>apply(X, MARGIN, FUN, ...)</code>.</p></li>
+</ul>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" data-line-number="1">m &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dv">11</span><span class="op">:</span><span class="dv">20</span>), <span class="dt">nrow =</span> <span class="dv">10</span>, <span class="dt">ncol =</span> <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb34-2" data-line-number="2"><span class="co"># mean of the rows</span></a>
+<a class="sourceLine" id="cb34-3" data-line-number="3"><span class="kw">apply</span>(m, <span class="dv">1</span>, mean)</a></code></pre></div>
+<pre><code>##  [1]  6  7  8  9 10 11 12 13 14 15</code></pre>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" data-line-number="1"><span class="co"># mean of the columns</span></a>
+<a class="sourceLine" id="cb36-2" data-line-number="2"><span class="kw">apply</span>(m, <span class="dv">2</span>, mean)</a></code></pre></div>
+<pre><code>## [1]  5.5 15.5</code></pre>
+</section><section id="exercise-10" class="slide level2">
+<h2>Exercise</h2>
+<p>Load up the build-in R dataset ‘iris’ and use <code>apply()</code> to get the mean of the first 4 variables.</p>
+</section><section id="exercise-solution-1" class="slide level2">
+<h2>Exercise (solution)</h2>
+<p>Load up the build-in R dataset ‘iris’ and use <code>apply()</code> to get the mean of the first 4 variables.</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" data-line-number="1"><span class="kw">attach</span>(iris)</a>
+<a class="sourceLine" id="cb38-2" data-line-number="2"><span class="kw">apply</span>(iris[,<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>], <span class="dv">2</span>, mean)</a></code></pre></div>
+<pre><code>## Sepal.Length  Sepal.Width Petal.Length  Petal.Width 
+##     5.843333     3.057333     3.758000     1.199333</code></pre>
+</section><section id="iterations" class="slide level2">
+<h2>Iterations</h2>
+<ul>
+<li><p>Besides functions, you can also use iterations to reduce duplication in your code by repeating the same operation on different columns, or on different datasets.</p></li>
+<li>There are two paradigms of iterations in R:
+<ul>
+<li>Imperative programming</li>
+<li>Functional programming</li>
+</ul></li>
+</ul>
+</section><section id="for-loops" class="slide level2">
+<h2><code>For()</code> loops</h2>
+<ul>
+<li>For() loops are used to loop around a vector/matrix to do something.</li>
+</ul>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb40-1" data-line-number="1">m &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="dt">nrow=</span><span class="dv">1</span>, <span class="dt">ncol=</span><span class="dv">5</span>)</a>
+<a class="sourceLine" id="cb40-2" data-line-number="2">m</a></code></pre></div>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5]
+## [1,]    1    2    3    4    5</code></pre>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb42-1" data-line-number="1"><span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>){</a>
+<a class="sourceLine" id="cb42-2" data-line-number="2">     m[,j]=<span class="dv">0</span></a>
+<a class="sourceLine" id="cb42-3" data-line-number="3">}</a>
+<a class="sourceLine" id="cb42-4" data-line-number="4">m</a></code></pre></div>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5]
+## [1,]    0    0    0    4    5</code></pre>
+</section><section id="for-loops-ii" class="slide level2">
+<h2><code>For()</code> loops (II)</h2>
+<p>You can also ‘nest’ a <code>for()</code> loop in another <code>for()</code> loop</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb44-1" data-line-number="1">m &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">15</span>, <span class="dt">nrow=</span><span class="dv">3</span>, <span class="dt">ncol=</span><span class="dv">5</span>)</a>
+<a class="sourceLine" id="cb44-2" data-line-number="2"><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>){</a>
+<a class="sourceLine" id="cb44-3" data-line-number="3">  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">4</span>){</a>
+<a class="sourceLine" id="cb44-4" data-line-number="4">    m[i,j]=<span class="dv">0</span></a>
+<a class="sourceLine" id="cb44-5" data-line-number="5">  }</a>
+<a class="sourceLine" id="cb44-6" data-line-number="6">}</a>
+<a class="sourceLine" id="cb44-7" data-line-number="7">m</a></code></pre></div>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5]
+## [1,]    0    0    0    0   13
+## [2,]    0    0    0    0   14
+## [3,]    3    6    9   12   15</code></pre>
+</section><section id="exercise-11" class="slide level2">
+<h2>Exercise</h2>
+<ol type="1">
+<li>Run the following lines:</li>
+</ol>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb46-1" data-line-number="1">output &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="st">&quot;double&quot;</span>, <span class="kw">ncol</span>(mtcars))</a>
+<a class="sourceLine" id="cb46-2" data-line-number="2"><span class="kw">names</span>(output) &lt;-<span class="st"> </span><span class="kw">names</span>(mtcars)</a></code></pre></div>
+<ol start="2" type="1">
+<li>Write a for loop to compute the mean of every column in the example dataset <code>mtcars</code></li>
+</ol>
+</section><section id="exercise-solution-2" class="slide level2">
+<h2>Exercise solution</h2>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb47-1" data-line-number="1">output &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="st">&quot;double&quot;</span>, <span class="kw">ncol</span>(mtcars))</a>
+<a class="sourceLine" id="cb47-2" data-line-number="2"><span class="kw">names</span>(output) &lt;-<span class="st"> </span><span class="kw">names</span>(mtcars)</a>
+<a class="sourceLine" id="cb47-3" data-line-number="3"><span class="cf">for</span>(i <span class="cf">in</span> <span class="kw">names</span>(mtcars)) {</a>
+<a class="sourceLine" id="cb47-4" data-line-number="4">  output[i] &lt;-<span class="st"> </span><span class="kw">mean</span>(mtcars[[i]])</a>
+<a class="sourceLine" id="cb47-5" data-line-number="5">}</a>
+<a class="sourceLine" id="cb47-6" data-line-number="6">output</a></code></pre></div>
+<pre><code>##        mpg        cyl       disp         hp       drat         wt 
+##  20.090625   6.187500 230.721875 146.687500   3.596563   3.217250 
+##       qsec         vs         am       gear       carb 
+##  17.848750   0.437500   0.406250   3.687500   2.812500</code></pre>
+</section><section id="if-statements" class="slide level2">
+<h2>If() statements</h2>
+<ul>
+<li><code>if()</code> statements are used to make conditions on executing some code. If condition is true, action is done.</li>
+</ul>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb49-1" data-line-number="1">a &lt;-<span class="st"> </span><span class="dv">3</span></a>
+<a class="sourceLine" id="cb49-2" data-line-number="2">b &lt;-<span class="st"> </span><span class="dv">4</span></a>
+<a class="sourceLine" id="cb49-3" data-line-number="3">number &lt;-<span class="st"> </span><span class="dv">0</span></a>
+<a class="sourceLine" id="cb49-4" data-line-number="4"><span class="cf">if</span>(a<span class="op">&lt;</span>b){</a>
+<a class="sourceLine" id="cb49-5" data-line-number="5">  number=number<span class="op">+</span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb49-6" data-line-number="6">}</a>
+<a class="sourceLine" id="cb49-7" data-line-number="7">number</a></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<p>Tests for conditions: <code>==; &gt;; &lt;; &gt;=; &lt;=; !=</code></p>
+</section><section id="packages" class="slide level2">
+<h2>Packages</h2>
+<p>You can greatly expand the number of functions by installing and loading user-created packages.</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb51-1" data-line-number="1"><span class="co"># Install dplyr package</span></a>
+<a class="sourceLine" id="cb51-2" data-line-number="2"><span class="kw">install.packages</span>(<span class="st">&#39;dplyr&#39;</span>)</a>
+<a class="sourceLine" id="cb51-3" data-line-number="3"><span class="co"># Load dplyr package</span></a>
+<a class="sourceLine" id="cb51-4" data-line-number="4"><span class="kw">library</span>(dplyr)</a></code></pre></div>
+<p>You can also call a function directly from a specific package with the double colon operator (<code>::</code>).</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb52-1" data-line-number="1">Grouped &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">group_by</span>(iris, Species)</a></code></pre></div>
+</section><section id="break-1" class="slide level2">
+<h2>Break</h2>
+<p>Enjoy your 1 hour lunch break!</p>
+</section></section>
+<section><section id="session-3-messing-with-data" class="title-slide slide level1"><h1>Session 3: Messing with data</h1></section><section id="things-we-will-cover-in-this-session-1" class="slide level2">
+<h2>Things we will cover in this session</h2>
+<ol type="1">
+<li>Introduction to <code>Tidyverse</code></li>
+<li>Loading and saving data</li>
+<li>Transforming data</li>
+</ol>
+</section><section id="tidyverse" class="slide level2">
+<h2>tidyverse</h2>
+<p><img src="img/tidyverse.png" width="800px" style="display: block; margin: auto;" /></p>
+</section><section id="import-csv-files-with-read_csv" class="slide level2">
+<h2>Import csv files with <code>read_csv()</code></h2>
+<p>You can use R’s build-in function <code>read.csv()</code> but I highly encourage you to use the tidyverse function <code>read_csv()</code> instead as it is 10x faster and can guess common formats.</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb53-1" data-line-number="1">potatoes &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data/potatoes.csv&quot;</span>)</a>
+<a class="sourceLine" id="cb53-2" data-line-number="2"><span class="kw">head</span>(potatoes)</a></code></pre></div>
+<pre><code>##   area temp size storage method texture flavor moistness
+## 1    1    1    1       1      1     2.9    3.2       3.0
+## 2    1    1    1       1      2     2.3    2.5       2.6
+## 3    1    1    1       1      3     2.5    2.8       2.8
+## 4    1    1    1       1      4     2.1    2.9       2.4
+## 5    1    1    1       1      5     1.9    2.8       2.2
+## 6    1    1    1       2      1     1.8    3.0       1.7</code></pre>
+</section><section id="extensions" class="slide level2">
+<h2>Extensions</h2>
+<ul>
+<li><code>read_csv()</code>: comma delimited files</li>
+<li><code>read_csv2()</code>: semicolon separated files</li>
+<li><code>read_tsv()</code>: tab delimited files</li>
+<li><code>read_delim()</code>: files with any delimiter</li>
+</ul>
+</section><section id="read_csv-skipping-lines" class="slide level2">
+<h2><code>read_csv()</code> skipping lines</h2>
+<p>You can use <code>skip = n</code> to skip the first n lines; or use <code>comment = &quot;#&quot;</code> to drop all lines that start with (e.g.) <code>#</code>:</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb55-1" data-line-number="1">potatoes &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/potatoes.csv&quot;</span>, <span class="dt">skip =</span> <span class="dv">2</span>)</a></code></pre></div>
+</section><section id="read_csv" class="slide level2">
+<h2><code>read_csv()</code></h2>
+<p><code>read_csv()</code> by default uses the first line of the data for the column names. You can use <code>col_names = FALSE</code> to not treat the first row as headings or supply your own column names with <code>col_names</code>:</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb56-1" data-line-number="1"><span class="kw">read_csv</span>(<span class="st">&quot;1,2,3</span><span class="ch">\n</span><span class="st">4,5,6&quot;</span>, <span class="dt">col_names =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<pre><code>## # A tibble: 2 x 3
+##      X1    X2    X3
+##   &lt;int&gt; &lt;int&gt; &lt;int&gt;
+## 1     1     2     3
+## 2     4     5     6</code></pre>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb58-1" data-line-number="1"><span class="kw">read_csv</span>(<span class="st">&quot;1,2,3</span><span class="ch">\n</span><span class="st">4,5,6&quot;</span>, <span class="dt">col_names =</span> <span class="kw">c</span>(<span class="st">&quot;x&quot;</span>, <span class="st">&quot;y&quot;</span>, <span class="st">&quot;z&quot;</span>))</a></code></pre></div>
+<pre><code>## # A tibble: 2 x 3
+##       x     y     z
+##   &lt;int&gt; &lt;int&gt; &lt;int&gt;
+## 1     1     2     3
+## 2     4     5     6</code></pre>
+</section><section id="read_delim" class="slide level2">
+<h2><code>read_delim()</code></h2>
+<p><code>read_delim()</code> is the main readr function and takes two mandatory arguments, <em>file</em> and <em>delim</em>.</p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb60-1" data-line-number="1">properties &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;area&quot;</span>, <span class="st">&quot;temp&quot;</span>, <span class="st">&quot;size&quot;</span>, <span class="st">&quot;storage&quot;</span>,</a>
+<a class="sourceLine" id="cb60-2" data-line-number="2">                <span class="st">&quot;method&quot;</span>, <span class="st">&quot;texture&quot;</span>, <span class="st">&quot;flavor&quot;</span>,</a>
+<a class="sourceLine" id="cb60-3" data-line-number="3">                <span class="st">&quot;moistness&quot;</span>)</a>
+<a class="sourceLine" id="cb60-4" data-line-number="4">potatoes &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">&quot;data/potatoes.txt&quot;</span>, <span class="dt">delim =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>,</a>
+<a class="sourceLine" id="cb60-5" data-line-number="5">                       <span class="dt">col_names =</span> properties)</a></code></pre></div>
+</section><section id="exercise-12" class="slide level2">
+<h2>Exercise</h2>
+<ol type="1">
+<li>What is wrong with each of the following inline CSV files.</li>
+</ol>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb61-1" data-line-number="1"><span class="kw">read_csv</span>(<span class="st">&quot;a,b</span><span class="ch">\n</span><span class="st">1,2,3</span><span class="ch">\n</span><span class="st">4,5,6&quot;</span>)</a>
+<a class="sourceLine" id="cb61-2" data-line-number="2"><span class="kw">read_csv</span>(<span class="st">&quot;a,b,c</span><span class="ch">\n</span><span class="st">1,2</span><span class="ch">\n</span><span class="st">1,2,3,4&quot;</span>)</a>
+<a class="sourceLine" id="cb61-3" data-line-number="3"><span class="kw">read_csv</span>(<span class="st">&quot;a;b</span><span class="ch">\n</span><span class="st">1;3&quot;</span>)</a></code></pre></div>
+</section><section id="exercise-solutions" class="slide level2">
+<h2>Exercise solutions</h2>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb62-1" data-line-number="1"><span class="co"># Only two columns are specified in the </span></a>
+<a class="sourceLine" id="cb62-2" data-line-number="2"><span class="co"># header “a” and “b”</span></a>
+<a class="sourceLine" id="cb62-3" data-line-number="3"><span class="kw">read_csv</span>(<span class="st">&quot;a,b</span><span class="ch">\n</span><span class="st">1,2,3</span><span class="ch">\n</span><span class="st">4,5,6&quot;</span>)</a>
+<a class="sourceLine" id="cb62-4" data-line-number="4"><span class="co"># There are only two values in row 1, </span></a>
+<a class="sourceLine" id="cb62-5" data-line-number="5"><span class="co"># so column c is set to NA</span></a>
+<a class="sourceLine" id="cb62-6" data-line-number="6"><span class="kw">read_csv</span>(<span class="st">&quot;a,b,c</span><span class="ch">\n</span><span class="st">1,2</span><span class="ch">\n</span><span class="st">1,2,3,4&quot;</span>)</a>
+<a class="sourceLine" id="cb62-7" data-line-number="7"><span class="co"># The values are separated by “;” </span></a>
+<a class="sourceLine" id="cb62-8" data-line-number="8"><span class="co"># not “,”. Use read_csv2 instead</span></a>
+<a class="sourceLine" id="cb62-9" data-line-number="9"><span class="kw">read_csv</span>(<span class="st">&quot;a;b</span><span class="ch">\n</span><span class="st">1;3&quot;</span>)</a></code></pre></div>
+</section><section id="import-excel-files-with-readxl" class="slide level2">
+<h2>Import Excel files with <code>readxl()</code></h2>
+<p>The <code>readxl</code> package makes it easy to get data out of Excel and into R. <code>readxl</code> supports both .xls format and the modern xml-based .xlsx format.</p>
+<p>You can use the <code>excel_sheets()</code> function to find out which sheets are available in the workbook.</p>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb63-1" data-line-number="1"><span class="kw">library</span>(readxl) <span class="co"># not part of core tidyverse</span></a>
+<a class="sourceLine" id="cb63-2" data-line-number="2"><span class="kw">excel_sheets</span>(<span class="dt">path =</span> <span class="st">&quot;data/urbanpop.xlsx&quot;</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;1960-1966&quot; &quot;1967-1974&quot; &quot;1975-2011&quot;</code></pre>
+</section><section id="readxl" class="slide level2">
+<h2><code>readxl</code></h2>
+<p>Use <code>read_excel()</code> to read in Excel files. You can pass a number (or string) to the <code>sheet</code> argument to import a specific sheet..</p>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb65-1" data-line-number="1">pop1 &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;data/urbanpop.xlsx&quot;</span>, <span class="dt">sheet =</span> <span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb65-2" data-line-number="2">pop2 &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;data/urbanpop.xlsx&quot;</span>, <span class="dt">sheet =</span> <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb65-3" data-line-number="3">pop3 &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;data/urbanpop.xlsx&quot;</span>, <span class="dt">sheet =</span> <span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb65-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb65-5" data-line-number="5">pop &lt;-<span class="st"> </span><span class="kw">lapply</span>(<span class="kw">excel_sheets</span>(<span class="dt">path =</span> <span class="st">&quot;data/urbanpop.xlsx&quot;</span>),</a>
+<a class="sourceLine" id="cb65-6" data-line-number="6">              read_excel, <span class="dt">path =</span> <span class="st">&quot;data/urbanpop.xlsx&quot;</span>)</a></code></pre></div>
+</section><section id="readxl-1" class="slide level2">
+<h2><code>readxl</code></h2>
+<p>You can use <code>skip</code> to control which cells are read and <code>col_names</code> to set the column names.</p>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb66-1" data-line-number="1">pop &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="dt">path =</span> <span class="st">&quot;data/urbanpop.xlsx&quot;</span>, <span class="dt">sheet=</span><span class="dv">2</span>,</a>
+<a class="sourceLine" id="cb66-2" data-line-number="2">                  <span class="dt">skip=</span><span class="dv">21</span>, <span class="dt">col_names=</span><span class="ot">FALSE</span>)</a></code></pre></div>
+</section><section id="importing-data-from-databases" class="slide level2">
+<h2>Importing data from databases</h2>
+<p>To import data from a database you first have to create a connection to it. You need different packages depending on the database you want to connect.</p>
+<p><code>dbConnect()</code> creates a connection between your R session and a SQL database. The first argument has to be a <code>DBIdriver</code> object, that specifies how connections are made and how data is mapped between R and the database. If the SQL database is a remote database hosted on a server, you’ll also have to specify the following arguments in dbConnect(): <code>dbname</code>, <code>host</code>, <code>port</code>, <code>user</code> and <code>password</code>.</p>
+</section><section id="establish-a-connection" class="slide level2">
+<h2>Establish a connection</h2>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb67-1" data-line-number="1"><span class="kw">library</span>(DBI) <span class="co"># not part of core tidyverse</span></a>
+<a class="sourceLine" id="cb67-2" data-line-number="2">host &lt;-<span class="st"> &quot;courses.csrrinzqubik.us-east-1.rds.amazonaws.com&quot;</span> </a>
+<a class="sourceLine" id="cb67-3" data-line-number="3">con &lt;-<span class="st"> </span><span class="kw">dbConnect</span>(RMySQL<span class="op">::</span><span class="kw">MySQL</span>(),</a>
+<a class="sourceLine" id="cb67-4" data-line-number="4">                 <span class="dt">dbname =</span> <span class="st">&quot;tweater&quot;</span>,</a>
+<a class="sourceLine" id="cb67-5" data-line-number="5">                 <span class="dt">host =</span> host, </a>
+<a class="sourceLine" id="cb67-6" data-line-number="6">                 <span class="dt">port =</span> <span class="dv">3306</span>,</a>
+<a class="sourceLine" id="cb67-7" data-line-number="7">                 <span class="dt">user =</span> <span class="st">&quot;student&quot;</span>,</a>
+<a class="sourceLine" id="cb67-8" data-line-number="8">                 <span class="dt">password =</span> <span class="st">&quot;datacamp&quot;</span>)</a></code></pre></div>
+</section><section id="list-the-database-tables" class="slide level2">
+<h2>List the database tables</h2>
+<p>After you’ve successfully connected to a remote database. you can use <code>dbListTables()</code> to see what tables the database contains:</p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb68-1" data-line-number="1">tables &lt;-<span class="st"> </span><span class="kw">dbListTables</span>(con)</a>
+<a class="sourceLine" id="cb68-2" data-line-number="2">tables</a></code></pre></div>
+<pre><code>## [1] &quot;comments&quot; &quot;tweats&quot;   &quot;users&quot;</code></pre>
+</section><section id="import-data-from-tables" class="slide level2">
+<h2>Import data from tables</h2>
+<p>You can use the <code>dbReadTable()</code> function to import data from the database tables.</p>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb70-1" data-line-number="1">users &lt;-<span class="st"> </span><span class="kw">dbReadTable</span>(con, <span class="st">&quot;users&quot;</span>)</a>
+<a class="sourceLine" id="cb70-2" data-line-number="2">users</a></code></pre></div>
+<pre><code>##   id      name     login
+## 1  1 elisabeth  elismith
+## 2  2      mike     mikey
+## 3  3      thea   teatime
+## 4  4    thomas tomatotom
+## 5  5    oliver olivander
+## 6  6      kate  katebenn
+## 7  7    anjali    lianja</code></pre>
+</section><section id="import-data-from-tables-1" class="slide level2">
+<h2>Import data from tables</h2>
+<p>Again, you can use lapply to import all tables:</p>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb72-1" data-line-number="1">tableNames &lt;-<span class="st"> </span><span class="kw">dbListTables</span>(con)</a>
+<a class="sourceLine" id="cb72-2" data-line-number="2">tables &lt;-<span class="st"> </span><span class="kw">lapply</span>(tableNames, dbReadTable, <span class="dt">conn =</span> con)</a></code></pre></div>
+</section><section id="exercise-13" class="slide level2">
+<h2>Exercise</h2>
+<ol type="1">
+<li>Connect to the tweater database using the following function:</li>
+</ol>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb73-1" data-line-number="1">host &lt;-<span class="st"> &quot;courses.csrrinzqubik.us-east-1.rds.amazonaws.com&quot;</span> </a>
+<a class="sourceLine" id="cb73-2" data-line-number="2">con &lt;-<span class="st"> </span><span class="kw">dbConnect</span>(RMySQL<span class="op">::</span><span class="kw">MySQL</span>(),</a>
+<a class="sourceLine" id="cb73-3" data-line-number="3">                 <span class="dt">dbname =</span> <span class="st">&quot;tweater&quot;</span>,</a>
+<a class="sourceLine" id="cb73-4" data-line-number="4">                 <span class="dt">host =</span> host, </a>
+<a class="sourceLine" id="cb73-5" data-line-number="5">                 <span class="dt">port =</span> <span class="dv">3306</span>,</a>
+<a class="sourceLine" id="cb73-6" data-line-number="6">                 <span class="dt">user =</span> <span class="st">&quot;student&quot;</span>,</a>
+<a class="sourceLine" id="cb73-7" data-line-number="7">                 <span class="dt">password =</span> <span class="st">&quot;datacamp&quot;</span>)</a></code></pre></div>
+<p>The <code>tweats</code> table contains a column <code>user_id</code>, which refer to the users that have posted the tweat. The <code>comments</code> table contain both a <code>user_id</code> and a <code>tweat_id</code> column.</p>
+</section><section id="exercise-14" class="slide level2">
+<h2>Exercise</h2>
+<ol start="2" type="1">
+<li>Who posted the tweat on which somebody commented “awesome! thanks!” (comment 1012)?</li>
+<li>Be polite and disconnect from the database afterwards. You do this with the <code>dbDisconnect()</code> function.</li>
+</ol>
+</section><section id="exercise-solution-3" class="slide level2">
+<h2>Exercise solution</h2>
+<p>The user with <code>user_id</code> 5: Oliver.</p>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb74-1" data-line-number="1"><span class="kw">dbDisconnect</span>(con)</a></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+</section><section id="import-files-directly-from-the-web" class="slide level2">
+<h2>Import files directly from the web</h2>
+<p>You can use <code>read_csv</code> to directly import csv files from the web.</p>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb76-1" data-line-number="1">url &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;https://raw.githubusercontent.com/&quot;</span>,</a>
+<a class="sourceLine" id="cb76-2" data-line-number="2"><span class="st">&quot;mhaber/AppliedDataScience/master/&quot;</span>,</a>
+<a class="sourceLine" id="cb76-3" data-line-number="3"><span class="st">&quot;slides/week2/data/potatoes.csv&quot;</span>)</a>
+<a class="sourceLine" id="cb76-4" data-line-number="4">potatoes &lt;-<span class="st"> </span><span class="kw">read_csv</span>(url)</a></code></pre></div>
+</section><section id="download-files" class="slide level2">
+<h2>Download files</h2>
+<p><code>read_excel()</code> does not yet support importing excel files directly from the web so you have to download the file first with <code>download.file()</code>:</p>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb77-1" data-line-number="1">url &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;https://github.com/&quot;</span>,</a>
+<a class="sourceLine" id="cb77-2" data-line-number="2"><span class="st">&quot;mhaber/AppliedDataScience/blob/master/&quot;</span>,</a>
+<a class="sourceLine" id="cb77-3" data-line-number="3"><span class="st">&quot;slides/week2/data/urbanpop.xlsx?raw=true&quot;</span>)</a>
+<a class="sourceLine" id="cb77-4" data-line-number="4"><span class="kw">download.file</span>(url, <span class="st">&quot;data/urbanpop.xlsx&quot;</span>, <span class="dt">mode =</span> <span class="st">&quot;wb&quot;</span>)</a>
+<a class="sourceLine" id="cb77-5" data-line-number="5">urbanpop &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;data/urbanpop.xlsx&quot;</span>)</a></code></pre></div>
+</section><section id="httr" class="slide level2">
+<h2><code>httr</code></h2>
+<p>The <code>httr</code> package provides a convenient function <code>GET()</code> to download files. The result is a response object, that provides easy access to the content-type and the actual content. You can extract the content from the request using the <code>content()</code> function</p>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb78-1" data-line-number="1"><span class="kw">library</span>(httr) <span class="co"># not part of core tidyverse</span></a>
+<a class="sourceLine" id="cb78-2" data-line-number="2">url &lt;-<span class="st"> &quot;http://www.example.com/&quot;</span></a>
+<a class="sourceLine" id="cb78-3" data-line-number="3">resp &lt;-<span class="st"> </span><span class="kw">GET</span>(url)</a>
+<a class="sourceLine" id="cb78-4" data-line-number="4">content &lt;-<span class="st"> </span><span class="kw">content</span>(resp, <span class="dt">as =</span> <span class="st">&quot;raw&quot;</span>)</a>
+<a class="sourceLine" id="cb78-5" data-line-number="5"><span class="kw">head</span>(content)</a></code></pre></div>
+<pre><code>## [1] 3c 21 64 6f 63 74</code></pre>
+</section><section id="importing-data-from-other-statistical-software" class="slide level2">
+<h2>Importing data from other statistical software</h2>
+<p>We can use <code>haven()</code> to read data from other statistical software packages such as SAS, STATA and SPSS.</p>
+<ul>
+<li><em>SAS</em>: <code>read_sas()</code></li>
+<li><em>STATA</em>: <code>read_dta()</code></li>
+<li><em>SPSS</em>: <code>read_sav()</code> or <code>read_por()</code>, depending on the file type.</li>
+</ul>
+<p>All of these functions take the path to your local (or online) file.</p>
+</section><section id="other-data-sources-json-jsonlite" class="slide level2">
+<h2>Other data sources: JSON (<code>jsonlite</code>)</h2>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb80-1" data-line-number="1"><span class="kw">library</span>(jsonlite) <span class="co"># not part of core tidyverse</span></a>
+<a class="sourceLine" id="cb80-2" data-line-number="2">url &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;http://mysafeinfo.com/api/&quot;</span>,</a>
+<a class="sourceLine" id="cb80-3" data-line-number="3"><span class="st">&quot;data?list=englishmonarchs&amp;format=json&quot;</span>)</a>
+<a class="sourceLine" id="cb80-4" data-line-number="4">jsonData &lt;-<span class="st"> </span><span class="kw">fromJSON</span>(url)</a>
+<a class="sourceLine" id="cb80-5" data-line-number="5"><span class="kw">str</span>(jsonData)</a></code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    5 obs. of  5 variables:
+##  $ ID     : int  1 2 3 4 5
+##  $ Name   : chr  &quot;Edward the Elder&quot; &quot;Athelstan&quot; &quot;Edmund&quot; &quot;Edred&quot; ...
+##  $ Country: chr  &quot;United Kingdom&quot; &quot;United Kingdom&quot; &quot;United Kingdom&quot; &quot;United Kingdom&quot; ...
+##  $ House  : chr  &quot;House of Wessex&quot; &quot;House of Wessex&quot; &quot;House of Wessex&quot; &quot;House of Wessex&quot; ...
+##  $ Reign  : chr  &quot;899-925&quot; &quot;925-940&quot; &quot;940-946&quot; &quot;946-955&quot; ...</code></pre>
+</section><section id="other-data-sources-images" class="slide level2">
+<h2>Other data sources: Images</h2>
+<ul>
+<li>jpeg - <a href="http://cran.r-project.org/web/packages/jpeg/index.html">http://cran.r-project.org/web/packages/jpeg/index.html</a></li>
+<li>readbitmap - <a href="http://cran.r-project.org/web/packages/readbitmap/index.html">http://cran.r-project.org/web/packages/readbitmap/index.html</a></li>
+<li>png - <a href="http://cran.r-project.org/web/packages/png/index.html">http://cran.r-project.org/web/packages/png/index.html</a></li>
+<li>EBImage (Bioconductor) - <a href="http://www.bioconductor.org/packages/2.13/bioc/html/EBImage.html">http://www.bioconductor.org/packages/2.13/bioc/html/EBImage.html</a></li>
+</ul>
+</section><section id="other-data-sources-geospatial-data" class="slide level2">
+<h2>Other data sources: Geospatial data</h2>
+<ul>
+<li>rgdal - <a href="http://cran.r-project.org/web/packages/rgdal/index.html">http://cran.r-project.org/web/packages/rgdal/index.html</a></li>
+<li>rgeos - <a href="http://cran.r-project.org/web/packages/rgeos/index.html">http://cran.r-project.org/web/packages/rgeos/index.html</a></li>
+<li>raster - <a href="http://cran.r-project.org/web/packages/raster/index.html">http://cran.r-project.org/web/packages/raster/index.html</a></li>
+</ul>
+</section><section id="other-data-sources-music-data" class="slide level2">
+<h2>Other data sources: Music data</h2>
+<ul>
+<li>tuneR - <a href="http://cran.r-project.org/web/packages/tuneR/">http://cran.r-project.org/web/packages/tuneR/</a></li>
+<li>seewave - <a href="http://rug.mnhn.fr/seewave/">http://rug.mnhn.fr/seewave/</a></li>
+</ul>
+</section><section id="data-manipulation-with-dplyr" class="slide level2">
+<h2>Data manipulation with <code>dplyr</code></h2>
+<p><img src="img/dplyr.png" width="500px" style="display: block; margin: auto;" /></p>
+</section><section id="piping" class="slide level2">
+<h2>Piping</h2>
+<p>The pipe operator <code>%&gt;%</code> (Ctrl/Cmd+Shift+M) allows you to write code in sequences which has several benefits:</p>
+<ul>
+<li>serves the natural way of reading (“First this, then this, …”)</li>
+<li>avoids nested function calls</li>
+<li>minimizes the need for local variables and function definitions</li>
+</ul>
+</section><section id="core-dplyr-functions" class="slide level2">
+<h2>Core <code>dplyr()</code> functions</h2>
+<ul>
+<li><code>filter()</code>: select rows by their values</li>
+<li><code>arrange()</code>: order rows</li>
+<li><code>select()</code>: select columns by their names</li>
+<li><code>mutate()</code>: create new variables</li>
+<li><p><code>summarize()</code>: collapse many values down to a single summary</p></li>
+<li><code>group_by()</code>: operate on it group-by-group</li>
+<li><code>rename()</code>: rename columns</li>
+<li><p><code>distinct()</code>: find distinct rows</p></li>
+</ul>
+</section><section id="command-structure-for-all-dplyr-verbs" class="slide level2">
+<h2>Command structure (for all dplyr verbs):</h2>
+<ul>
+<li>first argument is a data frame</li>
+<li>return value is a data frame</li>
+<li>nothing is modified in place</li>
+</ul>
+</section><section id="filter" class="slide level2">
+<h2><code>filter()</code></h2>
+<p><code>filter()</code> allows to subset observations based on their values. The function takes logical expressions and returns the rows for which all are <code>TRUE</code>.</p>
+<p><img src="img/filter.png" width="500px" style="display: block; margin: auto;" /></p>
+</section><section id="filter-1" class="slide level2">
+<h2><code>filter()</code></h2>
+<p><code>filter()</code> revolves around using comparison operators: <code>&gt;</code>, <code>&gt;=</code>, <code>&lt;</code>, <code>&lt;=</code>, <code>!=</code> (not equal), and <code>==</code> (equal).</p>
+<p><code>dplyr</code> functions like <code>filter()</code> never modify inputs but instead return a new data frame that needs to be assigned to an object if you want to save the result.</p>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb82-1" data-line-number="1">jan1 &lt;-<span class="st"> </span><span class="kw">filter</span>(flights, month <span class="op">==</span><span class="st"> </span><span class="dv">1</span>, day <span class="op">==</span><span class="st"> </span><span class="dv">1</span>)</a></code></pre></div>
+</section><section id="boolean-operators" class="slide level2">
+<h2>Boolean operators</h2>
+<ul>
+<li><code>filter()</code> also supports the Boolean operators
+<ul>
+<li><code>&amp;</code> (“and”)</li>
+<li><code>|</code> (“or”)</li>
+<li><code>!</code> (is “not”)</li>
+<li><code>xor</code> (exclusive “or”)</li>
+</ul></li>
+</ul>
+<p><img src="img/operators.png" width="250px" style="display: block; margin: auto;" /></p>
+</section><section id="boolean-operators-1" class="slide level2">
+<h2>Boolean operators</h2>
+<p>Generally a good idea to use <code>x %in% y</code>, which will select every row where <code>x</code> is part of the values of <code>y</code>.</p>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb83-1" data-line-number="1"><span class="kw">filter</span>(flights, month <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">11</span>, <span class="dv">12</span>))</a></code></pre></div>
+</section><section id="between-condition" class="slide level2">
+<h2><code>between</code> condition</h2>
+<p>Another useful dplyr filtering helper is <code>between()</code>. <code>between(x, left, right)</code> is equivalent to <code>x &gt;= left &amp; x &lt;= right</code>.</p>
+</section><section id="filter-exercise" class="slide level2">
+<h2><code>filter()</code> exercise</h2>
+<ol type="1">
+<li>Install and load the package <code>nycflights13</code></li>
+</ol>
+<p>2.Find all flights that</p>
+<pre><code>a. Had an arrival delay of two or more hours.
+b. Arrived more than two hours late, but didn&#39;t leave late.
+c. Flew to Houston (`IAH` or `HOU`).
+d. Were operated by United, American, or Delta.
+e. Departed in summer (July, August, and September).</code></pre>
+</section><section id="filter-exercise-solutions" class="slide level2">
+<h2><code>filter()</code> exercise solutions</h2>
+<p>Arrival delay of two or more hours</p>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb85-1" data-line-number="1">flights <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb85-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(arr_delay <span class="op">&gt;</span><span class="st"> </span><span class="dv">120</span>)</a></code></pre></div>
+<p>Arrived more than two hours late, but didn’t leave late</p>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb86-1" data-line-number="1">flights <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb86-2" data-line-number="2"><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(dep_delay), dep_delay <span class="op">&lt;=</span><span class="st"> </span><span class="dv">0</span>, arr_delay <span class="op">&gt;</span><span class="st"> </span><span class="dv">120</span>)</a></code></pre></div>
+<p>Flew to Houston (<code>IAH</code> or <code>HOU</code>)</p>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb87-1" data-line-number="1">flights <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb87-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(dest <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;IAH&quot;</span>, <span class="st">&quot;HOU&quot;</span>))</a></code></pre></div>
+</section><section id="filter-exercises-solutions" class="slide level2">
+<h2><code>filter()</code> exercises solutions</h2>
+<p>Were operated by United, American, or Delta</p>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb88-1" data-line-number="1">flights <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb88-2" data-line-number="2"><span class="kw">filter</span>(carrier <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;AA&quot;</span>, <span class="st">&quot;DL&quot;</span>, <span class="st">&quot;UA&quot;</span>))</a></code></pre></div>
+<p>Departed in summer (July, August, and September)</p>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb89-1" data-line-number="1">flights <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb89-2" data-line-number="2"><span class="kw">filter</span>(<span class="kw">between</span>(month, <span class="dv">7</span>, <span class="dv">9</span>))</a></code></pre></div>
+</section><section id="arrange" class="slide level2">
+<h2><code>arrange()</code></h2>
+<p><code>arrange()</code> takes a data frame and a set of column names to order the rows by. Multiple column names are evaluated subsequently.</p>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb90-1" data-line-number="1"><span class="kw">arrange</span>(flights, year, month, day)</a></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: right;">year</th>
+<th style="text-align: right;">month</th>
+<th style="text-align: right;">day</th>
+<th style="text-align: right;">dep_time</th>
+<th style="text-align: right;">sched_dep_time</th>
+<th style="text-align: right;">dep_delay</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">2013</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">517</td>
+<td style="text-align: right;">515</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2013</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">533</td>
+<td style="text-align: right;">529</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2013</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">542</td>
+<td style="text-align: right;">540</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2013</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">544</td>
+<td style="text-align: right;">545</td>
+<td style="text-align: right;">-1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2013</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">554</td>
+<td style="text-align: right;">600</td>
+<td style="text-align: right;">-6</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2013</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">554</td>
+<td style="text-align: right;">558</td>
+<td style="text-align: right;">-4</td>
+</tr>
+</tbody>
+</table>
+</section><section id="arrange-in-descending-order" class="slide level2">
+<h2><code>arrange()</code> in descending order</h2>
+<p>By dafault <code>arrange()</code> sorts values in ascending order. Use <code>desc()</code> to re-order by a column in descending order.</p>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb91-1" data-line-number="1"><span class="kw">arrange</span>(flights, <span class="kw">desc</span>(arr_delay))</a></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: right;">year</th>
+<th style="text-align: right;">month</th>
+<th style="text-align: right;">day</th>
+<th style="text-align: right;">dep_time</th>
+<th style="text-align: right;">sched_dep_time</th>
+<th style="text-align: right;">dep_delay</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">2013</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">641</td>
+<td style="text-align: right;">900</td>
+<td style="text-align: right;">1301</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2013</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">1432</td>
+<td style="text-align: right;">1935</td>
+<td style="text-align: right;">1137</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2013</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">1121</td>
+<td style="text-align: right;">1635</td>
+<td style="text-align: right;">1126</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2013</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">1139</td>
+<td style="text-align: right;">1845</td>
+<td style="text-align: right;">1014</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2013</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">845</td>
+<td style="text-align: right;">1600</td>
+<td style="text-align: right;">1005</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2013</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">1100</td>
+<td style="text-align: right;">1900</td>
+<td style="text-align: right;">960</td>
+</tr>
+</tbody>
+</table>
+</section><section id="select" class="slide level2">
+<h2><code>select()</code></h2>
+<p><code>select()</code> is used to select a subset of variables from a dataset.</p>
+<p><img src="img/select.png" width="500px" style="display: block; margin: auto;" /></p>
+</section><section id="select-example" class="slide level2">
+<h2><code>select()</code> Example</h2>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb92-1" data-line-number="1"><span class="kw">select</span>(flights, year, month, day)</a></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: right;">year</th>
+<th style="text-align: right;">month</th>
+<th style="text-align: right;">day</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">2013</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2013</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2013</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2013</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+</tr>
+</tbody>
+</table>
+</section><section id="select-1" class="slide level2">
+<h2><code>select()</code></h2>
+<p><code>select()</code> has various helper functions:</p>
+<ul>
+<li><p><code>everything()</code>: selects all variables.</p></li>
+<li><p><code>starts_with(&quot;abc&quot;)</code>: matches names beginning with “abc”.</p></li>
+<li><p><code>ends_with(&quot;xyz&quot;)</code>: matches names that end with “xyz”.</p></li>
+<li><p><code>contains(&quot;ijk&quot;)</code>: matches names that contain “ijk”.</p></li>
+<li><p><code>matches(&quot;(.)\\1&quot;)</code>: selects variables that match a regular expression.</p></li>
+<li><p><code>num_range(&quot;x&quot;, 1:3)</code> matches <code>x1</code>, <code>x2</code> and <code>x3</code>.</p></li>
+</ul>
+<p>See <code>?select</code> for more details.</p>
+</section><section id="mutate" class="slide level2">
+<h2><code>mutate()</code></h2>
+<p><code>mutate()</code> allows to add new columns to the end of your dataset that are functions of existing columns.</p>
+<p><img src="img/mutate.png" width="500px" style="display: block; margin: auto;" /></p>
+</section><section id="mutate-1" class="slide level2">
+<h2><code>mutate()</code></h2>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb93-1" data-line-number="1">flights <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb93-2" data-line-number="2"><span class="st">  </span><span class="kw">select</span>(<span class="kw">ends_with</span>(<span class="st">&quot;delay&quot;</span>), distance, air_time) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb93-3" data-line-number="3"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">gain =</span> arr_delay <span class="op">-</span><span class="st"> </span>dep_delay,</a>
+<a class="sourceLine" id="cb93-4" data-line-number="4">         <span class="dt">speed =</span> distance <span class="op">/</span><span class="st"> </span>air_time <span class="op">*</span><span class="st"> </span><span class="dv">60</span></a>
+<a class="sourceLine" id="cb93-5" data-line-number="5">)</a></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: right;">dep_delay</th>
+<th style="text-align: right;">arr_delay</th>
+<th style="text-align: right;">distance</th>
+<th style="text-align: right;">air_time</th>
+<th style="text-align: right;">gain</th>
+<th style="text-align: right;">speed</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">1400</td>
+<td style="text-align: right;">227</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">370.0441</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">1416</td>
+<td style="text-align: right;">227</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">374.2731</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">33</td>
+<td style="text-align: right;">1089</td>
+<td style="text-align: right;">160</td>
+<td style="text-align: right;">31</td>
+<td style="text-align: right;">408.3750</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">-18</td>
+<td style="text-align: right;">1576</td>
+<td style="text-align: right;">183</td>
+<td style="text-align: right;">-17</td>
+<td style="text-align: right;">516.7213</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">-6</td>
+<td style="text-align: right;">-25</td>
+<td style="text-align: right;">762</td>
+<td style="text-align: right;">116</td>
+<td style="text-align: right;">-19</td>
+<td style="text-align: right;">394.1379</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">-4</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">719</td>
+<td style="text-align: right;">150</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">287.6000</td>
+</tr>
+</tbody>
+</table>
+</section><section id="functions-to-use-with-mutate" class="slide level2">
+<h2>Functions to use with <code>mutate()</code></h2>
+<p>There are many functions for creating new variables with <code>mutate()</code>:</p>
+<ul>
+<li>Arithmetic operators: <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>^</code> (e.g. <code>air_time / 60</code>).</li>
+<li>Aggregate functions: <code>sum(x)</code> <code>mean(y)</code> (e.g. <code>mean(dep_delay)</code>).</li>
+<li>Logical comparisons, <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code>, <code>!=</code>.</li>
+<li>Ranking: <code>min_rank()</code>, <code>row_number()</code>, <code>dense_rank()</code>, <code>percent_rank()</code>, <code>cume_dist()</code>, <code>ntile()</code>.</li>
+<li>…</li>
+</ul>
+</section><section id="mutate-exercises" class="slide level2">
+<h2><code>mutate()</code> exercises</h2>
+<ol type="1">
+<li><p>Use <code>mutate()</code> and <code>min_rank</code> to create a new variable <code>dep_delay_rank</code> that ranks all flights by their departure delay.</p></li>
+<li><p>Find the 10 most delayed flights?</p></li>
+</ol>
+</section><section id="mutate-exercise-solutions" class="slide level2">
+<h2><code>mutate()</code> exercise solutions</h2>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb94-1" data-line-number="1">flights <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb94-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">dep_delay_rank =</span> <span class="kw">min_rank</span>(<span class="op">-</span>dep_delay)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb94-3" data-line-number="3"><span class="st">  </span><span class="kw">arrange</span>(dep_delay_rank) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb94-4" data-line-number="4"><span class="st">  </span><span class="kw">filter</span>(dep_delay_rank <span class="op">&lt;=</span><span class="st"> </span><span class="dv">10</span>)</a></code></pre></div>
+</section><section id="summarize" class="slide level2">
+<h2><code>summarize()</code></h2>
+<p><code>summarize()</code> collapses a data frame to a single row.</p>
+<p><img src="img/summarise.png" width="250px" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb95-1" data-line-number="1"><span class="kw">summarise</span>(flights, <span class="dt">delay =</span> <span class="kw">mean</span>(dep_delay, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>))</a></code></pre></div>
+<pre><code>## # A tibble: 1 x 1
+##   delay
+##   &lt;dbl&gt;
+## 1  12.6</code></pre>
+</section><section id="summarize-with-group_by" class="slide level2">
+<h2><code>summarize()</code> with <code>group_by()</code></h2>
+<p><code>summarize()</code> is most effectively used with <code>group_by()</code>, which changes the unit of analysis from the complete dataset to individual groups.</p>
+<p><img src="img/group.png" width="250px" style="display: block; margin: auto;" /></p>
+<p>Grouping is most useful in conjunction with <code>summarise()</code>, but you can also do convenient operations with <code>mutate()</code> and <code>filter()</code>.</p>
+</section><section id="summarize-with-group_by-1" class="slide level2">
+<h2><code>summarize()</code> with <code>group_by()</code></h2>
+<p>For example, to get the average delay per date</p>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb97-1" data-line-number="1">flights <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb97-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(year, month, day) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb97-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">delay =</span> <span class="kw">mean</span>(dep_delay, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>))</a></code></pre></div>
+</section><section id="summarize-count" class="slide level2">
+<h2><code>summarize()</code> count</h2>
+<p>For aggregations it is generally a good idea to include a count <code>n()</code>. For example, let’s look at the (not cancelled) planes that have the highest average delays:</p>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb98-1" data-line-number="1">flights <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb98-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(dep_delay), <span class="op">!</span><span class="kw">is.na</span>(arr_delay))</a>
+<a class="sourceLine" id="cb98-3" data-line-number="3">  <span class="kw">group_by</span>(tailnum) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb98-4" data-line-number="4"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">delay =</span> <span class="kw">mean</span>(arr_delay)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb98-5" data-line-number="5"><span class="st">  </span><span class="kw">arrange</span>(delay)</a></code></pre></div>
+</section><section id="summarize-useful-functions" class="slide level2">
+<h2><code>summarize()</code> useful functions</h2>
+<p>There are a number of useful summary functions:</p>
+<ul>
+<li>Measures of location: <code>mean(x)</code>, <code>sum(x)</code>, <code>median(x)</code>.</li>
+<li>Measures of spread: <code>sd(x)</code>, <code>IQR(x)</code>, <code>mad(x)</code>.</li>
+<li>Measures of rank: <code>min(x)</code>, <code>quantile(x, 0.25)</code>, <code>max(x)</code>.</li>
+<li>Measures of position: <code>first(x)</code>, <code>nth(x, 2)</code>, <code>last(x)</code>.</li>
+<li>Counts: <code>n()</code>, <code>sum(!is.na(x))</code>, <code>n_distinct(x)</code>.</li>
+<li>Counts and proportions of logical values: <code>sum(x &gt; 10)</code>, <code>mean(y == 0)</code>.</li>
+</ul>
+</section><section id="summarize-exercises" class="slide level2">
+<h2><code>summarize()</code> exercises</h2>
+<ol type="1">
+<li>Use <code>summarize()</code> to find the carrier with the worst delays.</li>
+</ol>
+</section><section id="summarize-exercises-solutions" class="slide level2">
+<h2><code>summarize()</code> exercises solutions</h2>
+<p>Number of cancelled flights per day</p>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb99-1" data-line-number="1">flights <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb99-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(carrier) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb99-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">arr_delay =</span> <span class="kw">mean</span>(arr_delay, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb99-4" data-line-number="4"><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(arr_delay))</a></code></pre></div>
+</section><section id="tidy-data-with-tidyr" class="slide level2">
+<h2>Tidy data with <code>tidyR</code></h2>
+<p><img src="img/tidyr.png" width="500px" style="display: block; margin: auto;" /></p>
+</section><section id="tidy-data" class="slide level2">
+<h2>Tidy data</h2>
+<ul>
+<li><p>In tidy data:</p>
+<ul>
+<li>Each variable forms a column</li>
+<li>Each observation forms a row</li>
+<li>Each type of observational unit forms a table</li>
+</ul></li>
+</ul>
+<p><img src="img/tidy.png" width="350px" style="display: block; margin: auto;" /></p>
+<ul>
+<li>Any dataset that doesn’t satisfy these conditions is considered ‘messy’</li>
+</ul>
+</section><section id="gather-and-spread" class="slide level2">
+<h2><code>gather()</code> and <code>spread()</code></h2>
+<ul>
+<li>The two most important functions in <code>tidyr</code> are <code>gather()</code> and <code>spread()</code>.</li>
+<li><code>tidyr</code> builds on the idea of a key value pair. A key that explains what the information describes, and a value that contains the actual information (e.g. <em>Password: 0123456789</em>).</li>
+<li><code>gather()</code> makes wide tables narrower and longer; <code>spread()</code> makes long tables shorter and wider.</li>
+</ul>
+</section><section id="gather" class="slide level2">
+<h2><code>gather()</code></h2>
+<ul>
+<li><p>Problem: Column names are not names of a variable, but <em>values</em></p></li>
+<li><p>Goal: Gather the non-variable volumns into a two-column key-value pair</p></li>
+</ul>
+</section><section id="gather-1" class="slide level2">
+<h2><code>gather()</code></h2>
+<p>Three parameters:</p>
+<ol type="1">
+<li><p>Set of columns that represent values, not variables</p></li>
+<li><p>The name of the variable whose values form the column names <code>key</code>.</p></li>
+<li><p>The name of the variable whose values are spread over the cells <code>value</code>.</p></li>
+</ol>
+</section><section id="gather-2" class="slide level2">
+<h2><code>gather()</code></h2>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb100-1" data-line-number="1">iris <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb100-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">obs =</span> <span class="dv">1</span><span class="op">:</span><span class="kw">n</span>()) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb100-3" data-line-number="3"><span class="st">  </span><span class="kw">gather</span>(measurement, value, Sepal.Length<span class="op">:</span>Petal.Width) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb100-4" data-line-number="4"><span class="kw">head</span>()</a></code></pre></div>
+<pre><code>##   Species obs  measurement value
+## 1  setosa   1 Sepal.Length   5.1
+## 2  setosa   2 Sepal.Length   4.9
+## 3  setosa   3 Sepal.Length   4.7
+## 4  setosa   4 Sepal.Length   4.6
+## 5  setosa   5 Sepal.Length   5.0
+## 6  setosa   6 Sepal.Length   5.4</code></pre>
+</section><section id="spread" class="slide level2">
+<h2><code>spread()</code></h2>
+<ul>
+<li><p>Spreading is the opposite of gathering. You use it when an observation is scattered across multiple rows. <code>spread()</code> turns a pair of key:value columns into a set of tidy columns.</p></li>
+<li>We only need two parameters:
+<ul>
+<li>The column that contains variable names, the <code>key</code> column.</li>
+<li>The column that contains values forms multiple variables, the <code>value</code> column.</li>
+</ul></li>
+</ul>
+<p><img src="img/spread.png" width="250px" style="display: block; margin: auto;" /></p>
+</section><section id="spread-1" class="slide level2">
+<h2><code>spread()</code></h2>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb102-1" data-line-number="1">iris <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb102-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">obs =</span> <span class="dv">1</span><span class="op">:</span><span class="kw">n</span>()) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb102-3" data-line-number="3"><span class="st">  </span><span class="kw">gather</span>(measurement, value, Sepal.Length<span class="op">:</span>Petal.Width)  <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb102-4" data-line-number="4"><span class="st">  </span>tidyr<span class="op">::</span><span class="kw">spread</span>(<span class="dt">key =</span> measurement, <span class="dt">value =</span> value) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb102-5" data-line-number="5"><span class="st">  </span><span class="kw">head</span>()</a></code></pre></div>
+<pre><code>##   Species obs Petal.Length Petal.Width Sepal.Length Sepal.Width
+## 1  setosa   1          1.4         0.2          5.1         3.5
+## 2  setosa   2          1.4         0.2          4.9         3.0
+## 3  setosa   3          1.3         0.2          4.7         3.2
+## 4  setosa   4          1.5         0.2          4.6         3.1
+## 5  setosa   5          1.4         0.2          5.0         3.6
+## 6  setosa   6          1.7         0.4          5.4         3.9</code></pre>
+</section><section id="further-functions-separate" class="slide level2">
+<h2>Further functions: <code>separate()</code></h2>
+<p><code>separate()</code> pulls apart one column into multiple columns, by splitting wherever a separator character appears. <code>separate()</code> takes the name of the column to separate, and the names of the columns to separate into.</p>
+<p><img src="img/separate.png" width="500px" style="display: block; margin: auto;" /></p>
+</section><section id="further-functions-unite" class="slide level2">
+<h2>Further functions: <code>unite()</code></h2>
+<p><code>unite()</code> is the inverse of <code>separate()</code>: it combines multiple columns into a single column. You’ll need it much less frequently than <code>separate()</code>, but it’s still a useful tool to have in your back pocket.</p>
+</section><section id="exercise-15" class="slide level2">
+<h2>Exercise</h2>
+<p>Tidy the simple tibble below. Do you need to make it wider or longer? What are the variables?</p>
+<pre><code>## # A tibble: 2 x 3
+##   pregnant  male female
+##   &lt;chr&gt;    &lt;dbl&gt;  &lt;dbl&gt;
+## 1 yes         NA     10
+## 2 no          20     12</code></pre>
+</section><section id="break-2" class="slide level2">
+<h2>Break</h2>
+<p>Take a 10 minute break.</p>
+</section></section>
+<section><section id="session-4-visualizations" class="title-slide slide level1"><h1>Session 4: Visualizations</h1></section><section id="why-visualization-is-important" class="slide level2">
+<h2>Why Visualization is Important</h2>
+<blockquote>
+<p>“At their best, graphics are instruments for reasoning about quantitative information.” <a href="https://books.google.de/books/about/The_Visual_Display_of_Quantitative_Infor.html?id=BHazAAAAIAAJ&amp;redir_esc=y">Tufte (1983)</a></p>
+</blockquote>
+<blockquote>
+<p>“There is no statistical tool that is as powerful as a well-chosen graph.” <a href="https://books.google.de/books/about/Graphical_methods_for_data_analysis.html?id=I-tQAAAAMAAJ">Chambers et al. (1983)</a></p>
+</blockquote>
+<blockquote>
+<p>“Graphics should report the results of careful data analysis—rather than be an attempt to replace it.” <a href="https://www.jstor.org/stable/1390951?seq=1#page_scan_tab_contents">Tukey (1993)</a></p>
+</blockquote>
+</section><section id="goals" class="slide level2">
+<h2>Goals</h2>
+<ul>
+<li><p>Discovery goals:</p>
+<ul>
+<li>Giving an overview—a qualitative sense of what is in a dataset</li>
+<li>Conveying the sense of the scale and complexity of a dataset</li>
+</ul></li>
+<li><p>Communication goals:</p>
+<ul>
+<li>Communication to self and others: Displaying information from the dataset in a readily understandable way</li>
+<li>Telling a story</li>
+<li>Attracting attention and stimulating interest</li>
+</ul></li>
+</ul>
+</section><section id="interpreting-a-graph-depends-on-expectations" class="slide level2">
+<h2>Interpreting a graph depends on expectations</h2>
+<ul>
+<li>If readers have a lot of background knowledge, they will view the graphic differently don’t assume you already have the reader’s interest and involvement</li>
+<li>Making graphics attractive can help motivate readers to understand them</li>
+</ul>
+</section><section id="graphics-are-part-of-a-story" class="slide level2">
+<h2>Graphics are part of a story</h2>
+<ul>
+<li>A graphic does not live on its own</li>
+<li>There can be annotations, a legend, a title, a caption, accompanying text, an overall story, and a headline</li>
+</ul>
+</section><section id="seven-rules-for-better-figures-rougier-et-al.2014" class="slide level2">
+<h2>Seven Rules for Better Figures (<a href="http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003833">Rougier et al. 2014</a>)</h2>
+<ol type="1">
+<li><p>Know your audience</p>
+<ul>
+<li>Who is the figure for?</li>
+</ul></li>
+<li><p>Identify your message</p>
+<ul>
+<li>What is the role of the figure?</li>
+</ul></li>
+<li><p>Captions are not optional</p>
+<ul>
+<li>Always use captions, explaining how to read a figure</li>
+</ul></li>
+<li><p>Use color effectively</p>
+<ul>
+<li>Color can be your greatest ally or your worst enemy (<a href="https://books.google.de/books/about/The_Visual_Display_of_Quantitative_Infor.html?id=BHazAAAAIAAJ&amp;redir_esc=y">Tufte 1983</a>)</li>
+</ul></li>
+</ol>
+</section><section id="seven-rules-for-better-figures-rougier-et-al.2014-1" class="slide level2">
+<h2>Seven Rules for Better Figures (<a href="http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003833">Rougier et al. 2014</a>)</h2>
+<ol start="5" type="1">
+<li><p>Do not mislead the reader</p>
+<ul>
+<li>A scientific figure is tied to the data</li>
+</ul></li>
+<li><p>Avoid chartjunk</p>
+<ul>
+<li>Get rid of any unnecessary non-data-ink</li>
+</ul></li>
+<li><p>Get the right tool</p>
+<ul>
+<li>Use R!</li>
+</ul></li>
+</ol>
+</section><section id="ggplot2" class="slide level2">
+<h2>ggplot2</h2>
+<p>R has several systems for making graphs, but <code>ggplot2</code> is one of the most elegant and most versatile. <code>ggplot2</code> implements the grammar of graphics, a coherent system for describing and building graphs.</p>
+</section><section id="ggplot2-examples" class="slide level2">
+<h2>ggplot2 examples</h2>
+<p><img src="img/weather.png" width="500px" style="display: block; margin: auto;" /></p>
+<p><a href="http://rpubs.com/bradleyboehmke/weather_graphic">Source</a></p>
+</section><section id="ggplot2-examples-1" class="slide level2">
+<h2>ggplot2 examples</h2>
+<p><img src="img/vaccination.png" width="500px" style="display: block; margin: auto;" /></p>
+<p><a href="https://benjaminlmoore.wordpress.com/2015/04/09/recreating-the-vaccination-heatmaps-in-r/">Source</a></p>
+</section><section id="ggplot2-examples-2" class="slide level2">
+<h2>ggplot2 examples</h2>
+<p><img src="img/aircraft.png" width="500px" style="display: block; margin: auto;" /></p>
+<p><a href="https://www.quora.com/What-is-the-most-elegant-plot-you-have-made-using-ggplot2-in-R-Embed-the-code-if-possible">Source</a></p>
+</section><section id="ggplot2-examples-3" class="slide level2">
+<h2>ggplot2 examples</h2>
+<p><img src="img/map.png" width="500px" style="display: block; margin: auto;" /></p>
+<p><a href="https://github.com/hrbrmstr/ggcounty">Source</a></p>
+</section><section id="the-grammar-of-graphics" class="slide level2">
+<h2>The grammar of graphics</h2>
+<ul>
+<li>Each plot is made of layers. Layers include the coordinate system (x-y), points, labels, etc.</li>
+<li>Each layer has aesthetics (<code>aes</code>) including x &amp; y, size, shape, and color.</li>
+<li>The main layer types are called geometrics(<code>geom</code>) and include lines, points, etc.</li>
+</ul>
+</section><section id="the-grammar-of-graphics-1" class="slide level2">
+<h2>The grammar of graphics</h2>
+<p>A <code>ggplot</code> is build piece by piece</p>
+<p><img src="img/ggplot1.png" width="300px" style="display: block; margin: auto;" /></p>
+<p><a href="http://socviz.co/make-a-plot.html#make-a-plot">Source</a></p>
+</section><section id="the-grammar-of-graphics-2" class="slide level2">
+<h2>The grammar of graphics</h2>
+<p><img src="img/ggplot2.png" width="300px" style="display: block; margin: auto;" /></p>
+</section><section id="the-grammar-of-graphics-3" class="slide level2">
+<h2>The grammar of graphics</h2>
+<p><img src="img/ggplot3.png" width="300px" style="display: block; margin: auto;" /></p>
+</section><section id="ggplot-workflow" class="slide level2">
+<h2>ggplot workflow</h2>
+<ol type="1">
+<li><p>Tell the <code>ggplot()</code> function what your data are.</p></li>
+<li><p>Tell <code>ggplot</code> what relationships we want to see.</p></li>
+<li><p>Tell <code>ggplot</code> how you want to see the relationships in your data.</p></li>
+<li><p>Add additional layers to the p object one at a time.</p></li>
+<li><p>Use additional functions to adjust scales, labels, tick marks.</p></li>
+</ol>
+</section><section id="components-of-a-ggplot2-graph" class="slide level2">
+<h2>Components of a ggplot2 graph</h2>
+<ul>
+<li>data: Variables mapped to aesthetic attributes</li>
+<li>aesthetic: Visual property of the plot objects</li>
+<li>geom: Geometrical object used to represent data</li>
+<li>stats: Statistical transformations of the data</li>
+<li>scales: Values mapped to aesthetic attributes</li>
+<li>coord: Coordinate system</li>
+<li>facets: Subplots that each display one subset of the data</li>
+</ul>
+</section><section id="tidy-data-1" class="slide level2">
+<h2>Tidy data</h2>
+<p><code>ggplot</code> requires data to be tidy, with observations in rows and variables grouped in <em>key</em> | <em>value</em> columns.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Person</th>
+<th>treatmentA</th>
+<th>treatmentB</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>John Smith</td>
+<td></td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>Jane Doe</td>
+<td>16</td>
+<td>11</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th>Person</th>
+<th>treatment</th>
+<th>result</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>John Smith</td>
+<td>a</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Jane Doe</td>
+<td>a</td>
+<td>16</td>
+</tr>
+<tr class="odd">
+<td>John Smith</td>
+<td>b</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>Jane Doe</td>
+<td>b</td>
+<td>11</td>
+</tr>
+</tbody>
+</table>
+</section><section id="mapping" class="slide level2">
+<h2>Mapping</h2>
+<p>We start creating a plot by telling <code>ggplot</code> what our data are and by storing the function in an object called <code>p</code>. For example, let’s say we want to use the <code>gapminder</code> data to plot life expectancy against GDP per capita:</p>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb105-1" data-line-number="1">p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> gapminder, </a>
+<a class="sourceLine" id="cb105-2" data-line-number="2">            <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap,</a>
+<a class="sourceLine" id="cb105-3" data-line-number="3">                          <span class="dt">y =</span> lifeExp))</a></code></pre></div>
+<p>The <code>data</code> argument tells ggplot where to find the variables it is about to use. The <code>mapping = aes(...)</code> argument links variables to things you will see on the plot.</p>
+</section><section id="mapping-1" class="slide level2">
+<h2>Mapping</h2>
+<p>What happens if we just type <code>p</code> into the console at this point and hit return?</p>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb106-1" data-line-number="1">p</a></code></pre></div>
+<p><img src="slides_day_one_files/figure-revealjs/unnamed-chunk-103-1.png" width="480" /></p>
+</section><section id="choosing-a-geom" class="slide level2">
+<h2>Choosing a geom</h2>
+<p><code>p</code> already contains some information about out plot structure but we haven’t given it any instructions yet about what sort of plot to draw. We need to add a layer to the plot by using the <code>geom_</code> function:</p>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb107-1" data-line-number="1">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()</a></code></pre></div>
+<p><img src="slides_day_one_files/figure-revealjs/unnamed-chunk-104-1.png" width="480" /></p>
+</section><section id="choosing-a-geom-1" class="slide level2">
+<h2>Choosing a geom</h2>
+<p>Let’s try a different <code>geom_</code> and see what happens:</p>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb108-1" data-line-number="1">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_smooth</span>()</a></code></pre></div>
+<p><img src="slides_day_one_files/figure-revealjs/unnamed-chunk-105-1.png" width="480" /></p>
+</section><section id="choosing-a-geom-2" class="slide level2">
+<h2>Choosing a geom</h2>
+<p>The console tells you that <code>geom_smooth()</code> uses a method called <code>gam</code>, i.e. it fit a generalized additive model. Perhaps there are other methods that <code>geom_smooth()</code> understands. Let’s add <code>method = &quot;lm&quot;</code> as an argument to geom_smooth() and fit a linear model:</p>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb109-1" data-line-number="1">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>)</a></code></pre></div>
+<p><img src="slides_day_one_files/figure-revealjs/unnamed-chunk-106-1.png" width="480" /></p>
+</section><section id="choosing-a-geom-3" class="slide level2">
+<h2>Choosing a geom</h2>
+<p>If we want to see data points and a smoothed line together we simply add <code>geom_point()</code> to the plot:</p>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb110-1" data-line-number="1">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_smooth</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()</a></code></pre></div>
+<p><img src="slides_day_one_files/figure-revealjs/unnamed-chunk-107-1.png" width="480" /></p>
+</section><section id="adjusting-the-scales" class="slide level2">
+<h2>Adjusting the scales</h2>
+<p>GDP pc does not seem to be normally distributed. We can account for that and transform the x-axis from a linear to a log scale by adding the <code>scale_x_log10()</code> function.</p>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb111-1" data-line-number="1">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_smooth</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">scale_x_log10</span>()</a></code></pre></div>
+<p><img src="slides_day_one_files/figure-revealjs/unnamed-chunk-108-1.png" width="480" /></p>
+</section><section id="adjusting-the-scales-1" class="slide level2">
+<h2>Adjusting the scales</h2>
+<p>The scale transformation is applied to the data before the smoother is layered on to the plot. There are a number of other scale transformations that you can use such as <code>scale_x_sqrt()</code> and <code>scale_x_reverse</code> and corresponding functions for y-axis transformations.</p>
+<p>Take some time to experiment with them to see what effect they have on the plot. Also, what happens if you put the <code>geom_smooth()</code> function before <code>geom_point()</code> and what does that tell you about how plot layers are drawn?</p>
+</section><section id="labels-and-titles" class="slide level2">
+<h2>Labels and titles</h2>
+<p>Having created an interesting plot, we could now polish it up with nicer axis labels and titles. For example, let’s swap the scientific notation on the x-axis for something more meaningful such as US dollars. The labels on the tick-marks can be controlled through the <code>scale_</code> functions. You can supply your own functions are use the pre-made functions from the handy <code>scales</code> library.</p>
+</section><section id="labels-and-titles-1" class="slide level2">
+<h2>Labels and titles</h2>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb112-1" data-line-number="1">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_smooth</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb112-2" data-line-number="2"><span class="st">  </span><span class="kw">scale_x_log10</span>(<span class="dt">labels =</span> scales<span class="op">::</span>dollar)</a></code></pre></div>
+<p><img src="slides_day_one_files/figure-revealjs/unnamed-chunk-109-1.png" width="480" /></p>
+</section><section id="labels-and-titles-2" class="slide level2">
+<h2>Labels and titles</h2>
+<p>We can adjust the axis labels and add plot titles using the <code>labs()</code> function:</p>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb113-1" data-line-number="1">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb113-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_smooth</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb113-3" data-line-number="3"><span class="st">  </span><span class="kw">scale_x_log10</span>(<span class="dt">labels =</span> scales<span class="op">::</span>dollar) <span class="op">+</span></a>
+<a class="sourceLine" id="cb113-4" data-line-number="4"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;GDP Per Capita&quot;</span>,</a>
+<a class="sourceLine" id="cb113-5" data-line-number="5">       <span class="dt">y =</span> <span class="st">&quot;Life Expectancy in Years&quot;</span>,</a>
+<a class="sourceLine" id="cb113-6" data-line-number="6">       <span class="dt">title =</span> <span class="st">&quot;Economic Growth and Life Expectancy&quot;</span>,</a>
+<a class="sourceLine" id="cb113-7" data-line-number="7">       <span class="dt">subtitle =</span> <span class="st">&quot;Data points are country-years&quot;</span>,</a>
+<a class="sourceLine" id="cb113-8" data-line-number="8">       <span class="dt">caption =</span> <span class="st">&quot;Source: Gapminder.&quot;</span>)</a></code></pre></div>
+</section><section id="labels-and-titles-3" class="slide level2">
+<h2>Labels and titles</h2>
+<p><img src="slides_day_one_files/figure-revealjs/unnamed-chunk-111-1.png" width="768" /></p>
+</section><section id="aesthetics-mapping" class="slide level2">
+<h2>Aesthetics mapping</h2>
+<p>We can easily map variables in our dataset to aesthetics such size, color, shape, and so on. For example, to map color to <code>continent</code>:</p>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb114-1" data-line-number="1">p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> gapminder, </a>
+<a class="sourceLine" id="cb114-2" data-line-number="2">            <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap,</a>
+<a class="sourceLine" id="cb114-3" data-line-number="3">                          <span class="dt">y =</span> lifeExp,</a>
+<a class="sourceLine" id="cb114-4" data-line-number="4">                          <span class="dt">color =</span> continent))</a></code></pre></div>
+</section><section id="aesthetics-mapping-1" class="slide level2">
+<h2>Aesthetics mapping</h2>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb115-1" data-line-number="1">p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> gapminder, </a>
+<a class="sourceLine" id="cb115-2" data-line-number="2">            <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap,</a>
+<a class="sourceLine" id="cb115-3" data-line-number="3">                          <span class="dt">y =</span> lifeExp,</a>
+<a class="sourceLine" id="cb115-4" data-line-number="4">                          <span class="dt">color =</span> continent))</a>
+<a class="sourceLine" id="cb115-5" data-line-number="5">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">scale_x_log10</span>()</a></code></pre></div>
+<p><img src="slides_day_one_files/figure-revealjs/unnamed-chunk-113-1.png" width="480" /></p>
+</section><section id="aesthetics-mapping-2" class="slide level2">
+<h2>Aesthetics mapping</h2>
+<p>What’s gone wrong with this code?</p>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb116-1" data-line-number="1">p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> gapminder, </a>
+<a class="sourceLine" id="cb116-2" data-line-number="2">            <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap, <span class="dt">y =</span> lifeExp,</a>
+<a class="sourceLine" id="cb116-3" data-line-number="3">                          <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>))</a>
+<a class="sourceLine" id="cb116-4" data-line-number="4">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()</a></code></pre></div>
+<p><img src="slides_day_one_files/figure-revealjs/unnamed-chunk-114-1.png" width="480" /></p>
+</section><section id="aesthetic-mappings" class="slide level2">
+<h2>Aesthetic mappings</h2>
+<p><code>aes()</code> treated the word “blue” as though it were a variable, and since it could not find it in the dataset, it created it on the fly. By default, ggplot shows all the points in the category “blue” and colors them using its default first-category hue … which is red.</p>
+</section><section id="aesthetic-mappings-1" class="slide level2">
+<h2>Aesthetic mappings</h2>
+<p><code>aes()</code> is for mappings only and not to set properties to a particular value. If we want to set a property, we do it inside <code>geom_</code>:</p>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb117-1" data-line-number="1">p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> gapminder, </a>
+<a class="sourceLine" id="cb117-2" data-line-number="2">            <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap, <span class="dt">y =</span> lifeExp))</a>
+<a class="sourceLine" id="cb117-3" data-line-number="3">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>)</a></code></pre></div>
+<p><img src="slides_day_one_files/figure-revealjs/unnamed-chunk-115-1.png" width="480" /></p>
+</section><section id="aesthetic-mappings-2" class="slide level2">
+<h2>Aesthetic mappings</h2>
+<p><code>geom_</code> can take many other arguments that will affect how the plot looks. Some, such as color and size, have the same name as mappable arguments. Others are specific arguments only available for the <code>geom_</code> function. Let’s look at a few examples:</p>
+</section><section id="aesthetic-mappings-3" class="slide level2">
+<h2>Aesthetic mappings</h2>
+<p>Change the size</p>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb118-1" data-line-number="1">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="fl">0.8</span>)</a></code></pre></div>
+<p><img src="slides_day_one_files/figure-revealjs/unnamed-chunk-116-1.png" width="480" /></p>
+</section><section id="aesthetic-mappings-4" class="slide level2">
+<h2>Aesthetic mappings</h2>
+<p>Adjust transparency</p>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb119-1" data-line-number="1">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.3</span>)</a></code></pre></div>
+<p><img src="slides_day_one_files/figure-revealjs/unnamed-chunk-117-1.png" width="480" /></p>
+</section><section id="aesthetic-mappings-5" class="slide level2">
+<h2>Aesthetic mappings</h2>
+<p>Change the color of the smoother</p>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb120-1" data-line-number="1">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb120-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">color =</span> <span class="st">&quot;orange&quot;</span>)</a></code></pre></div>
+<p><img src="slides_day_one_files/figure-revealjs/unnamed-chunk-118-1.png" width="480" /></p>
+</section><section id="aesthetic-mappings-per-geom" class="slide level2">
+<h2>Aesthetic mappings per geom</h2>
+<p>Let’s again map our <code>continent</code> variable to the color aesthetic. This time we also add a smoother.</p>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb121-1" data-line-number="1">p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> gapminder,</a>
+<a class="sourceLine" id="cb121-2" data-line-number="2">            <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap,</a>
+<a class="sourceLine" id="cb121-3" data-line-number="3">                          <span class="dt">y =</span> lifeExp,</a>
+<a class="sourceLine" id="cb121-4" data-line-number="4">                          <span class="dt">color =</span> continent))</a>
+<a class="sourceLine" id="cb121-5" data-line-number="5">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb121-6" data-line-number="6"><span class="st">  </span><span class="kw">geom_smooth</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb121-7" data-line-number="7"><span class="st">  </span><span class="kw">scale_x_log10</span>()</a></code></pre></div>
+</section><section id="aesthetic-mappings-per-geom-1" class="slide level2">
+<h2>Aesthetic mappings per geom</h2>
+<p><img src="slides_day_one_files/figure-revealjs/unnamed-chunk-120-1.png" width="768" /></p>
+</section><section id="aesthetic-mappings-per-geom-2" class="slide level2">
+<h2>Aesthetic mappings per geom</h2>
+<p>Both points and smoother are colored by continent. We can use <code>fill</code> inside <code>aes()</code> to color the interior of the smoother’s standard error ribbon:</p>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb122-1" data-line-number="1">p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> gapminder,</a>
+<a class="sourceLine" id="cb122-2" data-line-number="2">            <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap,</a>
+<a class="sourceLine" id="cb122-3" data-line-number="3">                          <span class="dt">y =</span> lifeExp,</a>
+<a class="sourceLine" id="cb122-4" data-line-number="4">                          <span class="dt">color =</span> continent,</a>
+<a class="sourceLine" id="cb122-5" data-line-number="5">                          <span class="dt">fill =</span> continent))</a>
+<a class="sourceLine" id="cb122-6" data-line-number="6">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb122-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_smooth</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb122-8" data-line-number="8"><span class="st">  </span><span class="kw">scale_x_log10</span>()</a></code></pre></div>
+</section><section id="aesthetic-mappings-per-geom-3" class="slide level2">
+<h2>Aesthetic mappings per geom</h2>
+<p><img src="slides_day_one_files/figure-revealjs/unnamed-chunk-122-1.png" width="768" /></p>
+</section><section id="aesthetic-mappings-per-geom-4" class="slide level2">
+<h2>Aesthetic mappings per geom</h2>
+<p>Having 5 different smoothers makes the plot difficult to read. If we just want one line but keep the colored points we can map the aesthetics we want only the <code>geom_</code> functions that we want them to apply to:</p>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb123-1" data-line-number="1">p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> gapminder,</a>
+<a class="sourceLine" id="cb123-2" data-line-number="2">            <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap,</a>
+<a class="sourceLine" id="cb123-3" data-line-number="3">                          <span class="dt">y =</span> lifeExp))</a>
+<a class="sourceLine" id="cb123-4" data-line-number="4">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">color =</span> continent)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb123-5" data-line-number="5"><span class="st">  </span><span class="kw">geom_smooth</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb123-6" data-line-number="6"><span class="st">  </span><span class="kw">scale_x_log10</span>()</a></code></pre></div>
+</section><section id="aesthetic-mappings-per-geom-5" class="slide level2">
+<h2>Aesthetic mappings per geom</h2>
+<p><img src="slides_day_one_files/figure-revealjs/unnamed-chunk-124-1.png" width="768" /></p>
+</section><section id="aesthetic-mappings-per-geom-6" class="slide level2">
+<h2>Aesthetic mappings per geom</h2>
+<p>What happens when you map a continuous variable, such as population (<code>pop</code>), to color?</p>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb124-1" data-line-number="1">p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> gapminder,</a>
+<a class="sourceLine" id="cb124-2" data-line-number="2">            <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap,</a>
+<a class="sourceLine" id="cb124-3" data-line-number="3">                          <span class="dt">y =</span> lifeExp))</a>
+<a class="sourceLine" id="cb124-4" data-line-number="4">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">color =</span> pop)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb124-5" data-line-number="5"><span class="st">  </span><span class="kw">scale_x_log10</span>()</a></code></pre></div>
+</section><section id="aesthetic-mappings-per-geom-7" class="slide level2">
+<h2>Aesthetic mappings per geom</h2>
+<p><img src="slides_day_one_files/figure-revealjs/unnamed-chunk-126-1.png" width="768" /></p>
+</section><section id="group-facet-transform" class="slide level2">
+<h2>Group, facet, transform</h2>
+<p>There are a number of additional functions in <code>ggplot</code> that are frequently used to plot data. <code>group</code>, for examples, allows to learn more about the internal structure of your data (). Let’s say we wanted to plot the trajectory of economic development over time for each country. How would we do that?</p>
+</section><section id="group" class="slide level2">
+<h2>Group</h2>
+<p>What’s gone wrong here?</p>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb125-1" data-line-number="1">p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> gapminder,</a>
+<a class="sourceLine" id="cb125-2" data-line-number="2">            <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> year,</a>
+<a class="sourceLine" id="cb125-3" data-line-number="3">                          <span class="dt">y =</span> gdpPercap))</a>
+<a class="sourceLine" id="cb125-4" data-line-number="4">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>()</a></code></pre></div>
+<p><img src="slides_day_one_files/figure-revealjs/unnamed-chunk-127-1.png" width="480" /></p>
+</section><section id="group-1" class="slide level2">
+<h2>Group</h2>
+<p><code>ggplot</code> does not know that the yearly observations in the data are grouped by country. We have to tell it:</p>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb126-1" data-line-number="1">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">group =</span> country))</a></code></pre></div>
+<p><img src="slides_day_one_files/figure-revealjs/unnamed-chunk-128-1.png" width="480" /></p>
+</section><section id="facet" class="slide level2">
+<h2>Facet</h2>
+<p>The plot we just made looks a little messy. To make the trend clearly we could <em>facet</em> the data by a third variable and plot the results in separate panels. We use <code>facet_wrap()</code> to split our plot by <code>continent</code>:</p>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb127-1" data-line-number="1">p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> gapminder,</a>
+<a class="sourceLine" id="cb127-2" data-line-number="2">            <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> year,</a>
+<a class="sourceLine" id="cb127-3" data-line-number="3">                          <span class="dt">y =</span> gdpPercap))</a>
+<a class="sourceLine" id="cb127-4" data-line-number="4">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">group =</span> country)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb127-5" data-line-number="5"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>continent)</a></code></pre></div>
+</section><section id="facet-1" class="slide level2">
+<h2>Facet</h2>
+<p><img src="slides_day_one_files/figure-revealjs/unnamed-chunk-130-1.png" width="768" /></p>
+</section><section id="facet-2" class="slide level2">
+<h2>Facet</h2>
+<p>We can also use the <code>ncol</code> argument to <code>facet_wrap()</code> to control the number of columns. We can add a smoother and a few cosmetic enhancements that make the graph a little more effective. Any geom that we include will be layered within each facet:</p>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb128-1" data-line-number="1">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">color=</span><span class="st">&quot;gray70&quot;</span>, <span class="kw">aes</span>(<span class="dt">group =</span> country)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb128-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">size =</span> <span class="fl">1.1</span>, <span class="dt">method =</span> <span class="st">&quot;loess&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb128-3" data-line-number="3"><span class="st">    </span><span class="kw">scale_y_log10</span>(<span class="dt">labels=</span>scales<span class="op">::</span>dollar) <span class="op">+</span></a>
+<a class="sourceLine" id="cb128-4" data-line-number="4"><span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>continent, <span class="dt">ncol =</span> <span class="dv">3</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb128-5" data-line-number="5"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Year&quot;</span>,</a>
+<a class="sourceLine" id="cb128-6" data-line-number="6">         <span class="dt">y =</span> <span class="st">&quot;GDP per capita&quot;</span>,</a>
+<a class="sourceLine" id="cb128-7" data-line-number="7">         <span class="dt">title =</span> <span class="st">&quot;GDP per capita on Five Continents&quot;</span>)</a></code></pre></div>
+</section><section id="facet-3" class="slide level2">
+<h2>Facet</h2>
+<p><img src="slides_day_one_files/figure-revealjs/unnamed-chunk-132-1.png" width="768" /></p>
+</section><section id="facet-4" class="slide level2">
+<h2>Facet</h2>
+<p><code>facet_wrap()</code> is best used when you want a series of small multiples based on a single categorical variable. If you want to cross-classify some data by two categorical variables you should try <code>facet_grid()</code> instead.</p>
+</section><section id="plotting-distributions-distributions-of-categorical-data" class="slide level2">
+<h2>Plotting Distributions: Distributions of categorical data</h2>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb129-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data=</span>diamonds) <span class="op">+</span></a>
+<a class="sourceLine" id="cb129-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> cut))</a></code></pre></div>
+<p><img src="slides_day_one_files/figure-revealjs/unnamed-chunk-133-1.png" width="480" /></p>
+</section><section id="plotting-distributions-distributions-of-continuous-data" class="slide level2">
+<h2>Plotting Distributions: Distributions of continuous data</h2>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb130-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data=</span>diamonds) <span class="op">+</span></a>
+<a class="sourceLine" id="cb130-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> carat), </a>
+<a class="sourceLine" id="cb130-3" data-line-number="3">                 <span class="dt">binwidth =</span> <span class="fl">0.5</span>)</a></code></pre></div>
+<p><img src="slides_day_one_files/figure-revealjs/unnamed-chunk-134-1.png" width="480" /></p>
+</section><section id="plotting-distributions-boxplot" class="slide level2">
+<h2>Plotting Distributions: Boxplot</h2>
+<p>We can use <code>geom_boxplot()</code> to plot covariation between continuous and catagorical variables</p>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb131-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> mpg, <span class="kw">aes</span>(<span class="dt">x =</span> class, <span class="dt">y =</span> hwy, <span class="dt">fill =</span> class)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb131-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span><span class="kw">reorder</span>(class, hwy,<span class="dt">FUN =</span> median), </a>
+<a class="sourceLine" id="cb131-3" data-line-number="3">                   <span class="dt">y =</span> hwy)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb131-4" data-line-number="4"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>)</a></code></pre></div>
+<p><img src="slides_day_one_files/figure-revealjs/unnamed-chunk-135-1.png" width="480" /></p>
+</section><section id="plotting-distributions-tile-plot" class="slide level2">
+<h2>Plotting Distributions: Tile Plot</h2>
+<p>We can use <code>geom_tile</code> to plot the covariation between two categorical variables</p>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb132-1" data-line-number="1">diamonds <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb132-2" data-line-number="2"><span class="st">  </span><span class="kw">count</span>(color, cut) <span class="op">%&gt;%</span><span class="st">  </span></a>
+<a class="sourceLine" id="cb132-3" data-line-number="3"><span class="st">  </span><span class="kw">ggplot</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> color, <span class="dt">y =</span> cut)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb132-4" data-line-number="4"><span class="st">    </span><span class="kw">geom_tile</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">fill =</span> n))</a></code></pre></div>
+<p><img src="slides_day_one_files/figure-revealjs/unnamed-chunk-136-1.png" width="480" /></p>
+</section><section id="plotting-distributions-scatter-plots" class="slide level2">
+<h2>Plotting Distributions: Scatter Plots</h2>
+<p>The easiest way to visualize the covariation between two continuous variables is to draw a scatterplot with <code>geom_point()</code>.</p>
+<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb133-1" data-line-number="1">p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data=</span>gapminder, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap, </a>
+<a class="sourceLine" id="cb133-2" data-line-number="2">                                          <span class="dt">y =</span> lifeExp)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb133-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb133-4" data-line-number="4"><span class="st">  </span><span class="kw">scale_x_log10</span>(<span class="dt">labels =</span> scales<span class="op">::</span>dollar) <span class="op">+</span></a>
+<a class="sourceLine" id="cb133-5" data-line-number="5"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;GDP Per Capita&quot;</span>,</a>
+<a class="sourceLine" id="cb133-6" data-line-number="6">       <span class="dt">y =</span> <span class="st">&quot;Life Expectancy in Years&quot;</span>,</a>
+<a class="sourceLine" id="cb133-7" data-line-number="7">       <span class="dt">title =</span> <span class="st">&quot;Economic Growth and Life Expectancy&quot;</span>,</a>
+<a class="sourceLine" id="cb133-8" data-line-number="8">       <span class="dt">subtitle =</span> <span class="st">&quot;Data points are country-years&quot;</span>,</a>
+<a class="sourceLine" id="cb133-9" data-line-number="9">       <span class="dt">caption =</span> <span class="st">&quot;Source: Gapminder.&quot;</span>)</a></code></pre></div>
+</section><section id="plotting-distributions-scatter-plots-1" class="slide level2">
+<h2>Plotting Distributions: Scatter Plots</h2>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb134-1" data-line-number="1">p</a></code></pre></div>
+<p><img src="slides_day_one_files/figure-revealjs/unnamed-chunk-138-1.png" width="480" /></p>
+</section><section id="saving-and-exporting-ggplot-objects" class="slide level2">
+<h2>Saving and exporting ggplot objects</h2>
+<p><code>ggsave()</code> is a convenient function for saving the last plot that you displayed. It also guesses the type of graphics device from the extension. This means the only argument you need to supply is the filename.</p>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb135-1" data-line-number="1"><span class="kw">ggsave</span>(<span class="st">&quot;myplot.pdf&quot;</span>) <span class="co"># save as pdf</span></a>
+<a class="sourceLine" id="cb135-2" data-line-number="2"><span class="kw">ggsave</span>(<span class="st">&quot;myplot.png&quot;</span>, <span class="dt">width =</span> <span class="dv">4</span>, <span class="dt">height =</span> <span class="dv">4</span>) <span class="co"># save as png</span></a></code></pre></div>
+</section><section id="more-theme-packages" class="slide level2">
+<h2>More theme packages</h2>
+<ul>
+<li><a href="https://rpkgs.datanovia.com/ggpubr/">ggpubr</a> for publication-ready plots</li>
+<li><a href="https://jrnold.github.io/ggthemes/reference/index.html">ggthemes</a> for additional themes and scales, especially ones that match other software (Tableau)</li>
+<li><a href="https://github.com/hrbrmstr/hrbrthemes">hrbrthemes</a> my personal favorite theme package</li>
+</ul>
+</section><section id="ggplot2-resources" class="slide level2">
+<h2>ggplot2 resources</h2>
+<ul>
+<li><a href="https://ggplot2.tidyverse.org/">General ggplot2 information</a></li>
+<li><a href="http://www.cookbook-r.com/Graphs/index.html">R Graphics Cookbook</a></li>
+<li><a href="https://socviz.co/">Data Visualization: A Practical Introduction</a></li>
+<li><a href="https://ggplot2-book.org/">ggplot2: Elegant Graphs for Data Analysis</a></li>
+<li><a href="https://rstudio.cloud/learn/primers/3">RStudio visual data primer</a></li>
+</ul>
+</section><section id="visualization-exercise" class="slide level2">
+<h2>Visualization Exercise</h2>
+<ol type="1">
+<li>Read in the Game of Thrones data from <code>gog.xlsx</code> and inspect it</li>
+<li>Create a scatterplot with the moral score on the x-axis and the physical score on the y-axis.</li>
+<li>Set the alpha (transparency) of all points to .75</li>
+<li>Add labels to the points</li>
+<li>Fix label overlap</li>
+<li>Color the points by gender</li>
+<li>Turn off legend for text layer</li>
+<li>Bonus: Split the chart up into separate charts for each family(loyalty group)</li>
+</ol>
+</section><section id="finished" class="slide level2">
+<h2>Finished</h2>
+<p>That’s it for today. Questions?</p>
+</section></section>
+    </div>
+  </div>
+
+  <script src="slides_day_one_files/reveal.js-3.3.0.1/lib/js/head.min.js"></script>
+  <script src="slides_day_one_files/reveal.js-3.3.0.1/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Display the page number of the current slide
+        slideNumber: true,
+        // Push each slide change to the browser history
+        history: true,
+        // Vertical centering of slides
+        center: false,
+        // Opens links in an iframe preview overlay
+        previewLinks: true,
+        // Transition style
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        // Transition style for full page slide backgrounds
+        backgroundTransition: 'default', // none/fade/slide/convex/concave/zoom
+
+
+
+        chalkboard: {
+        },
+
+        keyboard: {
+          67: function() { RevealChalkboard.toggleNotesCanvas() },    // toggle notes canvas when 'c' is pressed
+          66: function() { RevealChalkboard.toggleChalkboard() }, // toggle chalkboard when 'b' is pressed
+          46: function() { RevealChalkboard.clear() },    // clear chalkboard when 'DEL' is pressed
+           8: function() { RevealChalkboard.reset() },    // reset chalkboard data on current slide when 'BACKSPACE' is pressed
+          68: function() { RevealChalkboard.download() }, // downlad recorded chalkboard drawing when 'd' is pressed
+        },
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'slides_day_one_files/reveal.js-3.3.0.1/plugin/notes/notes.js', async: true },
+          { src: 'slides_day_one_files/reveal.js-3.3.0.1/plugin/zoom-js/zoom.js', async: true },
+          { src: 'slides_day_one_files/reveal.js-3.3.0.1/plugin/chalkboard/chalkboard.js', async: true },
+        ]
+      });
+    </script>
+  <!-- dynamically load mathjax for compatibility with self-contained -->
+  <script>
+    (function () {
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+      document.getElementsByTagName("head")[0].appendChild(script);
+    })();
+  </script>
+
+<script>
+  (function() {
+    if (window.jQuery) {
+      Reveal.addEventListener( 'slidechanged', function(event) {  
+        window.jQuery(event.previousSlide).trigger('hidden');
+        window.jQuery(event.currentSlide).trigger('shown');
+      });
+    }
+  })();
+</script>
+
+
+  </body>
+</html>
