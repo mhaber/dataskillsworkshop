@@ -1,0 +1,1438 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Matthias Haber" />
+  <title>Data Skills Workshop</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="slides_day_two_files/reveal.js-3.3.0.1/css/reveal.css"/>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="slides_day_two_files/reveal.js-3.3.0.1/css/theme/simple.css" id="theme">
+
+
+  <!-- some tweaks to reveal css -->
+  <style type="text/css">
+    .reveal h1 { font-size: 2.0em; }
+    .reveal h2 { font-size: 1.5em;  }
+    .reveal h3 { font-size: 1.25em;	}
+    .reveal h4 { font-size: 1em;	}
+
+    .reveal .slides>section,
+    .reveal .slides>section>section {
+      padding: 0px 0px;
+    }
+
+
+
+    .reveal table {
+      border-width: 1px;
+      border-spacing: 2px;
+      border-style: dotted;
+      border-color: gray;
+      border-collapse: collapse;
+      font-size: 0.7em;
+    }
+
+    .reveal table th {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      font-weight: bold;
+      border-style: dotted;
+      border-color: gray;
+    }
+
+    .reveal table td {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      border-style: dotted;
+      border-color: gray;
+    }
+
+
+  </style>
+
+    <style type="text/css">code{white-space: pre;}</style>
+
+
+<!-- Printing and PDF exports -->
+<script id="paper-css" type="application/dynamic-css">
+
+/* Default Print Stylesheet Template
+   by Rob Glazebrook of CSSnewbie.com
+   Last Updated: June 4, 2008
+
+   Feel free (nay, compelled) to edit, append, and
+   manipulate this file as you see fit. */
+
+
+@media print {
+
+	/* SECTION 1: Set default width, margin, float, and
+	   background. This prevents elements from extending
+	   beyond the edge of the printed page, and prevents
+	   unnecessary background images from printing */
+	html {
+		background: #fff;
+		width: auto;
+		height: auto;
+		overflow: visible;
+	}
+	body {
+		background: #fff;
+		font-size: 20pt;
+		width: auto;
+		height: auto;
+		border: 0;
+		margin: 0 5%;
+		padding: 0;
+		overflow: visible;
+		float: none !important;
+	}
+
+	/* SECTION 2: Remove any elements not needed in print.
+	   This would include navigation, ads, sidebars, etc. */
+	.nestedarrow,
+	.controls,
+	.fork-reveal,
+	.share-reveal,
+	.state-background,
+	.reveal .progress,
+	.reveal .backgrounds {
+		display: none !important;
+	}
+
+	/* SECTION 3: Set body font face, size, and color.
+	   Consider using a serif font for readability. */
+	body, p, td, li, div {
+		font-size: 20pt!important;
+		font-family: Georgia, "Times New Roman", Times, serif !important;
+		color: #000;
+	}
+
+	/* SECTION 4: Set heading font face, sizes, and color.
+	   Differentiate your headings from your body text.
+	   Perhaps use a large sans-serif for distinction. */
+	h1,h2,h3,h4,h5,h6 {
+		color: #000!important;
+		height: auto;
+		line-height: normal;
+		font-family: Georgia, "Times New Roman", Times, serif !important;
+		text-shadow: 0 0 0 #000 !important;
+		text-align: left;
+		letter-spacing: normal;
+	}
+	/* Need to reduce the size of the fonts for printing */
+	h1 { font-size: 28pt !important;  }
+	h2 { font-size: 24pt !important; }
+	h3 { font-size: 22pt !important; }
+	h4 { font-size: 22pt !important; font-variant: small-caps; }
+	h5 { font-size: 21pt !important; }
+	h6 { font-size: 20pt !important; font-style: italic; }
+
+	/* SECTION 5: Make hyperlinks more usable.
+	   Ensure links are underlined, and consider appending
+	   the URL to the end of the link for usability. */
+	a:link,
+	a:visited {
+		color: #000 !important;
+		font-weight: bold;
+		text-decoration: underline;
+	}
+	/*
+	.reveal a:link:after,
+	.reveal a:visited:after {
+		content: " (" attr(href) ") ";
+		color: #222 !important;
+		font-size: 90%;
+	}
+	*/
+
+
+	/* SECTION 6: more reveal.js specific additions by @skypanther */
+	ul, ol, div, p {
+		visibility: visible;
+		position: static;
+		width: auto;
+		height: auto;
+		display: block;
+		overflow: visible;
+		margin: 0;
+		text-align: left !important;
+	}
+	.reveal pre,
+	.reveal table {
+		margin-left: 0;
+		margin-right: 0;
+	}
+	.reveal pre code {
+		padding: 20px;
+		border: 1px solid #ddd;
+	}
+	.reveal blockquote {
+		margin: 20px 0;
+	}
+	.reveal .slides {
+		position: static !important;
+		width: auto !important;
+		height: auto !important;
+
+		left: 0 !important;
+		top: 0 !important;
+		margin-left: 0 !important;
+		margin-top: 0 !important;
+		padding: 0 !important;
+		zoom: 1 !important;
+
+		overflow: visible !important;
+		display: block !important;
+
+		text-align: left !important;
+		-webkit-perspective: none;
+		   -moz-perspective: none;
+		    -ms-perspective: none;
+		        perspective: none;
+
+		-webkit-perspective-origin: 50% 50%;
+		   -moz-perspective-origin: 50% 50%;
+		    -ms-perspective-origin: 50% 50%;
+		        perspective-origin: 50% 50%;
+	}
+	.reveal .slides section {
+		visibility: visible !important;
+		position: static !important;
+		width: auto !important;
+		height: auto !important;
+		display: block !important;
+		overflow: visible !important;
+
+		left: 0 !important;
+		top: 0 !important;
+		margin-left: 0 !important;
+		margin-top: 0 !important;
+		padding: 60px 20px !important;
+		z-index: auto !important;
+
+		opacity: 1 !important;
+
+		page-break-after: always !important;
+
+		-webkit-transform-style: flat !important;
+		   -moz-transform-style: flat !important;
+		    -ms-transform-style: flat !important;
+		        transform-style: flat !important;
+
+		-webkit-transform: none !important;
+		   -moz-transform: none !important;
+		    -ms-transform: none !important;
+		        transform: none !important;
+
+		-webkit-transition: none !important;
+		   -moz-transition: none !important;
+		    -ms-transition: none !important;
+		        transition: none !important;
+	}
+	.reveal .slides section.stack {
+		padding: 0 !important;
+	}
+	.reveal section:last-of-type {
+		page-break-after: avoid !important;
+	}
+	.reveal section .fragment {
+		opacity: 1 !important;
+		visibility: visible !important;
+
+		-webkit-transform: none !important;
+		   -moz-transform: none !important;
+		    -ms-transform: none !important;
+		        transform: none !important;
+	}
+	.reveal section img {
+		display: block;
+		margin: 15px 0px;
+		background: rgba(255,255,255,1);
+		border: 1px solid #666;
+		box-shadow: none;
+	}
+
+	.reveal section small {
+		font-size: 0.8em;
+	}
+
+}  
+</script>
+
+
+<script id="pdf-css" type="application/dynamic-css">
+    
+/**
+ * This stylesheet is used to print reveal.js
+ * presentations to PDF.
+ *
+ * https://github.com/hakimel/reveal.js#pdf-export
+ */
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+
+body {
+	margin: 0 auto !important;
+	border: 0;
+	padding: 0;
+	float: none !important;
+	overflow: visible;
+}
+
+html {
+	width: 100%;
+	height: 100%;
+	overflow: visible;
+}
+
+/* Remove any elements not needed in print. */
+.nestedarrow,
+.reveal .controls,
+.reveal .progress,
+.reveal .playback,
+.reveal.overview,
+.fork-reveal,
+.share-reveal,
+.state-background {
+	display: none !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	text-shadow: 0 0 0 #000 !important;
+}
+
+.reveal pre code {
+	overflow: hidden !important;
+	font-family: Courier, 'Courier New', monospace !important;
+}
+
+ul, ol, div, p {
+	visibility: visible;
+	position: static;
+	width: auto;
+	height: auto;
+	display: block;
+	overflow: visible;
+	margin: auto;
+}
+.reveal {
+	width: auto !important;
+	height: auto !important;
+	overflow: hidden !important;
+}
+.reveal .slides {
+	position: static;
+	width: 100%;
+	height: auto;
+
+	left: auto;
+	top: auto;
+	margin: 0 !important;
+	padding: 0 !important;
+
+	overflow: visible;
+	display: block;
+
+	-webkit-perspective: none;
+	   -moz-perspective: none;
+	    -ms-perspective: none;
+	        perspective: none;
+
+	-webkit-perspective-origin: 50% 50%; /* there isn't a none/auto value but 50-50 is the default */
+	   -moz-perspective-origin: 50% 50%;
+	    -ms-perspective-origin: 50% 50%;
+	        perspective-origin: 50% 50%;
+}
+
+.reveal .slides section {
+	page-break-after: always !important;
+
+	visibility: visible !important;
+	position: relative !important;
+	display: block !important;
+	position: relative !important;
+
+	margin: 0 !important;
+	padding: 0 !important;
+	box-sizing: border-box !important;
+	min-height: 1px;
+
+	opacity: 1 !important;
+
+	-webkit-transform-style: flat !important;
+	   -moz-transform-style: flat !important;
+	    -ms-transform-style: flat !important;
+	        transform-style: flat !important;
+
+	-webkit-transform: none !important;
+	   -moz-transform: none !important;
+	    -ms-transform: none !important;
+	        transform: none !important;
+}
+
+.reveal section.stack {
+	margin: 0 !important;
+	padding: 0 !important;
+	page-break-after: avoid !important;
+	height: auto !important;
+	min-height: auto !important;
+}
+
+.reveal img {
+	box-shadow: none;
+}
+
+.reveal .roll {
+	overflow: visible;
+	line-height: 1em;
+}
+
+/* Slide backgrounds are placed inside of their slide when exporting to PDF */
+.reveal section .slide-background {
+	display: block !important;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: -1;
+}
+
+/* All elements should be above the slide-background */
+.reveal section>* {
+	position: relative;
+	z-index: 1;
+}
+
+/* Display slide speaker notes when 'showNotes' is enabled */
+.reveal .speaker-notes-pdf {
+	display: block;
+	width: 100%;
+	max-height: none;
+	left: auto;
+	top: auto;
+	z-index: 100;
+}
+
+/* Display slide numbers when 'slideNumber' is enabled */
+.reveal .slide-number-pdf {
+	display: block;
+	position: absolute;
+	font-size: 14px;
+}
+
+</script>
+
+
+<script>
+var style = document.createElement( 'style' );
+style.type = 'text/css';
+var style_script_id = window.location.search.match( /print-pdf/gi ) ? 'pdf-css' : 'paper-css';
+var style_script = document.getElementById(style_script_id).text;
+style.innerHTML = style_script;
+document.getElementsByTagName('head')[0].appendChild(style);
+</script>
+
+    <link href="slides_day_two_files/font-awesome-5.0.13/css/fa-svg-with-js.css" rel="stylesheet" />
+    <script src="slides_day_two_files/font-awesome-5.0.13/js/fontawesome-all.min.js"></script>
+    <script src="slides_day_two_files/font-awesome-5.0.13/js/fa-v4-shims.min.js"></script>
+    <script src="slides_day_two_files/htmlwidgets-1.5.1.9000/htmlwidgets.js"></script>
+    <script src="slides_day_two_files/jquery-1.11.3/jquery.min.js"></script>
+    <link href="slides_day_two_files/dygraphs-1.1.1/dygraph.css" rel="stylesheet" />
+    <script src="slides_day_two_files/dygraphs-1.1.1/dygraph-combined.js"></script>
+    <script src="slides_day_two_files/dygraphs-1.1.1/shapes.js"></script>
+    <script src="slides_day_two_files/moment-2.8.4/moment.js"></script>
+    <script src="slides_day_two_files/moment-timezone-0.2.5/moment-timezone-with-data.js"></script>
+    <script src="slides_day_two_files/moment-fquarter-1.0.0/moment-fquarter.min.js"></script>
+    <script src="slides_day_two_files/dygraphs-binding-1.1.1.6/dygraphs.js"></script>
+    <script src="slides_day_two_files/plotly-binding-4.8.0/plotly.js"></script>
+    <script src="slides_day_two_files/typedarray-0.1/typedarray.min.js"></script>
+    <link href="slides_day_two_files/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+    <script src="slides_day_two_files/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+    <link href="slides_day_two_files/plotly-htmlwidgets-css-1.39.2/plotly-htmlwidgets.css" rel="stylesheet" />
+    <script src="slides_day_two_files/plotly-main-1.39.2/plotly-latest.min.js"></script>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+    <h1 class="title">Data Skills Workshop</h1>
+    <h2 class="author">Matthias Haber</h2>
+    <h3 class="date">3-4 February 2020</h3>
+</section>
+
+<section><section id="workshop-day-2" class="title-slide slide level1"><h1>Workshop Day 2</h1></section><section id="structure" class="slide level2">
+<h2>Structure</h2>
+<ul>
+<li>Day 2
+<ul>
+<li>Session 1: Visualization</li>
+<li>Session 2: Collecting our own dataset</li>
+<li>Session 3: Building our own dashboard</li>
+<li>Session 4: Moving deeper and further</li>
+</ul></li>
+</ul>
+</section></section>
+<section><section id="session-1-visualizations" class="title-slide slide level1"><h1>Session 1: Visualizations</h1></section><section id="why-visualization-is-important" class="slide level2">
+<h2>Why Visualization is Important</h2>
+<blockquote>
+<p>“At their best, graphics are instruments for reasoning about quantitative information.” <a href="https://books.google.de/books/about/The_Visual_Display_of_Quantitative_Infor.html?id=BHazAAAAIAAJ&amp;redir_esc=y">Tufte (1983)</a></p>
+</blockquote>
+<blockquote>
+<p>“There is no statistical tool that is as powerful as a well-chosen graph.” <a href="https://books.google.de/books/about/Graphical_methods_for_data_analysis.html?id=I-tQAAAAMAAJ">Chambers et al. (1983)</a></p>
+</blockquote>
+<blockquote>
+<p>“Graphics should report the results of careful data analysis—rather than be an attempt to replace it.” <a href="https://www.jstor.org/stable/1390951?seq=1#page_scan_tab_contents">Tukey (1993)</a></p>
+</blockquote>
+</section><section id="goals" class="slide level2">
+<h2>Goals</h2>
+<ul>
+<li><p>Discovery goals:</p>
+<ul>
+<li>Giving an overview—a qualitative sense of what is in a dataset</li>
+<li>Conveying the sense of the scale and complexity of a dataset</li>
+</ul></li>
+<li><p>Communication goals:</p>
+<ul>
+<li>Communication to self and others: Displaying information from the dataset in a readily understandable way</li>
+<li>Telling a story</li>
+<li>Attracting attention and stimulating interest</li>
+</ul></li>
+</ul>
+</section><section id="interpreting-a-graph-depends-on-expectations" class="slide level2">
+<h2>Interpreting a graph depends on expectations</h2>
+<ul>
+<li>If readers have a lot of background knowledge, they will view the graphic differently don’t assume you already have the reader’s interest and involvement</li>
+<li>Making graphics attractive can help motivate readers to understand them</li>
+</ul>
+</section><section id="graphics-are-part-of-a-story" class="slide level2">
+<h2>Graphics are part of a story</h2>
+<ul>
+<li>A graphic does not live on its own</li>
+<li>There can be annotations, a legend, a title, a caption, accompanying text, an overall story, and a headline</li>
+</ul>
+</section><section id="seven-rules-for-better-figures-rougier-et-al.2014" class="slide level2">
+<h2>Seven Rules for Better Figures (<a href="http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003833">Rougier et al. 2014</a>)</h2>
+<ol type="1">
+<li><p>Know your audience</p>
+<ul>
+<li>Who is the figure for?</li>
+</ul></li>
+<li><p>Identify your message</p>
+<ul>
+<li>What is the role of the figure?</li>
+</ul></li>
+<li><p>Captions are not optional</p>
+<ul>
+<li>Always use captions, explaining how to read a figure</li>
+</ul></li>
+<li><p>Use color effectively</p>
+<ul>
+<li>Color can be your greatest ally or your worst enemy (<a href="https://books.google.de/books/about/The_Visual_Display_of_Quantitative_Infor.html?id=BHazAAAAIAAJ&amp;redir_esc=y">Tufte 1983</a>)</li>
+</ul></li>
+</ol>
+</section><section id="seven-rules-for-better-figures-rougier-et-al.2014-1" class="slide level2">
+<h2>Seven Rules for Better Figures (<a href="http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003833">Rougier et al. 2014</a>)</h2>
+<ol start="5" type="1">
+<li><p>Do not mislead the reader</p>
+<ul>
+<li>A scientific figure is tied to the data</li>
+</ul></li>
+<li><p>Avoid chartjunk</p>
+<ul>
+<li>Get rid of any unnecessary non-data-ink</li>
+</ul></li>
+<li><p>Get the right tool</p>
+<ul>
+<li>Use R!</li>
+</ul></li>
+</ol>
+</section><section id="ggplot2" class="slide level2">
+<h2>ggplot2</h2>
+<p>R has several systems for making graphs, but <code>ggplot2</code> is one of the most elegant and most versatile. <code>ggplot2</code> implements the grammar of graphics, a coherent system for describing and building graphs.</p>
+</section><section id="ggplot2-examples" class="slide level2">
+<h2>ggplot2 examples</h2>
+<p><img src="img/weather.png" width="500px" style="display: block; margin: auto;" /></p>
+<p><a href="http://rpubs.com/bradleyboehmke/weather_graphic">Source</a></p>
+</section><section id="ggplot2-examples-1" class="slide level2">
+<h2>ggplot2 examples</h2>
+<p><img src="img/vaccination.png" width="500px" style="display: block; margin: auto;" /></p>
+<p><a href="https://benjaminlmoore.wordpress.com/2015/04/09/recreating-the-vaccination-heatmaps-in-r/">Source</a></p>
+</section><section id="ggplot2-examples-2" class="slide level2">
+<h2>ggplot2 examples</h2>
+<p><img src="img/aircraft.png" width="500px" style="display: block; margin: auto;" /></p>
+<p><a href="https://www.quora.com/What-is-the-most-elegant-plot-you-have-made-using-ggplot2-in-R-Embed-the-code-if-possible">Source</a></p>
+</section><section id="ggplot2-examples-3" class="slide level2">
+<h2>ggplot2 examples</h2>
+<p><img src="img/map.png" width="500px" style="display: block; margin: auto;" /></p>
+<p><a href="https://github.com/hrbrmstr/ggcounty">Source</a></p>
+</section><section id="the-grammar-of-graphics" class="slide level2">
+<h2>The grammar of graphics</h2>
+<ul>
+<li>Each plot is made of layers. Layers include the coordinate system (x-y), points, labels, etc.</li>
+<li>Each layer has aesthetics (<code>aes</code>) including x &amp; y, size, shape, and color.</li>
+<li>The main layer types are called geometrics(<code>geom</code>) and include lines, points, etc.</li>
+</ul>
+</section><section id="the-grammar-of-graphics-1" class="slide level2">
+<h2>The grammar of graphics</h2>
+<p>A <code>ggplot</code> is build piece by piece</p>
+<p><img src="img/ggplot1.png" width="300px" style="display: block; margin: auto;" /></p>
+<p><a href="http://socviz.co/make-a-plot.html#make-a-plot">Source</a></p>
+</section><section id="the-grammar-of-graphics-2" class="slide level2">
+<h2>The grammar of graphics</h2>
+<p><img src="img/ggplot2.png" width="300px" style="display: block; margin: auto;" /></p>
+</section><section id="the-grammar-of-graphics-3" class="slide level2">
+<h2>The grammar of graphics</h2>
+<p><img src="img/ggplot3.png" width="300px" style="display: block; margin: auto;" /></p>
+</section><section id="ggplot-workflow" class="slide level2">
+<h2>ggplot workflow</h2>
+<ol type="1">
+<li><p>Tell the <code>ggplot()</code> function what your data are.</p></li>
+<li><p>Tell <code>ggplot</code> what relationships we want to see.</p></li>
+<li><p>Tell <code>ggplot</code> how you want to see the relationships in your data.</p></li>
+<li><p>Add additional layers to the p object one at a time.</p></li>
+<li><p>Use additional functions to adjust scales, labels, tick marks.</p></li>
+</ol>
+</section><section id="components-of-a-ggplot2-graph" class="slide level2">
+<h2>Components of a ggplot2 graph</h2>
+<ul>
+<li>data: Variables mapped to aesthetic attributes</li>
+<li>aesthetic: Visual property of the plot objects</li>
+<li>geom: Geometrical object used to represent data</li>
+<li>stats: Statistical transformations of the data</li>
+<li>scales: Values mapped to aesthetic attributes</li>
+<li>coord: Coordinate system</li>
+<li>facets: Subplots that each display one subset of the data</li>
+</ul>
+</section><section id="tidy-data" class="slide level2">
+<h2>Tidy data</h2>
+<p><code>ggplot</code> requires data to be tidy, with observations in rows and variables grouped in <em>key</em> | <em>value</em> columns.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Person</th>
+<th>treatmentA</th>
+<th>treatmentB</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>John Smith</td>
+<td></td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>Jane Doe</td>
+<td>16</td>
+<td>11</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th>Person</th>
+<th>treatment</th>
+<th>result</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>John Smith</td>
+<td>a</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Jane Doe</td>
+<td>a</td>
+<td>16</td>
+</tr>
+<tr class="odd">
+<td>John Smith</td>
+<td>b</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>Jane Doe</td>
+<td>b</td>
+<td>11</td>
+</tr>
+</tbody>
+</table>
+</section><section id="mapping" class="slide level2">
+<h2>Mapping</h2>
+<p>We start creating a plot by telling <code>ggplot</code> what our data are and by storing the function in an object called <code>p</code>. For example, let’s say we want to use the <code>gapminder</code> data to plot life expectancy against GDP per capita:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1">p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> gapminder, </a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">            <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap,</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">                          <span class="dt">y =</span> lifeExp))</a></code></pre></div>
+<p>The <code>data</code> argument tells ggplot where to find the variables it is about to use. The <code>mapping = aes(...)</code> argument links variables to things you will see on the plot.</p>
+</section><section id="mapping-1" class="slide level2">
+<h2>Mapping</h2>
+<p>What happens if we just type <code>p</code> into the console at this point and hit return?</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">p</a></code></pre></div>
+<p><img src="slides_day_two_files/figure-revealjs/unnamed-chunk-9-1.png" width="480" /></p>
+</section><section id="choosing-a-geom" class="slide level2">
+<h2>Choosing a geom</h2>
+<p><code>p</code> already contains some information about out plot structure but we haven’t given it any instructions yet about what sort of plot to draw. We need to add a layer to the plot by using the <code>geom_</code> function:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()</a></code></pre></div>
+<p><img src="slides_day_two_files/figure-revealjs/unnamed-chunk-10-1.png" width="480" /></p>
+</section><section id="choosing-a-geom-1" class="slide level2">
+<h2>Choosing a geom</h2>
+<p>Let’s try a different <code>geom_</code> and see what happens:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_smooth</span>()</a></code></pre></div>
+<p><img src="slides_day_two_files/figure-revealjs/unnamed-chunk-11-1.png" width="480" /></p>
+</section><section id="choosing-a-geom-2" class="slide level2">
+<h2>Choosing a geom</h2>
+<p>The console tells you that <code>geom_smooth()</code> uses a method called <code>gam</code>, i.e. it fit a generalized additive model. Perhaps there are other methods that <code>geom_smooth()</code> understands. Let’s add <code>method = &quot;lm&quot;</code> as an argument to geom_smooth() and fit a linear model:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>)</a></code></pre></div>
+<p><img src="slides_day_two_files/figure-revealjs/unnamed-chunk-12-1.png" width="480" /></p>
+</section><section id="choosing-a-geom-3" class="slide level2">
+<h2>Choosing a geom</h2>
+<p>If we want to see data points and a smoothed line together we simply add <code>geom_point()</code> to the plot:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_smooth</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()</a></code></pre></div>
+<p><img src="slides_day_two_files/figure-revealjs/unnamed-chunk-13-1.png" width="480" /></p>
+</section><section id="adjusting-the-scales" class="slide level2">
+<h2>Adjusting the scales</h2>
+<p>GDP pc does not seem to be normally distributed. We can account for that and transform the x-axis from a linear to a log scale by adding the <code>scale_x_log10()</code> function.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_smooth</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">scale_x_log10</span>()</a></code></pre></div>
+<p><img src="slides_day_two_files/figure-revealjs/unnamed-chunk-14-1.png" width="480" /></p>
+</section><section id="adjusting-the-scales-1" class="slide level2">
+<h2>Adjusting the scales</h2>
+<p>The scale transformation is applied to the data before the smoother is layered on to the plot. There are a number of other scale transformations that you can use such as <code>scale_x_sqrt()</code> and <code>scale_x_reverse</code> and corresponding functions for y-axis transformations.</p>
+<p>Take some time to experiment with them to see what effect they have on the plot. Also, what happens if you put the <code>geom_smooth()</code> function before <code>geom_point()</code> and what does that tell you about how plot layers are drawn?</p>
+</section><section id="labels-and-titles" class="slide level2">
+<h2>Labels and titles</h2>
+<p>Having created an interesting plot, we could now polish it up with nicer axis labels and titles. For example, let’s swap the scientific notation on the x-axis for something more meaningful such as US dollars. The labels on the tick-marks can be controlled through the <code>scale_</code> functions. You can supply your own functions are use the pre-made functions from the handy <code>scales</code> library.</p>
+</section><section id="labels-and-titles-1" class="slide level2">
+<h2>Labels and titles</h2>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_smooth</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="st">  </span><span class="kw">scale_x_log10</span>(<span class="dt">labels =</span> scales<span class="op">::</span>dollar)</a></code></pre></div>
+<p><img src="slides_day_two_files/figure-revealjs/unnamed-chunk-15-1.png" width="480" /></p>
+</section><section id="labels-and-titles-2" class="slide level2">
+<h2>Labels and titles</h2>
+<p>We can adjust the axis labels and add plot titles using the <code>labs()</code> function:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_smooth</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb9-3" data-line-number="3"><span class="st">  </span><span class="kw">scale_x_log10</span>(<span class="dt">labels =</span> scales<span class="op">::</span>dollar) <span class="op">+</span></a>
+<a class="sourceLine" id="cb9-4" data-line-number="4"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;GDP Per Capita&quot;</span>,</a>
+<a class="sourceLine" id="cb9-5" data-line-number="5">       <span class="dt">y =</span> <span class="st">&quot;Life Expectancy in Years&quot;</span>,</a>
+<a class="sourceLine" id="cb9-6" data-line-number="6">       <span class="dt">title =</span> <span class="st">&quot;Economic Growth and Life Expectancy&quot;</span>,</a>
+<a class="sourceLine" id="cb9-7" data-line-number="7">       <span class="dt">subtitle =</span> <span class="st">&quot;Data points are country-years&quot;</span>,</a>
+<a class="sourceLine" id="cb9-8" data-line-number="8">       <span class="dt">caption =</span> <span class="st">&quot;Source: Gapminder.&quot;</span>)</a></code></pre></div>
+</section><section id="labels-and-titles-3" class="slide level2">
+<h2>Labels and titles</h2>
+<p><img src="slides_day_two_files/figure-revealjs/unnamed-chunk-17-1.png" width="768" /></p>
+</section><section id="aesthetics-mapping" class="slide level2">
+<h2>Aesthetics mapping</h2>
+<p>We can easily map variables in our dataset to aesthetics such size, color, shape, and so on. For example, to map color to <code>continent</code>:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> gapminder, </a>
+<a class="sourceLine" id="cb10-2" data-line-number="2">            <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap,</a>
+<a class="sourceLine" id="cb10-3" data-line-number="3">                          <span class="dt">y =</span> lifeExp,</a>
+<a class="sourceLine" id="cb10-4" data-line-number="4">                          <span class="dt">color =</span> continent))</a></code></pre></div>
+</section><section id="aesthetics-mapping-1" class="slide level2">
+<h2>Aesthetics mapping</h2>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1">p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> gapminder, </a>
+<a class="sourceLine" id="cb11-2" data-line-number="2">            <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap,</a>
+<a class="sourceLine" id="cb11-3" data-line-number="3">                          <span class="dt">y =</span> lifeExp,</a>
+<a class="sourceLine" id="cb11-4" data-line-number="4">                          <span class="dt">color =</span> continent))</a>
+<a class="sourceLine" id="cb11-5" data-line-number="5">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">scale_x_log10</span>()</a></code></pre></div>
+<p><img src="slides_day_two_files/figure-revealjs/unnamed-chunk-19-1.png" width="480" /></p>
+</section><section id="aesthetics-mapping-2" class="slide level2">
+<h2>Aesthetics mapping</h2>
+<p>What’s gone wrong with this code?</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1">p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> gapminder, </a>
+<a class="sourceLine" id="cb12-2" data-line-number="2">            <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap, <span class="dt">y =</span> lifeExp,</a>
+<a class="sourceLine" id="cb12-3" data-line-number="3">                          <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>))</a>
+<a class="sourceLine" id="cb12-4" data-line-number="4">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()</a></code></pre></div>
+<p><img src="slides_day_two_files/figure-revealjs/unnamed-chunk-20-1.png" width="480" /></p>
+</section><section id="aesthetic-mappings" class="slide level2">
+<h2>Aesthetic mappings</h2>
+<p><code>aes()</code> treated the word “blue” as though it were a variable, and since it could not find it in the dataset, it created it on the fly. By default, ggplot shows all the points in the category “blue” and colors them using its default first-category hue … which is red.</p>
+</section><section id="aesthetic-mappings-1" class="slide level2">
+<h2>Aesthetic mappings</h2>
+<p><code>aes()</code> is for mappings only and not to set properties to a particular value. If we want to set a property, we do it inside <code>geom_</code>:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1">p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> gapminder, </a>
+<a class="sourceLine" id="cb13-2" data-line-number="2">            <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap, <span class="dt">y =</span> lifeExp))</a>
+<a class="sourceLine" id="cb13-3" data-line-number="3">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>)</a></code></pre></div>
+<p><img src="slides_day_two_files/figure-revealjs/unnamed-chunk-21-1.png" width="480" /></p>
+</section><section id="aesthetic-mappings-2" class="slide level2">
+<h2>Aesthetic mappings</h2>
+<p><code>geom_</code> can take many other arguments that will affect how the plot looks. Some, such as color and size, have the same name as mappable arguments. Others are specific arguments only available for the <code>geom_</code> function. Let’s look at a few examples:</p>
+</section><section id="aesthetic-mappings-3" class="slide level2">
+<h2>Aesthetic mappings</h2>
+<p>Change the size</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="fl">0.8</span>)</a></code></pre></div>
+<p><img src="slides_day_two_files/figure-revealjs/unnamed-chunk-22-1.png" width="480" /></p>
+</section><section id="aesthetic-mappings-4" class="slide level2">
+<h2>Aesthetic mappings</h2>
+<p>Adjust transparency</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.3</span>)</a></code></pre></div>
+<p><img src="slides_day_two_files/figure-revealjs/unnamed-chunk-23-1.png" width="480" /></p>
+</section><section id="aesthetic-mappings-5" class="slide level2">
+<h2>Aesthetic mappings</h2>
+<p>Change the color of the smoother</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb16-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">color =</span> <span class="st">&quot;orange&quot;</span>)</a></code></pre></div>
+<p><img src="slides_day_two_files/figure-revealjs/unnamed-chunk-24-1.png" width="480" /></p>
+</section><section id="aesthetic-mappings-per-geom" class="slide level2">
+<h2>Aesthetic mappings per geom</h2>
+<p>Let’s again map our <code>continent</code> variable to the color aesthetic. This time we also add a smoother.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1">p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> gapminder,</a>
+<a class="sourceLine" id="cb17-2" data-line-number="2">            <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap,</a>
+<a class="sourceLine" id="cb17-3" data-line-number="3">                          <span class="dt">y =</span> lifeExp,</a>
+<a class="sourceLine" id="cb17-4" data-line-number="4">                          <span class="dt">color =</span> continent))</a>
+<a class="sourceLine" id="cb17-5" data-line-number="5">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb17-6" data-line-number="6"><span class="st">  </span><span class="kw">geom_smooth</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb17-7" data-line-number="7"><span class="st">  </span><span class="kw">scale_x_log10</span>()</a></code></pre></div>
+</section><section id="aesthetic-mappings-per-geom-1" class="slide level2">
+<h2>Aesthetic mappings per geom</h2>
+<p><img src="slides_day_two_files/figure-revealjs/unnamed-chunk-26-1.png" width="768" /></p>
+</section><section id="aesthetic-mappings-per-geom-2" class="slide level2">
+<h2>Aesthetic mappings per geom</h2>
+<p>Both points and smoother are colored by continent. We can use <code>fill</code> inside <code>aes()</code> to color the interior of the smoother’s standard error ribbon:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1">p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> gapminder,</a>
+<a class="sourceLine" id="cb18-2" data-line-number="2">            <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap,</a>
+<a class="sourceLine" id="cb18-3" data-line-number="3">                          <span class="dt">y =</span> lifeExp,</a>
+<a class="sourceLine" id="cb18-4" data-line-number="4">                          <span class="dt">color =</span> continent,</a>
+<a class="sourceLine" id="cb18-5" data-line-number="5">                          <span class="dt">fill =</span> continent))</a>
+<a class="sourceLine" id="cb18-6" data-line-number="6">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb18-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_smooth</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb18-8" data-line-number="8"><span class="st">  </span><span class="kw">scale_x_log10</span>()</a></code></pre></div>
+</section><section id="aesthetic-mappings-per-geom-3" class="slide level2">
+<h2>Aesthetic mappings per geom</h2>
+<p><img src="slides_day_two_files/figure-revealjs/unnamed-chunk-28-1.png" width="768" /></p>
+</section><section id="aesthetic-mappings-per-geom-4" class="slide level2">
+<h2>Aesthetic mappings per geom</h2>
+<p>Having 5 different smoothers makes the plot difficult to read. If we just want one line but keep the colored points we can map the aesthetics we want only the <code>geom_</code> functions that we want them to apply to:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1">p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> gapminder,</a>
+<a class="sourceLine" id="cb19-2" data-line-number="2">            <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap,</a>
+<a class="sourceLine" id="cb19-3" data-line-number="3">                          <span class="dt">y =</span> lifeExp))</a>
+<a class="sourceLine" id="cb19-4" data-line-number="4">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">color =</span> continent)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb19-5" data-line-number="5"><span class="st">  </span><span class="kw">geom_smooth</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb19-6" data-line-number="6"><span class="st">  </span><span class="kw">scale_x_log10</span>()</a></code></pre></div>
+</section><section id="aesthetic-mappings-per-geom-5" class="slide level2">
+<h2>Aesthetic mappings per geom</h2>
+<p><img src="slides_day_two_files/figure-revealjs/unnamed-chunk-30-1.png" width="768" /></p>
+</section><section id="aesthetic-mappings-per-geom-6" class="slide level2">
+<h2>Aesthetic mappings per geom</h2>
+<p>What happens when you map a continuous variable, such as population (<code>pop</code>), to color?</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1">p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> gapminder,</a>
+<a class="sourceLine" id="cb20-2" data-line-number="2">            <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap,</a>
+<a class="sourceLine" id="cb20-3" data-line-number="3">                          <span class="dt">y =</span> lifeExp))</a>
+<a class="sourceLine" id="cb20-4" data-line-number="4">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">color =</span> pop)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb20-5" data-line-number="5"><span class="st">  </span><span class="kw">scale_x_log10</span>()</a></code></pre></div>
+</section><section id="aesthetic-mappings-per-geom-7" class="slide level2">
+<h2>Aesthetic mappings per geom</h2>
+<p><img src="slides_day_two_files/figure-revealjs/unnamed-chunk-32-1.png" width="768" /></p>
+</section><section id="group-facet-transform" class="slide level2">
+<h2>Group, facet, transform</h2>
+<p>There are a number of additional functions in <code>ggplot</code> that are frequently used to plot data. <code>group</code>, for examples, allows to learn more about the internal structure of your data (). Let’s say we wanted to plot the trajectory of economic development over time for each country. How would we do that?</p>
+</section><section id="group" class="slide level2">
+<h2>Group</h2>
+<p>What’s gone wrong here?</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" data-line-number="1">p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> gapminder,</a>
+<a class="sourceLine" id="cb21-2" data-line-number="2">            <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> year,</a>
+<a class="sourceLine" id="cb21-3" data-line-number="3">                          <span class="dt">y =</span> gdpPercap))</a>
+<a class="sourceLine" id="cb21-4" data-line-number="4">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>()</a></code></pre></div>
+<p><img src="slides_day_two_files/figure-revealjs/unnamed-chunk-33-1.png" width="480" /></p>
+</section><section id="group-1" class="slide level2">
+<h2>Group</h2>
+<p><code>ggplot</code> does not know that the yearly observations in the data are grouped by country. We have to tell it:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">group =</span> country))</a></code></pre></div>
+<p><img src="slides_day_two_files/figure-revealjs/unnamed-chunk-34-1.png" width="480" /></p>
+</section><section id="facet" class="slide level2">
+<h2>Facet</h2>
+<p>The plot we just made looks a little messy. To make the trend clearly we could <em>facet</em> the data by a third variable and plot the results in separate panels. We use <code>facet_wrap()</code> to split our plot by <code>continent</code>:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" data-line-number="1">p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> gapminder,</a>
+<a class="sourceLine" id="cb23-2" data-line-number="2">            <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> year,</a>
+<a class="sourceLine" id="cb23-3" data-line-number="3">                          <span class="dt">y =</span> gdpPercap))</a>
+<a class="sourceLine" id="cb23-4" data-line-number="4">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">group =</span> country)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb23-5" data-line-number="5"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>continent)</a></code></pre></div>
+</section><section id="facet-1" class="slide level2">
+<h2>Facet</h2>
+<p><img src="slides_day_two_files/figure-revealjs/unnamed-chunk-36-1.png" width="768" /></p>
+</section><section id="facet-2" class="slide level2">
+<h2>Facet</h2>
+<p>We can also use the <code>ncol</code> argument to <code>facet_wrap()</code> to control the number of columns. We can add a smoother and a few cosmetic enhancements that make the graph a little more effective. Any geom that we include will be layered within each facet:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">color=</span><span class="st">&quot;gray70&quot;</span>, <span class="kw">aes</span>(<span class="dt">group =</span> country)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb24-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">size =</span> <span class="fl">1.1</span>, <span class="dt">method =</span> <span class="st">&quot;loess&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb24-3" data-line-number="3"><span class="st">    </span><span class="kw">scale_y_log10</span>(<span class="dt">labels=</span>scales<span class="op">::</span>dollar) <span class="op">+</span></a>
+<a class="sourceLine" id="cb24-4" data-line-number="4"><span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>continent, <span class="dt">ncol =</span> <span class="dv">3</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb24-5" data-line-number="5"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Year&quot;</span>,</a>
+<a class="sourceLine" id="cb24-6" data-line-number="6">         <span class="dt">y =</span> <span class="st">&quot;GDP per capita&quot;</span>,</a>
+<a class="sourceLine" id="cb24-7" data-line-number="7">         <span class="dt">title =</span> <span class="st">&quot;GDP per capita on Five Continents&quot;</span>)</a></code></pre></div>
+</section><section id="facet-3" class="slide level2">
+<h2>Facet</h2>
+<p><img src="slides_day_two_files/figure-revealjs/unnamed-chunk-38-1.png" width="768" /></p>
+</section><section id="facet-4" class="slide level2">
+<h2>Facet</h2>
+<p><code>facet_wrap()</code> is best used when you want a series of small multiples based on a single categorical variable. If you want to cross-classify some data by two categorical variables you should try <code>facet_grid()</code> instead.</p>
+</section><section id="plotting-distributions-distributions-of-categorical-data" class="slide level2">
+<h2>Plotting Distributions: Distributions of categorical data</h2>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data=</span>diamonds) <span class="op">+</span></a>
+<a class="sourceLine" id="cb25-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> cut))</a></code></pre></div>
+<p><img src="slides_day_two_files/figure-revealjs/unnamed-chunk-39-1.png" width="480" /></p>
+</section><section id="plotting-distributions-distributions-of-continuous-data" class="slide level2">
+<h2>Plotting Distributions: Distributions of continuous data</h2>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data=</span>diamonds) <span class="op">+</span></a>
+<a class="sourceLine" id="cb26-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> carat), </a>
+<a class="sourceLine" id="cb26-3" data-line-number="3">                 <span class="dt">binwidth =</span> <span class="fl">0.5</span>)</a></code></pre></div>
+<p><img src="slides_day_two_files/figure-revealjs/unnamed-chunk-40-1.png" width="480" /></p>
+</section><section id="plotting-distributions-boxplot" class="slide level2">
+<h2>Plotting Distributions: Boxplot</h2>
+<p>We can use <code>geom_boxplot()</code> to plot covariation between continuous and catagorical variables</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> mpg, <span class="kw">aes</span>(<span class="dt">x =</span> class, <span class="dt">y =</span> hwy, <span class="dt">fill =</span> class)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb27-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span><span class="kw">reorder</span>(class, hwy,<span class="dt">FUN =</span> median), </a>
+<a class="sourceLine" id="cb27-3" data-line-number="3">                   <span class="dt">y =</span> hwy)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb27-4" data-line-number="4"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>)</a></code></pre></div>
+<p><img src="slides_day_two_files/figure-revealjs/unnamed-chunk-41-1.png" width="480" /></p>
+</section><section id="plotting-distributions-tile-plot" class="slide level2">
+<h2>Plotting Distributions: Tile Plot</h2>
+<p>We can use <code>geom_tile</code> to plot the covariation between two categorical variables</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" data-line-number="1">diamonds <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb28-2" data-line-number="2"><span class="st">  </span><span class="kw">count</span>(color, cut) <span class="op">%&gt;%</span><span class="st">  </span></a>
+<a class="sourceLine" id="cb28-3" data-line-number="3"><span class="st">  </span><span class="kw">ggplot</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> color, <span class="dt">y =</span> cut)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb28-4" data-line-number="4"><span class="st">    </span><span class="kw">geom_tile</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">fill =</span> n))</a></code></pre></div>
+<p><img src="slides_day_two_files/figure-revealjs/unnamed-chunk-42-1.png" width="480" /></p>
+</section><section id="plotting-distributions-scatter-plots" class="slide level2">
+<h2>Plotting Distributions: Scatter Plots</h2>
+<p>The easiest way to visualize the covariation between two continuous variables is to draw a scatterplot with <code>geom_point()</code>.</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" data-line-number="1">p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data=</span>gapminder, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap, </a>
+<a class="sourceLine" id="cb29-2" data-line-number="2">                                          <span class="dt">y =</span> lifeExp)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb29-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb29-4" data-line-number="4"><span class="st">  </span><span class="kw">scale_x_log10</span>(<span class="dt">labels =</span> scales<span class="op">::</span>dollar) <span class="op">+</span></a>
+<a class="sourceLine" id="cb29-5" data-line-number="5"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;GDP Per Capita&quot;</span>,</a>
+<a class="sourceLine" id="cb29-6" data-line-number="6">       <span class="dt">y =</span> <span class="st">&quot;Life Expectancy in Years&quot;</span>,</a>
+<a class="sourceLine" id="cb29-7" data-line-number="7">       <span class="dt">title =</span> <span class="st">&quot;Economic Growth and Life Expectancy&quot;</span>,</a>
+<a class="sourceLine" id="cb29-8" data-line-number="8">       <span class="dt">subtitle =</span> <span class="st">&quot;Data points are country-years&quot;</span>,</a>
+<a class="sourceLine" id="cb29-9" data-line-number="9">       <span class="dt">caption =</span> <span class="st">&quot;Source: Gapminder.&quot;</span>)</a></code></pre></div>
+</section><section id="plotting-distributions-scatter-plots-1" class="slide level2">
+<h2>Plotting Distributions: Scatter Plots</h2>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" data-line-number="1">p</a></code></pre></div>
+<p><img src="slides_day_two_files/figure-revealjs/unnamed-chunk-44-1.png" width="480" /></p>
+</section><section id="saving-and-exporting-ggplot-objects" class="slide level2">
+<h2>Saving and exporting ggplot objects</h2>
+<p><code>ggsave()</code> is a convenient function for saving the last plot that you displayed. It also guesses the type of graphics device from the extension. This means the only argument you need to supply is the filename.</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" data-line-number="1"><span class="kw">ggsave</span>(<span class="st">&quot;myplot.pdf&quot;</span>) <span class="co"># save as pdf</span></a>
+<a class="sourceLine" id="cb31-2" data-line-number="2"><span class="kw">ggsave</span>(<span class="st">&quot;myplot.png&quot;</span>, <span class="dt">width =</span> <span class="dv">4</span>, <span class="dt">height =</span> <span class="dv">4</span>) <span class="co"># save as png</span></a></code></pre></div>
+</section><section id="more-theme-packages" class="slide level2">
+<h2>More theme packages</h2>
+<ul>
+<li><a href="https://rpkgs.datanovia.com/ggpubr/">ggpubr</a> for publication-ready plots</li>
+<li><a href="https://jrnold.github.io/ggthemes/reference/index.html">ggthemes</a> for additional themes and scales, especially ones that match other software (Tableau)</li>
+<li><a href="https://github.com/hrbrmstr/hrbrthemes">hrbrthemes</a> my personal favorite theme package</li>
+</ul>
+</section><section id="ggplot2-resources" class="slide level2">
+<h2>ggplot2 resources</h2>
+<ul>
+<li><a href="https://ggplot2.tidyverse.org/">General ggplot2 information</a></li>
+<li><a href="http://www.cookbook-r.com/Graphs/index.html">R Graphics Cookbook</a></li>
+<li><a href="https://socviz.co/">Data Visualization: A Practical Introduction</a></li>
+<li><a href="https://ggplot2-book.org/">ggplot2: Elegant Graphs for Data Analysis</a></li>
+<li><a href="https://rstudio.cloud/learn/primers/3">RStudio visual data primer</a></li>
+</ul>
+</section><section id="visualization-exercise" class="slide level2">
+<h2>Visualization Exercise</h2>
+<ol type="1">
+<li>Read in the Game of Thrones data from <code>gog.xlsx</code> and inspect it</li>
+<li>Create a scatterplot with the moral score on the x-axis and the physical score on the y-axis.</li>
+<li>Set the alpha (transparency) of all points to .75</li>
+<li>Add labels to the points</li>
+<li>Fix label overlap</li>
+<li>Color the points by gender</li>
+<li>Turn off legend for text layer</li>
+<li>Bonus: Split the chart up into separate charts for each family(loyalty group)</li>
+</ol>
+</section><section id="break" class="slide level2">
+<h2>Break</h2>
+<p>Let’s break for 10 minutes</p>
+</section></section>
+<section><section id="session-2-collection-your-own-data" class="title-slide slide level1"><h1>Session 2: Collection your own data</h1></section><section id="browsing-vs.scraping" class="slide level2">
+<h2>Browsing vs. scraping</h2>
+<ul>
+<li><strong>Browsing</strong>
+<ul>
+<li>you click on something</li>
+<li>browser sends request to server that hosts website</li>
+<li>server returns resource (often an HTML document)</li>
+<li>browser interprets HTML and renders it in a nice fashion</li>
+</ul></li>
+</ul>
+</section><section id="browsing-vs.scraping-1" class="slide level2">
+<h2>Browsing vs. scraping</h2>
+<ul>
+<li><strong>Scraping with R</strong>
+<ul>
+<li>you manually specify a resource</li>
+<li>R sends request to server that hosts website</li>
+<li>server returns resource</li>
+<li>R parses HTML (i.e., interprets the structure), but does not render it in a nice fashion</li>
+<li>it’s up to you to tell R which parts of the structure to focus on and what content to extract</li>
+</ul></li>
+</ul>
+</section><section id="online-text-data-sources" class="slide level2">
+<h2>Online text data sources</h2>
+<ul>
+<li><strong>web pages</strong> (e.g. <a href="http://example.com" class="uri">http://example.com</a>)</li>
+<li><strong>web formats</strong> (XML, HTML, JSON, …)</li>
+<li><strong>web frameworks</strong> (HTTP, URL, APIs, …)</li>
+<li><strong>social media</strong> (Twitter, Facebook, LinkedIn, Snapchat, Tumbler, …)</li>
+<li><strong>data in the web</strong> (speeches, laws, policy reports, news, … )</li>
+<li><strong>web data</strong> (page views, page ranks, IP-addresses, …)</li>
+</ul>
+</section><section id="before-scraping-do-some-googling" class="slide level2">
+<h2>Before scraping, do some googling!</h2>
+<ul>
+<li>If the resource is well-known, someone else has probably built a tool which solves the problem for you.</li>
+<li><a href="https://ropensci.org/">ropensci</a> has a <a href="https://ropensci.org/packages/">ton of R packages</a> providing easy-to-use interfaces to open data.</li>
+<li>The <a href="http://cran.r-project.org/web/views/WebTechnologies.html">Web Technologies and Services CRAN Task View</a> is a great overview of various tools for working with data that lives on the web in R.</li>
+</ul>
+</section><section id="extracting-data-from-html" class="slide level2">
+<h2>Extracting data from HTML</h2>
+<p>For web scraping, we need to:</p>
+<ol type="1">
+<li>identify the elements of a website which contain our information of interest;</li>
+<li>extract the information from these elements;</li>
+</ol>
+<p><strong>Both steps require some basic understanding of HTML and CSS.</strong> More advanced scraping techniques require an understanding of <em>XPath</em> and <em>regular expressions</em>.</p>
+</section><section id="whats-html" class="slide level2">
+<h2>What’s HTML?</h2>
+<p><strong>HyperText Markup Language</strong></p>
+<ul>
+<li>markup language = plain text + markups</li>
+<li>standard for the construction of websites</li>
+<li>relevance for web scraping: web architecture is important because it determines where and how information is stored</li>
+</ul>
+</section><section id="inspect-the-source-code-in-your-browser" class="slide level2">
+<h2>Inspect the source code in your browser</h2>
+<p><strong>Firefox</strong> 1. right click on page 2. select “View Page Source”</p>
+<p><strong>Chrome</strong> 1. right click on page 2. select “View page source”</p>
+<p><strong>Safari</strong> 1. click on “Safari” 2. select “Preferences” 3. go to “Advanced” 4. check “Show Develop menu in menu bar” 5. click on “Develop” 6. select “Show Page Source.”</p>
+</section><section id="css" class="slide level2">
+<h2>CSS?</h2>
+<p><strong>Cascading Style Sheets</strong></p>
+<ul>
+<li>style sheet language to give browsers information of how to render HTML documents</li>
+<li>CSS code can be stored within an HTML document or in an external CSS file</li>
+<li>selectors, i.e. patterns used to specify which elements to format in a certain way, can be used to address the elements we want to extract information from</li>
+<li>works via tag name (e.g.,<code>&lt;h2&gt;</code>,<code>&lt;p&gt;</code>) or element attributes <code>id</code> and <code>class</code></li>
+</ul>
+</section><section id="exercise" class="slide level2">
+<h2>Exercise</h2>
+<ol type="1">
+<li>Complete the first 5 levels on <a href="%22http://flukeout.github.io/%22">CSS Diner</a></li>
+</ol>
+</section><section id="xpath" class="slide level2">
+<h2>XPath</h2>
+<ul>
+<li>XPath is a query language for selecting nodes from an XML-style document (including HTML)</li>
+<li>provides just another way of extracting data from static webpages</li>
+<li>you can also use XPath with R, it can be more powerful than CSS selectors</li>
+</ul>
+</section><section id="example" class="slide level2">
+<h2>Example</h2>
+<p><img src="img/wikiTable.png" width="500px" /></p>
+</section><section id="inspecting-elements" class="slide level2">
+<h2>Inspecting elements</h2>
+<p><img src="img/inspect-element.png" width="500px" /></p>
+</section><section id="hover-to-find-desired-elements" class="slide level2">
+<h2>Hover to find desired elements</h2>
+<p><img src="img/inspector.png" width="500px" /></p>
+</section><section id="rvest" class="slide level2">
+<h2><code>Rvest</code></h2>
+<p><a href="https://github.com/hadley/rvest">rvest</a> is a nice R package for web-scraping by (you guessed it) Hadley Wickham.</p>
+<ul>
+<li>see also: <a href="https://github.com/hadley/rvest" class="uri">https://github.com/hadley/rvest</a></li>
+<li>convenient package to scrape information from web pages</li>
+<li>builds on other packages, such as xml2 and httr</li>
+<li>provides very intuitive functions to import and process webpages</li>
+</ul>
+</section><section id="basic-workflow-of-scraping-with-rvest" class="slide level2">
+<h2>Basic workflow of scraping with rvest</h2>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" data-line-number="1"><span class="co"># 1. specify URL</span></a>
+<a class="sourceLine" id="cb32-2" data-line-number="2"><span class="st">&quot;http://en.wikipedia.org/wiki/Table_(information)&quot;</span> <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb32-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb32-4" data-line-number="4"><span class="co"># 2. download static HTML behind the URL and parse it into an XML file</span></a>
+<a class="sourceLine" id="cb32-5" data-line-number="5"><span class="kw">read_html</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb32-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb32-7" data-line-number="7"><span class="co"># 3. extract specific nodes with CSS (or XPath)</span></a>
+<a class="sourceLine" id="cb32-8" data-line-number="8"><span class="kw">html_node</span>(<span class="st">&quot;.wikitable&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb32-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb32-10" data-line-number="10"><span class="co"># 4. extract content from nodes</span></a>
+<a class="sourceLine" id="cb32-11" data-line-number="11"><span class="kw">html_table</span>(<span class="dt">fill =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<pre><code>##   First name   Last name Age
+## 1       Tinu    Elejogun  14
+## 2  Blaszczyk Kostrzewski  25
+## 3       Lily   McGarrett  18
+## 4  Olatunkbo    Chijiaku  22
+## 5   Adrienne    Anthoula  22
+## 6     Axelia  Athanasios  22
+## 7  Jon-Kabat        Zinn  22
+## 8    Thabang       Mosoa  15
+## 9   Kgaogelo       Mosoa  11</code></pre>
+
+</section><section id="selectorgadget" class="slide level2">
+<h2>Selectorgadget</h2>
+<ul>
+<li><p><a href="http://selectorgadget.com/">Selectorgadget</a> is a <a href="https://chrome.google.com/webstore/detail/selectorgadget/mhjhnkcfbdhnjickkkdbjoemdmbfginb?hl=en">Chrome browser extension</a> for quickly extracting desired parts of an HTML page.</p></li>
+<li><p>to learn about it, use vignette(“selectorgadget”)</p></li>
+<li><p>to install it, visit <a href="http://selectorgadget.com/" class="uri">http://selectorgadget.com/</a></p></li>
+</ul>
+</section><section id="selectorgadget-1" class="slide level2">
+<h2>Selectorgadget</h2>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" data-line-number="1">url &lt;-<span class="st"> &quot;http://spiegel.de/schlagzeilen&quot;</span></a>
+<a class="sourceLine" id="cb34-2" data-line-number="2">css &lt;-<span class="st"> &quot;.schlagzeilen-headline&quot;</span></a>
+<a class="sourceLine" id="cb34-3" data-line-number="3">url_parsed &lt;-<span class="st"> </span><span class="kw">read_html</span>(url)</a>
+<a class="sourceLine" id="cb34-4" data-line-number="4"><span class="kw">html_nodes</span>(url_parsed, <span class="dt">css =</span> css) <span class="op">%&gt;%</span><span class="st"> </span>html_text</a></code></pre></div>
+</section><section id="apis" class="slide level2">
+<h2>APIs</h2>
+<ul>
+<li>API stands for <em>Application Programming Interface</em></li>
+<li>defined interface for communication between software components</li>
+<li><em>Web</em> API: provides an interface to structured data from a web service</li>
+<li>APIs should be used whenever you need to automatically collect mass data from the web</li>
+<li>it should definitely be preferred over web scraping</li>
+</ul>
+</section><section id="functionality-of-apis" class="slide level2">
+<h2>Functionality of APIs</h2>
+<p>Web APIs usually employ a <strong>client-server model</strong>. The client – that is you. The server provides the <em>API endpoints</em> as URLs.</p>
+<p><img src="img/api.png" width="500px" /></p>
+</section><section id="functionality-of-apis-1" class="slide level2">
+<h2>Functionality of APIs</h2>
+<p>Communication is done with request and response messages over <em>Hypertext transfer protocol (HTTP)</em>.</p>
+<p>Each HTTP message contains a <em>header</em> (message meta data) and a <em>message body</em> (the actual content). The three-digit <a href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes">HTTP status code</a> plays an important role:</p>
+<ul>
+<li>2xx: Success</li>
+<li>4xx: Client error (incl. the popular <em>404: Not found</em> or <em>403: Forbidden</em>)</li>
+<li>5xx: Server error</li>
+</ul>
+<p>The message body contains the requested data in a specific format, often JSON or XML.</p>
+</section><section id="examples-of-popular-apis" class="slide level2">
+<h2>Examples of popular APIs</h2>
+<p>Social media:</p>
+<ul>
+<li><a href="https://developer.twitter.com/">Twitter</a></li>
+<li><a href="https://developers.facebook.com/docs/graph-api/">Facebook Graph API</a> (restricted to own account and public pages)</li>
+<li><a href="https://developers.google.com/youtube/">YouTube (Google)</a></li>
+<li><a href="https://www.linkedin.com/developers/">LinkedIn</a></li>
+</ul>
+</section><section id="examples-of-popular-apis-1" class="slide level2">
+<h2>Examples of popular APIs</h2>
+<p>Google (see <a href="https://developers.google.com/apis-explorer/">API explorer</a>):</p>
+<ul>
+<li><a href="https://cloud.google.com/">Cloud</a> (Translation / NLP / Speech / Vision / …)</li>
+<li><a href="https://cloud.google.com/maps-platform/">Maps (now also part of cloud platform)</a> (geocoding, directions, places, etc.)</li>
+<li><a href="https://developers.google.com/civic-information/">Civic Information</a> (political representation, voting locations, election results, …)</li>
+<li><a href="https://developers.google.com/books/">Books</a></li>
+</ul>
+</section><section id="examples-of-popular-apis-2" class="slide level2">
+<h2>Examples of popular APIs</h2>
+<p>Other:</p>
+<p><a href="https://www.microsoft.com/cognitive-services/en-us/face-api">Microsoft Face API</a>, <a href="https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/Welcome.html">Amazon Mechanical Turk API</a>, <a href="https://en.wikipedia.org/wiki/Help:Creating_a_bot#APIs_for_bots">Wikipedia</a>, etc.</p>
+<p>For more, see <a href="http://www.programmableweb.com/">programmableweb.com</a>.</p>
+</section><section id="api-wrapper-packages" class="slide level2">
+<h2>API wrapper packages</h2>
+<ul>
+<li>Working with a web API involves:
+<ul>
+<li>constructing request messages</li>
+<li>parsing result messages</li>
+<li>handling errors</li>
+</ul></li>
+<li>For popular web services there are already “API wrapper packages” in R:
+<ul>
+<li>implement communication with the server</li>
+<li>provide direct access to the data via R functions</li>
+<li>examples: <em>rtweet</em>, <em>ggmap</em> (geocoding via Google Maps), <em>wikipediR</em>, <em>genderizeR</em></li>
+</ul></li>
+</ul>
+</section><section id="twitter" class="slide level2">
+<h2>Twitter</h2>
+<p><strong>Twitter has two types of APIs</strong></p>
+<ul>
+<li><p>REST APIs –&gt; reading/writing/following/etc.</p></li>
+<li><p>Streaming APIs –&gt; low latency access to 1% of global stream - public, user and site streams</p></li>
+<li><p>authentication via OAuth</p></li>
+<li><p>documentation at <a href="https://dev.twitter.com/overview/documentation" class="uri">https://dev.twitter.com/overview/documentation</a></p></li>
+</ul>
+</section><section id="accessing-the-twitter-apis" class="slide level2">
+<h2>Accessing the Twitter APIs</h2>
+<ul>
+<li><p>To access the REST and streaming APIs, all you need is a Twitter account and you can be up in running in minutes!</p></li>
+<li><p>Simply send a request to Twitter’s API (with a function like <code>search_tweets()</code>) during an interactive session of R, authorize the embedded <code>rstats2twitter</code> app (approve the browser popup), and your token will be created and saved/stored (for future sessions) for you!</p></li>
+<li><p>You can obtain a developer account to get more stability and permissions.</p></li>
+</ul>
+</section><section id="twitter-api-subscriptions" class="slide level2">
+<h2>Twitter API subscriptions</h2>
+<p>Twitter provides <a href="https://developer.twitter.com/en/pricing">three subscription levels</a>:</p>
+<ul>
+<li>Standard (free)
+<ul>
+<li>search historical data for up to 7 days</li>
+<li>get sampled live tweets</li>
+</ul></li>
+<li>Premium ($150 to $2500 / month)
+<ul>
+<li>search historical data for up to 30 days</li>
+<li>get full historical data per user</li>
+</ul></li>
+<li>Enterprise (special contract with Twitter)
+<ul>
+<li>full live tweets</li>
+</ul></li>
+</ul>
+<p>The <em>rate limiting</em> also differs per subscription level (number of requests per month).</p>
+</section><section id="use-twitter-in-r" class="slide level2">
+<h2>Use twitter in R</h2>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" data-line-number="1"><span class="kw">library</span>(rtweet)</a>
+<a class="sourceLine" id="cb35-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb35-3" data-line-number="3"><span class="co">## search for 1000 tweets using the #niewiedercdu hashtag</span></a>
+<a class="sourceLine" id="cb35-4" data-line-number="4">tweets &lt;-<span class="st"> </span><span class="kw">search_tweets</span>(</a>
+<a class="sourceLine" id="cb35-5" data-line-number="5">  <span class="st">&quot;#iacaucus&quot;</span>, <span class="dt">n =</span> <span class="dv">1000</span>, <span class="dt">include_rts =</span> <span class="ot">FALSE</span></a>
+<a class="sourceLine" id="cb35-6" data-line-number="6">)</a></code></pre></div>
+<p>Find out what else you can do with the <code>rtweet</code> package: <a href="https://github.com/mkearney/rtweet" class="uri">https://github.com/mkearney/rtweet</a></p>
+</section><section id="exercise-1" class="slide level2">
+<h2>Exercise</h2>
+<ol type="1">
+<li><p>We want to get data from <a href="https://www.abgeordnetenwatch.de/">abgeordnetenwatch.de</a>. The site has an API, so technically there is no need to scrape anything. Load the package <code>jsonlite</code> into library.</p></li>
+<li><p>Go to <a href="https://www.abgeordnetenwatch.de/api" class="uri">https://www.abgeordnetenwatch.de/api</a> and figure our the syntax of their APIs.</p></li>
+<li><p>Use the <code>fromJSON</code> function in <code>jsonlite</code> to load a JSON file via the API into R. Save the input as <code>aw_data</code>.</p></li>
+</ol>
+</section><section id="exercise-solution" class="slide level2">
+<h2>Exercise solution</h2>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" data-line-number="1"><span class="kw">library</span>(jsonlite)</a>
+<a class="sourceLine" id="cb36-2" data-line-number="2">aw_data &lt;-<span class="st"> </span>jsonlite<span class="op">::</span><span class="kw">fromJSON</span>(<span class="st">&quot;https://www.abgeordnetenwatch.de/api/parliament/bundestag/deputies.json&quot;</span>)</a></code></pre></div>
+</section></section>
+<section><section id="session-3-building-our-own-dashboard" class="title-slide slide level1"><h1>Session 3: Building our own dashboard</h1></section><section id="why-use-dashboards" class="slide level2">
+<h2>Why use dashboards?</h2>
+<ul>
+<li><p>R, it provides three core plotting systems:</p>
+<ul>
+<li>base plots</li>
+<li>lattice plots</li>
+<li>ggplot2 plots</li>
+</ul></li>
+<li>writing codes for plotting graphs in R time &amp; again can get tiring</li>
+<li><p>difficult to create an interactive visualization for story narration using above packages</p></li>
+</ul>
+</section><section id="goal-of-a-dashboard" class="slide level2">
+<h2>Goal of a dashboard</h2>
+<ul>
+<li><p>Translate complicated data into a more readable, more understandable format for less technical people</p></li>
+<li><p>Dashboards allow non-data scientists to see the numbers that are important to them upfront and make connections based on their expertise</p></li>
+<li><p>Share your analysis (in an interactive manner) with the community</p></li>
+</ul>
+</section><section id="htmlwidgets" class="slide level2">
+<h2><code>htmlwidgets</code></h2>
+<p>A framework for creating HTML widgets that render in various contexts including the R console, ‘R Markdown’ documents, and ‘Shiny’ web applications.</p>
+<p><code>htmlwidgets</code> seamlessly bridges R and JavaScript. HTML widgets work just like R plots except they produce interactive web visualizations.</p>
+<p>There are over 30 packages on CRAN which provide htmlwidgets: <a href="http://www.htmlwidgets.org/showcase_metricsgraphics.html">Available widgets</a></p>
+</section><section id="htmlwidgets-example" class="slide level2">
+<h2><code>htmlwidgets</code> example</h2>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" data-line-number="1"><span class="kw">dygraph</span>(nhtemp, <span class="dt">main =</span> <span class="st">&quot;New Haven Temperatures&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb37-2" data-line-number="2"><span class="st">  </span><span class="kw">dyRangeSelector</span>(<span class="dt">dateWindow =</span> <span class="kw">c</span>(<span class="st">&quot;1920-01-01&quot;</span>, <span class="st">&quot;1960-01-01&quot;</span>))</a></code></pre></div>
+</section><section id="time-series-data-visualization" class="slide level2">
+<h2>Time-series data visualization</h2>
+<div id="htmlwidget-79af1bf4adcfe8182771" style="width:768px;height:576px;" class="dygraphs html-widget"></div>
+<script type="application/json" data-for="htmlwidget-79af1bf4adcfe8182771">{"x":{"attrs":{"title":"New Haven Temperatures","labels":["year","V1"],"legend":"auto","retainDateWindow":false,"axes":{"x":{"pixelsPerLabel":60}},"showRangeSelector":true,"dateWindow":["1920-01-01T00:00:00.000Z","1960-01-01T00:00:00.000Z"],"rangeSelectorHeight":40,"rangeSelectorPlotFillColor":" #A7B1C4","rangeSelectorPlotStrokeColor":"#808FAB","interactionModel":"Dygraph.Interaction.defaultModel"},"scale":"yearly","annotations":[],"shadings":[],"events":[],"format":"date","data":[["1912-01-01T00:00:00.000Z","1913-01-01T00:00:00.000Z","1914-01-01T00:00:00.000Z","1915-01-01T00:00:00.000Z","1916-01-01T00:00:00.000Z","1917-01-01T00:00:00.000Z","1918-01-01T00:00:00.000Z","1919-01-01T00:00:00.000Z","1920-01-01T00:00:00.000Z","1921-01-01T00:00:00.000Z","1922-01-01T00:00:00.000Z","1923-01-01T00:00:00.000Z","1924-01-01T00:00:00.000Z","1925-01-01T00:00:00.000Z","1926-01-01T00:00:00.000Z","1927-01-01T00:00:00.000Z","1928-01-01T00:00:00.000Z","1929-01-01T00:00:00.000Z","1930-01-01T00:00:00.000Z","1931-01-01T00:00:00.000Z","1932-01-01T00:00:00.000Z","1933-01-01T00:00:00.000Z","1934-01-01T00:00:00.000Z","1935-01-01T00:00:00.000Z","1936-01-01T00:00:00.000Z","1937-01-01T00:00:00.000Z","1938-01-01T00:00:00.000Z","1939-01-01T00:00:00.000Z","1940-01-01T00:00:00.000Z","1941-01-01T00:00:00.000Z","1942-01-01T00:00:00.000Z","1943-01-01T00:00:00.000Z","1944-01-01T00:00:00.000Z","1945-01-01T00:00:00.000Z","1946-01-01T00:00:00.000Z","1947-01-01T00:00:00.000Z","1948-01-01T00:00:00.000Z","1949-01-01T00:00:00.000Z","1950-01-01T00:00:00.000Z","1951-01-01T00:00:00.000Z","1952-01-01T00:00:00.000Z","1953-01-01T00:00:00.000Z","1954-01-01T00:00:00.000Z","1955-01-01T00:00:00.000Z","1956-01-01T00:00:00.000Z","1957-01-01T00:00:00.000Z","1958-01-01T00:00:00.000Z","1959-01-01T00:00:00.000Z","1960-01-01T00:00:00.000Z","1961-01-01T00:00:00.000Z","1962-01-01T00:00:00.000Z","1963-01-01T00:00:00.000Z","1964-01-01T00:00:00.000Z","1965-01-01T00:00:00.000Z","1966-01-01T00:00:00.000Z","1967-01-01T00:00:00.000Z","1968-01-01T00:00:00.000Z","1969-01-01T00:00:00.000Z","1970-01-01T00:00:00.000Z","1971-01-01T00:00:00.000Z"],[49.9,52.3,49.4,51.1,49.4,47.9,49.8,50.9,49.3,51.9,50.8,49.6,49.3,50.6,48.4,50.7,50.9,50.6,51.5,52.8,51.8,51.1,49.8,50.2,50.4,51.6,51.8,50.9,48.8,51.7,51,50.6,51.7,51.5,52.1,51.3,51,54,51.4,52.7,53.1,54.6,52,52,50.9,52.6,50.2,52.6,51.6,51.9,50.5,50.9,51.7,51.4,51.7,50.8,51.9,51.8,51.9,53]]},"evals":["attrs.interactionModel"],"jsHooks":[]}</script>
+</section><section id="flexdashboard" class="slide level2">
+<h2><code>flexdashboard</code></h2>
+<ul>
+<li><p>Ideal for publishing interactive JavaScript visualizations based on <code>htmlwidgets</code> (also works with standard base, lattice, and grid graphics).</p></li>
+<li><p>Flexible and easy to specify row and column-based layouts. Charts are intelligently re-sized to fill the browser and adapted for display on mobile devices.</p></li>
+<li><p>Storyboard layouts for presenting sequences of visualizations and related commentary.</p></li>
+</ul>
+</section><section id="flexdashboard-example" class="slide level2">
+<h2><code>flexdashboard</code> example</h2>
+<p><a href="https://beta.rstudioconnect.com/jjallaire/htmlwidgets-waste-sites/htmlwidgets-waste-sites.html">Nuclear Waste Sites</a></p>
+</section><section id="plotly" class="slide level2">
+<h2><code>Plotly</code></h2>
+<ul>
+<li><p>Allows to easily translate ggplot2 graphics to an interactive web-based version.</p></li>
+<li><p>The R package also provides high-level bindings for working directly with the <code>plotly.js</code> graphing library.</p></li>
+<li><p><a href="https://images.plot.ly/plotly-documentation/images/r_cheat_sheet.pdf">Plotly Cheatsheet</a></p></li>
+</ul>
+</section><section id="ggplotly" class="slide level2">
+<h2><code>ggplotly</code></h2>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" data-line-number="1">p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> diamonds, <span class="kw">aes</span>(<span class="dt">x =</span> cut, <span class="dt">fill =</span> clarity)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb38-2" data-line-number="2"><span class="st">            </span><span class="kw">geom_bar</span>(<span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>)</a>
+<a class="sourceLine" id="cb38-3" data-line-number="3"><span class="kw">ggplotly</span>(p)</a></code></pre></div>
+<div id="htmlwidget-8fb93d43077d67b0118b" style="width:768px;height:576px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-8fb93d43077d67b0118b">{"x":{"data":[{"orientation":"v","width":[0.1125,0.1125,0.1125,0.1125,0.112500000000001],"base":[0,0,0,0,0],"x":[0.60625,1.60625,2.60625,3.60625,4.60625],"y":[210,96,84,205,146],"text":["count:  210<br />cut: Fair<br />clarity: I1","count:   96<br />cut: Good<br />clarity: I1","count:   84<br />cut: Very Good<br />clarity: I1","count:  205<br />cut: Premium<br />clarity: I1","count:  146<br />cut: Ideal<br />clarity: I1"],"type":"bar","marker":{"autocolorscale":false,"color":"rgba(68,1,84,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"I1","legendgroup":"I1","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.1125,0.1125,0.1125,0.1125,0.112500000000001],"base":[0,0,0,0,0],"x":[0.71875,1.71875,2.71875,3.71875,4.71875],"y":[466,1081,2100,2949,2598],"text":["count:  466<br />cut: Fair<br />clarity: SI2","count: 1081<br />cut: Good<br />clarity: SI2","count: 2100<br />cut: Very Good<br />clarity: SI2","count: 2949<br />cut: Premium<br />clarity: SI2","count: 2598<br />cut: Ideal<br />clarity: SI2"],"type":"bar","marker":{"autocolorscale":false,"color":"rgba(70,51,126,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"SI2","legendgroup":"SI2","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.1125,0.1125,0.1125,0.1125,0.112500000000001],"base":[0,0,0,0,0],"x":[0.83125,1.83125,2.83125,3.83125,4.83125],"y":[408,1560,3240,3575,4282],"text":["count:  408<br />cut: Fair<br />clarity: SI1","count: 1560<br />cut: Good<br />clarity: SI1","count: 3240<br />cut: Very Good<br />clarity: SI1","count: 3575<br />cut: Premium<br />clarity: SI1","count: 4282<br />cut: Ideal<br />clarity: SI1"],"type":"bar","marker":{"autocolorscale":false,"color":"rgba(54,92,141,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"SI1","legendgroup":"SI1","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.1125,0.1125,0.1125,0.1125,0.112500000000001],"base":[0,0,0,0,0],"x":[0.94375,1.94375,2.94375,3.94375,4.94375],"y":[261,978,2591,3357,5071],"text":["count:  261<br />cut: Fair<br />clarity: VS2","count:  978<br />cut: Good<br />clarity: VS2","count: 2591<br />cut: Very Good<br />clarity: VS2","count: 3357<br />cut: Premium<br />clarity: VS2","count: 5071<br />cut: Ideal<br />clarity: VS2"],"type":"bar","marker":{"autocolorscale":false,"color":"rgba(39,127,142,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"VS2","legendgroup":"VS2","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.1125,0.1125,0.1125,0.112500000000001,0.112500000000001],"base":[0,0,0,0,0],"x":[1.05625,2.05625,3.05625,4.05625,5.05625],"y":[170,648,1775,1989,3589],"text":["count:  170<br />cut: Fair<br />clarity: VS1","count:  648<br />cut: Good<br />clarity: VS1","count: 1775<br />cut: Very Good<br />clarity: VS1","count: 1989<br />cut: Premium<br />clarity: VS1","count: 3589<br />cut: Ideal<br />clarity: VS1"],"type":"bar","marker":{"autocolorscale":false,"color":"rgba(31,161,135,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"VS1","legendgroup":"VS1","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.1125,0.1125,0.1125,0.112500000000001,0.112500000000001],"base":[0,0,0,0,0],"x":[1.16875,2.16875,3.16875,4.16875,5.16875],"y":[69,286,1235,870,2606],"text":["count:   69<br />cut: Fair<br />clarity: VVS2","count:  286<br />cut: Good<br />clarity: VVS2","count: 1235<br />cut: Very Good<br />clarity: VVS2","count:  870<br />cut: Premium<br />clarity: VVS2","count: 2606<br />cut: Ideal<br />clarity: VVS2"],"type":"bar","marker":{"autocolorscale":false,"color":"rgba(74,193,109,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"VVS2","legendgroup":"VVS2","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.1125,0.1125,0.1125,0.112500000000001,0.112500000000001],"base":[0,0,0,0,0],"x":[1.28125,2.28125,3.28125,4.28125,5.28125],"y":[17,186,789,616,2047],"text":["count:   17<br />cut: Fair<br />clarity: VVS1","count:  186<br />cut: Good<br />clarity: VVS1","count:  789<br />cut: Very Good<br />clarity: VVS1","count:  616<br />cut: Premium<br />clarity: VVS1","count: 2047<br />cut: Ideal<br />clarity: VVS1"],"type":"bar","marker":{"autocolorscale":false,"color":"rgba(159,218,58,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"VVS1","legendgroup":"VVS1","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.1125,0.1125,0.1125,0.112500000000001,0.112500000000001],"base":[0,0,0,0,0],"x":[1.39375,2.39375,3.39375,4.39375,5.39375],"y":[9,71,268,230,1212],"text":["count:    9<br />cut: Fair<br />clarity: IF","count:   71<br />cut: Good<br />clarity: IF","count:  268<br />cut: Very Good<br />clarity: IF","count:  230<br />cut: Premium<br />clarity: IF","count: 1212<br />cut: Ideal<br />clarity: IF"],"type":"bar","marker":{"autocolorscale":false,"color":"rgba(253,231,37,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"IF","legendgroup":"IF","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":25.7412480974125,"r":7.30593607305936,"b":39.6955859969559,"l":48.9497716894977},"plot_bgcolor":"rgba(235,235,235,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.4,5.6],"tickmode":"array","ticktext":["Fair","Good","Very Good","Premium","Ideal"],"tickvals":[1,2,3,4,5],"categoryorder":"array","categoryarray":["Fair","Good","Very Good","Premium","Ideal"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","title":"cut","titlefont":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-253.55,5324.55],"tickmode":"array","ticktext":["0","1000","2000","3000","4000","5000"],"tickvals":[0,1000,2000,3000,4000,5000],"categoryorder":"array","categoryarray":["0","1000","2000","3000","4000","5000"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","title":"count","titlefont":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895},"y":0.927821522309711},"annotations":[{"text":"clarity","x":1.02,"y":1,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"left","yanchor":"bottom","legendTitle":true}],"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":[{"name":"Collaborate","icon":{"width":1000,"ascent":500,"descent":-50,"path":"M487 375c7-10 9-23 5-36l-79-259c-3-12-11-23-22-31-11-8-22-12-35-12l-263 0c-15 0-29 5-43 15-13 10-23 23-28 37-5 13-5 25-1 37 0 0 0 3 1 7 1 5 1 8 1 11 0 2 0 4-1 6 0 3-1 5-1 6 1 2 2 4 3 6 1 2 2 4 4 6 2 3 4 5 5 7 5 7 9 16 13 26 4 10 7 19 9 26 0 2 0 5 0 9-1 4-1 6 0 8 0 2 2 5 4 8 3 3 5 5 5 7 4 6 8 15 12 26 4 11 7 19 7 26 1 1 0 4 0 9-1 4-1 7 0 8 1 2 3 5 6 8 4 4 6 6 6 7 4 5 8 13 13 24 4 11 7 20 7 28 1 1 0 4 0 7-1 3-1 6-1 7 0 2 1 4 3 6 1 1 3 4 5 6 2 3 3 5 5 6 1 2 3 5 4 9 2 3 3 7 5 10 1 3 2 6 4 10 2 4 4 7 6 9 2 3 4 5 7 7 3 2 7 3 11 3 3 0 8 0 13-1l0-1c7 2 12 2 14 2l218 0c14 0 25-5 32-16 8-10 10-23 6-37l-79-259c-7-22-13-37-20-43-7-7-19-10-37-10l-248 0c-5 0-9-2-11-5-2-3-2-7 0-12 4-13 18-20 41-20l264 0c5 0 10 2 16 5 5 3 8 6 10 11l85 282c2 5 2 10 2 17 7-3 13-7 17-13z m-304 0c-1-3-1-5 0-7 1-1 3-2 6-2l174 0c2 0 4 1 7 2 2 2 4 4 5 7l6 18c0 3 0 5-1 7-1 1-3 2-6 2l-173 0c-3 0-5-1-8-2-2-2-4-4-4-7z m-24-73c-1-3-1-5 0-7 2-2 3-2 6-2l174 0c2 0 5 0 7 2 3 2 4 4 5 7l6 18c1 2 0 5-1 6-1 2-3 3-5 3l-174 0c-3 0-5-1-7-3-3-1-4-4-5-6z"},"click":"function(gd) { \n        // is this being viewed in RStudio?\n        if (location.search == '?viewer_pane=1') {\n          alert('To learn about plotly for collaboration, visit:\\n https://cpsievert.github.io/plotly_book/plot-ly-for-collaboration.html');\n        } else {\n          window.open('https://cpsievert.github.io/plotly_book/plot-ly-for-collaboration.html', '_blank');\n        }\n      }"}],"cloud":false},"source":"A","attrs":{"5b3069d597db":{"x":{},"fill":{},"type":"bar"}},"cur_data":"5b3069d597db","visdat":{"5b3069d597db":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"base_url":"https://plot.ly"},"evals":["config.modeBarButtonsToAdd.0.click"],"jsHooks":[]}</script>
+</section><section id="choropleth-map-with-plot_ly" class="slide level2">
+<h2>Choropleth map with <code>plot_ly</code></h2>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" data-line-number="1"><span class="kw">plot_ly</span>(</a>
+<a class="sourceLine" id="cb39-2" data-line-number="2"><span class="dt">type =</span> <span class="st">&#39;choropleth&#39;</span>,</a>
+<a class="sourceLine" id="cb39-3" data-line-number="3"><span class="dt">locations =</span> <span class="kw">c</span>(<span class="st">&#39;AZ&#39;</span>,<span class="st">&#39;CA&#39;</span>,<span class="st">&#39;VT&#39;</span>),</a>
+<a class="sourceLine" id="cb39-4" data-line-number="4"><span class="dt">locationmode =</span> <span class="st">&#39;USA-states&#39;</span>,</a>
+<a class="sourceLine" id="cb39-5" data-line-number="5"><span class="dt">colorscale =</span> <span class="st">&#39;Viridis&#39;</span> ,</a>
+<a class="sourceLine" id="cb39-6" data-line-number="6"><span class="dt">z =</span> <span class="kw">c</span>(<span class="dv">10</span> ,<span class="dv">20</span> ,<span class="dv">40</span> )) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb39-7" data-line-number="7"><span class="kw">layout</span>(<span class="dt">geo =</span> <span class="kw">list</span>(<span class="dt">scope =</span> <span class="st">&#39;usa&#39;</span>))</a></code></pre></div>
+</section><section id="choropleth-maps" class="slide level2">
+<h2>Choropleth Maps</h2>
+<div id="htmlwidget-9e3253e8900cb9d06189" style="width:768px;height:576px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-9e3253e8900cb9d06189">{"x":{"visdat":{"5b302c7d8538":["function () ","plotlyVisDat"]},"cur_data":"5b302c7d8538","attrs":{"5b302c7d8538":{"locations":["AZ","CA","VT"],"locationmode":"USA-states","colorscale":"Viridis","z":[10,20,40],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"choropleth"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"geo":{"scope":"usa"},"scene":{"zaxis":{"title":[]}},"hovermode":"closest","showlegend":false,"legend":{"yanchor":"top","y":0.5}},"source":"A","config":{"modeBarButtonsToAdd":[{"name":"Collaborate","icon":{"width":1000,"ascent":500,"descent":-50,"path":"M487 375c7-10 9-23 5-36l-79-259c-3-12-11-23-22-31-11-8-22-12-35-12l-263 0c-15 0-29 5-43 15-13 10-23 23-28 37-5 13-5 25-1 37 0 0 0 3 1 7 1 5 1 8 1 11 0 2 0 4-1 6 0 3-1 5-1 6 1 2 2 4 3 6 1 2 2 4 4 6 2 3 4 5 5 7 5 7 9 16 13 26 4 10 7 19 9 26 0 2 0 5 0 9-1 4-1 6 0 8 0 2 2 5 4 8 3 3 5 5 5 7 4 6 8 15 12 26 4 11 7 19 7 26 1 1 0 4 0 9-1 4-1 7 0 8 1 2 3 5 6 8 4 4 6 6 6 7 4 5 8 13 13 24 4 11 7 20 7 28 1 1 0 4 0 7-1 3-1 6-1 7 0 2 1 4 3 6 1 1 3 4 5 6 2 3 3 5 5 6 1 2 3 5 4 9 2 3 3 7 5 10 1 3 2 6 4 10 2 4 4 7 6 9 2 3 4 5 7 7 3 2 7 3 11 3 3 0 8 0 13-1l0-1c7 2 12 2 14 2l218 0c14 0 25-5 32-16 8-10 10-23 6-37l-79-259c-7-22-13-37-20-43-7-7-19-10-37-10l-248 0c-5 0-9-2-11-5-2-3-2-7 0-12 4-13 18-20 41-20l264 0c5 0 10 2 16 5 5 3 8 6 10 11l85 282c2 5 2 10 2 17 7-3 13-7 17-13z m-304 0c-1-3-1-5 0-7 1-1 3-2 6-2l174 0c2 0 4 1 7 2 2 2 4 4 5 7l6 18c0 3 0 5-1 7-1 1-3 2-6 2l-173 0c-3 0-5-1-8-2-2-2-4-4-4-7z m-24-73c-1-3-1-5 0-7 2-2 3-2 6-2l174 0c2 0 5 0 7 2 3 2 4 4 5 7l6 18c1 2 0 5-1 6-1 2-3 3-5 3l-174 0c-3 0-5-1-7-3-3-1-4-4-5-6z"},"click":"function(gd) { \n        // is this being viewed in RStudio?\n        if (location.search == '?viewer_pane=1') {\n          alert('To learn about plotly for collaboration, visit:\\n https://cpsievert.github.io/plotly_book/plot-ly-for-collaboration.html');\n        } else {\n          window.open('https://cpsievert.github.io/plotly_book/plot-ly-for-collaboration.html', '_blank');\n        }\n      }"}],"cloud":false},"data":[{"colorbar":{"title":"","ticklen":2,"len":0.5,"lenmode":"fraction","y":1,"yanchor":"top"},"showscale":true,"locations":["AZ","CA","VT"],"locationmode":"USA-states","z":[10,20,40],"type":"choropleth","marker":{"line":{"color":"rgba(31,119,180,1)"}},"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"base_url":"https://plot.ly"},"evals":["config.modeBarButtonsToAdd.0.click"],"jsHooks":[]}</script>
+</section><section id="shiny" class="slide level2">
+<h2><code>Shiny</code></h2>
+<p><code>Shiny</code> is an R package that makes it easy to build interactive web apps straight from R. You can host standalone apps on a webpage or embed them in R Markdown documents or build dashboards.</p>
+<p>Shiny Example 1: <a href="https://shiny.rstudio.com/gallery/movie-explorer.html">Movie Explorer</a></p>
+<p>Shiny Example 2: <a href="https://jjallaire.shinyapps.io/shiny-crandash/">CRAN Downloads</a></p>
+</section><section id="lets-build-our-own-dashboard" class="slide level2">
+<h2>Let’s build our own dashboard</h2>
+</section></section>
+<section><section id="session-4-moving-deeper-and-further" class="title-slide slide level1"><h1>Session 4: Moving deeper and further</h1></section><section id="datacamp" class="slide level2">
+<h2>Datacamp</h2>
+<p><a href="https://www.datacamp.com/">DataCamp</a> offers interactive R, Python, Sheets, SQL and shell courses.</p>
+<p><img src="img/datacamp.png" width="500px" /></p>
+</section><section id="coursera" class="slide level2">
+<h2>Coursera</h2>
+<p><a href="https://www.coursera.org/">Coursera</a> is an e-learning platform with great courses on data science.</p>
+<p><img src="img/Coursera.png" width="500px" /></p>
+</section><section id="kaggle" class="slide level2">
+<h2>Kaggle</h2>
+<p><a href="https://www.kaggle.com/">Kaggle</a> is the world’s largest data science and machine learning communities.</p>
+<p><img src="img/Kaggle.png" width="500px" /></p>
+</section></section>
+    </div>
+  </div>
+
+  <script src="slides_day_two_files/reveal.js-3.3.0.1/lib/js/head.min.js"></script>
+  <script src="slides_day_two_files/reveal.js-3.3.0.1/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Display the page number of the current slide
+        slideNumber: true,
+        // Push each slide change to the browser history
+        history: true,
+        // Vertical centering of slides
+        center: false,
+        // Opens links in an iframe preview overlay
+        previewLinks: true,
+        // Transition style
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        // Transition style for full page slide backgrounds
+        backgroundTransition: 'default', // none/fade/slide/convex/concave/zoom
+
+
+
+        chalkboard: {
+        },
+
+        keyboard: {
+          67: function() { RevealChalkboard.toggleNotesCanvas() },    // toggle notes canvas when 'c' is pressed
+          66: function() { RevealChalkboard.toggleChalkboard() }, // toggle chalkboard when 'b' is pressed
+          46: function() { RevealChalkboard.clear() },    // clear chalkboard when 'DEL' is pressed
+           8: function() { RevealChalkboard.reset() },    // reset chalkboard data on current slide when 'BACKSPACE' is pressed
+          68: function() { RevealChalkboard.download() }, // downlad recorded chalkboard drawing when 'd' is pressed
+        },
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'slides_day_two_files/reveal.js-3.3.0.1/plugin/notes/notes.js', async: true },
+          { src: 'slides_day_two_files/reveal.js-3.3.0.1/plugin/zoom-js/zoom.js', async: true },
+          { src: 'slides_day_two_files/reveal.js-3.3.0.1/plugin/chalkboard/chalkboard.js', async: true },
+        ]
+      });
+    </script>
+  <!-- dynamically load mathjax for compatibility with self-contained -->
+  <script>
+    (function () {
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+      document.getElementsByTagName("head")[0].appendChild(script);
+    })();
+  </script>
+
+<script>
+  (function() {
+    if (window.jQuery) {
+      Reveal.addEventListener( 'slidechanged', function(event) {  
+        window.jQuery(event.previousSlide).trigger('hidden');
+        window.jQuery(event.currentSlide).trigger('shown');
+      });
+    }
+  })();
+</script>
+
+
+  </body>
+</html>
